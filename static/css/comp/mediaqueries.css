@@ -1,0 +1,540 @@
+@charset "utf-8";
+/* COEM . magdaPatto */
+
+/* Media Queries
+--------------------------------------------------------------------------------------------------------------- */
+@-ms-viewport{width:device-width;}
+
+
+/* Smartphone
+--------------------------------------------------------------------------------------------------------------- */
+@media screen and (min-width:240px) and (max-width:400px){
+	/*SENA Contenido */
+	.titleMb{display:block}
+	.fraseSiteMb{display:block}
+	.titleDk{display:none}
+	.fraseSiteDk{display:none}
+	/*fin SENA Contenido */
+
+	#upper, #header, #nav, #container, #copy{max-width:100%; margin:0 auto;}
+	#topnav{/* background-color:#fc7323; */}	
+	
+	#upper #upperContact{font-size:0.65em !important;}
+	#upper #upperContact li	{margin:0 2px 0 0 !important; padding:0 2px 0 0 !important;}
+	#upper #upperContact ul{padding:0;}
+	#upperContact li.date, #upperContact li.user{display:none !important; visibility:hidden !important}
+	
+	#header .oneHeader{width:28%; height:108px}
+	#header .twoHeader{ width:70%}
+	#header .oneHeader, .row1{height:60px !important}
+
+	#header .logoSena{max-width:85px !important; padding:20px 0 25px 7px;}
+	#header .skew{width:132%}
+
+	.oneSpace{display:none; visibility:hidden}
+	.oneLogo{display:none; visibility:hidden}
+	.threeLogo{width:65%; margin:0 0 0 33%; margin-bottom:5px}
+	
+	.ms-srch-sb-border, .ms-srch-sb-borderFocused{ width:160px !important}
+	.ms-srch-sb>input{ width:133px !important}
+
+	.faico{ display:none; visibility:hidden}	
+
+	.flex-caption {position:static; padding:10px; -moz-border-radius:0px; -webkit-border-radius:0px; border-radius:0px; display:none !important;}
+	.flex-caption p {font-size:.85em}
+	.flexslider .slides img{-moz-border-radius:0px; -webkit-border-radius:0px; border-radius:0px;}
+	.flex-control-nav{ display:none; visibility:hidden}
+	
+	#accesosTop{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	li#accesosTop:nth-child(1){margin:0 0 2% 0;}
+			
+	#accesosTop .textoA:before {transform: scale(.8); width:55px}
+	#accesosTop .textoB:before {transform: scale(.8); width:60px}
+	#accesosTop .textoC:before {transform: scale(.8); width:55px}
+	#accesosTop .textoD:before {transform: scale(.8); width:60px}
+	
+	#accesosTop .openLight{padding-top:10px}
+	#accesosTop .fontMedium{font-size:1.1em; line-height:.2em}
+	#accesosTop .fontLarge{font-size:1.8em; line-height:1.1em }
+	
+	.pad1050{padding:0px 25%;}
+	.pad1040{padding:0px 25%;}
+	
+	.gridAccess04{width:100%; display:block; float:left; margin:0 0 2% 0;}
+
+	.oneHome, .twoHome{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	
+	#latestnews .oneNews{width:100%; display:block; float:left; margin:0 0 2% 0; text-align:center !Important;}
+	#latestnews .twoNews{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	#latestnews h2{font-size:1.1em; line-height:1.1em; margin:0 0 1px 0}
+	#latestnews p{font-size:.8em; line-height:1.2em; }
+	#latestnews .button{float:none; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; -moz-border-radius:0px; -webkit-border-radius:0px; border-radius:0px; width:100%}
+
+	
+	#tab li {background-color:#0098a5; color:#fff}
+	#tab li > a {background-color:#00a7ae; color:#b4c1c6}
+	#tab li > a:hover, #tab li > a.active {color: #fff;}
+	#tab section{width:100%}
+	#tab li > a.active{border-bottom:none}
+	
+	#accesosBottom{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	li#accesosBottom:nth-child(1){margin:0 0 2% 0;}
+	
+	#accesosBottom .openLight{padding-top:12px}
+	#accesosBottom .fontLarge{font-size:1.8em; line-height:1.1em }
+	#accesosBottom .pad1060{padding:1% 20%; text-align:center}
+	#accesosBottom .pad1090{padding:1% 29%; text-align:center}
+	#accesosBottom .pad10100{padding:1% 32%; text-align:center}
+	
+	.gridAccess03{width:100%; display:block; float:left; margin:0 0 2% 0; }
+	
+	.gridLogo{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	
+	.rnd8{-moz-border-radius:0px; -webkit-border-radius:0px; border-radius:0px;}
+	.border01{border:none}
+	
+	#copy{margin:0; font-size:.7em; line-height:1.5em}
+	/*#copy .footerIcontec img{max-width:50px !important}*/
+	#copy{padding:10px;  box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+	#copy .flLeft, #copy .left{float:none; text-align:center}
+	#copy .flRight, #copy .right{float:none; text-align:center}
+	#copy .footerIcontec{float:none; text-align:center; margin:15px 0 20px 0}
+
+	.migas{margin-bottom:5px; font-size:.65em; height:18px;}
+	.fraseSite{font-size:.8em;line-height:1.2em;}
+	.titlePag{font-size:2em; margin-bottom:5px}
+	
+	.buble{width:auto; max-width:100%; position:initial; height:auto; margin:10px 0; padding:4px 6px; font-size:1.1em; line-height:1.2em; border:3px solid #fc7323}
+	.buble:before {display:none; visibility:hidden}
+	.buble:after {display:none; visibility:hidden}
+	
+	.oneContent, .twoContent{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	
+	/* Top navigation */
+	
+	div[id$="TopNavigationMenu"] li.static.ms-listMenu-editLink,
+	div[id$="TopNavigationMenu"] ul.root:hover li.ms-listMenu-editLink{display: none;}
+	
+	.ms-breadcrumb-box {height: 40px; margin: 10px 0 5px -15px;}
+	
+	div[id$="TopNavigationMenu"] ul.root {border:0;background-color: #fff;}
+
+	/* Add "Menu" text before nav list - necessary to prevent mobile user accidentally jumping to first nav item when menu is activated */
+	div[id$="TopNavigationMenu"] ul.root > li.static:first-child:before {display: block; padding: 5%;}
+
+	/* Reset global navigation item formatting */
+	div[id$="TopNavigationMenu"] li.static a.static,  /* First level of nav */
+	div[id$="TopNavigationMenu"] li.static a.dynamic  /* Second level of nav */ {padding:8px; border-top: 0; margin-right: 0; display: block; font-size: 1em; line-height: 1.5; position: relative;}
+	
+	ul.dynamic .ms-core-listMenu-item {display:none}
+	div[id$="TopNavigationMenu"] li.static > a:last-child {border-bottom: 0;}
+	div[id$="TopNavigationMenu"] li.static a:hover  {color:#c81116}
+
+	div[id$="TopNavigationMenu"] ul.dynamic { display:none; visibility:hidden;}
+	div[id$="TopNavigationMenu"] ul.dynamic ul.dynamic {display: none;}
+
+	div[id$="TopNavigationMenu"] ul.root:before {content: "\f0c9";font-family: FontAwesome;color: #777777;font-size:2em;width:20px;/* height:20px; */padding: 5px 0;display: block;text-align: center;margin: 0 15px;}
+
+	/*div[id$="TopNavigationMenu"] ul.root:hover:before {display: none;}*/
+	div[id$="TopNavigationMenu"] ul.root > li {display: none;}	
+
+
+	div[id$="TopNavigationMenu"] ul.root{/*border: 1px solid #fff;*/margin: 0;position: absolute;z-index: 2;width:18%;margin-top: 0px;}
+	/*div[id$="TopNavigationMenu"] ul.root:hover > li {display: block;}*/
+	
+	.ms-core-listMenu-horizontalBox li.static{ display:block; width:100%;}
+	.ms-core-listMenu-horizontalBox li.static  > .ms-core-listMenu-item{ border-right:none; }
+	.ms-breadcrumb-top{margin:0}
+	ul.static{/* border-left:none !important; *//* border-top:1px #fff solid; */width: 100% !important;}
+	.ms-core-listMenu-horizontalBox li.static{border-right:none !important;border-left:none !important;border-bottom: 1px #57575759 solid;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(3){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(4){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(5){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(6){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(7){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(8){border-right:none !important;}
+	
+	.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item{padding:8px  !important;}
+	
+	#topnav{ padding:3px 0 4px 0; height:40px}
+	.ms-displayInline, .ms-core-navigation{padding:7px 0;}
+	
+	.view{ height:auto}	
+	
+	.listMin li{width:100%;}
+	#min .oneNews{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	#min .oneNews{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	
+	.logoGov{ max-width:100% !important; padding:2% 0 !important; margin:0 auto !important; text-align:center; display:block}
+	
+	#sliderTop.flexslider .slides img {max-width: none !important; height:auto !important; width:100% !important}
+	.flexCaption {display:none !important; }
+	.ms-rtestate-field {text-align:center !important;} 
+	
+} 
+
+
+
+
+
+/* Tablet
+--------------------------------------------------------------------------------------------------------------- */
+@media screen and (min-width:401px) and (max-width:600px){
+	/*SENA Contenido */
+	.titleMb{display:block}
+	.fraseSiteMb{display:block}
+	.titleDk{display:none}
+	.fraseSiteDk{display:none}
+	/*fin SENA Contenido */
+
+	#upper, #header, #nav, #container, #copy{max-width:100%; margin:0 auto;}
+	#topnav{background-color: #fff;}
+	
+	#upper #upperContact{font-size:0.75em !important;}
+	#upper #upperContact li	{margin:0 5px 0 0; padding:0 5px 0 0 ;}
+	#upper #upperContact ul{padding:0;}
+	#upperContact li.date, #upperContact li.user{display:none !important; visibility:hidden !important}
+	
+	#header .oneHeader{width:28%; height:108px}
+	#header .twoHeader{ width:70%}
+	#header .oneHeader, .row1{height:80px !important}
+
+	#header .logoSena{max-width:105px !important; padding:20px 0 25px 7px;}
+	#header .skew{width:122%}
+
+	.oneSpace{display:none; visibility:hidden}
+	.oneLogo{display:none; visibility:hidden}
+	.threeLogo{width:65%; margin:0 0 0 33%; margin-bottom:5px}
+
+	.ms-srch-sb-border, .ms-srch-sb-borderFocused{ width:220px !important}
+	.ms-srch-sb>input{ width:193px !important}
+
+	.faico{ display:none; visibility:hidden}	
+
+	.flex-caption {position:static; padding:10px; -moz-border-radius:0px; -webkit-border-radius:0px; border-radius:0px; display:none !important;}
+	.flex-caption p {font-size:.85em}
+	.flexslider .slides img{-moz-border-radius:0px; -webkit-border-radius:0px; border-radius:0px;}
+	.flex-control-nav{ display:none; visibility:hidden}
+	
+	#accesosTop{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	li#accesosTop:nth-child(1){margin:0 0 2% 0;}
+					
+	#accesosTop .textoA:before {transform: scale(.8); width:55px}
+	#accesosTop .textoB:before {transform: scale(.8); width:60px}
+	#accesosTop .textoC:before {transform: scale(.8); width:55px}
+	#accesosTop .textoD:before {transform: scale(.8); width:60px}
+	
+	#accesosTop .openLight{padding-top:10px}
+	#accesosTop .fontMedium{font-size:1.1em; line-height:.2em}
+	#accesosTop .fontLarge{font-size:1.8em; line-height:1.1em }
+	
+	#accesosTop .pad1050{padding:0px 30%;}
+	#accesosTop .pad1040{padding:0px 30%;}
+	
+	.gridAccess04{width:100%; display:block; float:left; margin:0 0 2% 0;}
+
+	.oneHome, .twoHome{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	
+	.oneNews{width:40%}
+	.twoNews{width:58%}
+	#latestnews h2{font-size:1.1em; line-height:1.1em; margin:0 0 1px 0}
+	#latestnews p{font-size:.8em; line-height:1.2em; }
+	.button{float:none; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; -moz-border-radius:0px; -webkit-border-radius:0px; border-radius:0px; width:100%}
+
+	
+	#tab li {background-color:#0098a5; color:#fff}
+	#tab li > a {background-color:#00a7ae; color:#b4c1c6}
+	#tab li > a:hover, #tab li > a.active {color: #fff;}
+	#tab section{width:100%}
+	#tab li > a.active{border-bottom:none}
+	
+
+	#accesosBottom .openLight{padding-top:12px}
+	#accesosBottom .fontLarge{font-size:1.2em;}
+	
+	#accesosBottom .pad1060{padding:1% 1%; text-align:center}
+	#accesosBottom .pad1090{padding:1% 2%; text-align:center}
+	#accesosBottom .pad10100{padding:1% 2%; text-align:center}
+	
+	#accesosBottom li:first-child .openLight{padding-top:3px}	
+	
+	.gridLogo{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	
+	.rnd8{-moz-border-radius:0px; -webkit-border-radius:0px; border-radius:0px;}
+	.border01{border:none}
+	
+	#copy{margin:0; font-size:.7em; line-height:1.5em}
+	#copy .footerIcontec img{max-width:65px  !important}
+	#copy{padding:10px;  box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+	#copy .flLeft, #copy .left{float:none; text-align:center}
+	#copy .flRight, #copy .right{float:none; text-align:center}
+	#copy .footerIcontec{float:none; text-align:center; margin:15px 0 20px 0}
+
+	.migas{margin-bottom:8px; font-size:.8em; height:20px;}
+	.fraseSite{font-size:1em;line-height:1.2em;}
+	.titlePag{font-size:2.7em;}
+	
+	.buble{width:auto; max-width:100%; position:initial; height:auto; margin:10px 0; padding:4px 6px; font-size:1.1em; line-height:1.2em; border:3px solid #fc7323}
+	.buble:before {display:none; visibility:hidden}
+	.buble:after {display:none; visibility:hidden}
+	
+	.oneContent, .twoContent{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	
+	/* Top navigation */
+	div[id$="TopNavigationMenu"] li.static.ms-listMenu-editLink,
+	div[id$="TopNavigationMenu"] ul.root:hover li.ms-listMenu-editLink{display: none;}
+	
+	.ms-breadcrumb-box {height: 40px; margin: 10px 0 5px -15px;}
+	
+	div[id$="TopNavigationMenu"] ul.root {border:0;background-color: #fff;}
+
+	/* Add "Menu" text before nav list - necessary to prevent mobile user accidentally jumping to first nav item when menu is activated */
+	div[id$="TopNavigationMenu"] ul.root > li.static:first-child:before {display: block; padding: 5%;}
+
+	/* Reset global navigation item formatting */
+	div[id$="TopNavigationMenu"] li.static a.static,  /* First level of nav */
+	div[id$="TopNavigationMenu"] li.static a.dynamic  /* Second level of nav */ {padding:8px; border-top: 0; margin-right: 0; display: block; font-size: 1em; line-height: 1.5; position: relative;}
+	
+	ul.dynamic .ms-core-listMenu-item {display:none}
+	div[id$="TopNavigationMenu"] li.static > a:last-child {border-bottom: 0;}
+	div[id$="TopNavigationMenu"] li.static a:hover  {color:#c81116}
+
+	div[id$="TopNavigationMenu"] ul.dynamic { display:none; visibility:hidden;}
+	div[id$="TopNavigationMenu"] ul.dynamic ul.dynamic {display: none;}
+
+	div[id$="TopNavigationMenu"] ul.root:before {content: "\f0c9";font-family: FontAwesome;color: #777777;font-size:2em;width:20px;height:20px;padding: 4px 0;display: block;text-align: center;margin: 0 15px;}
+
+	/*div[id$="TopNavigationMenu"] ul.root:hover:before {display: none;}*/
+	div[id$="TopNavigationMenu"] ul.root > li {display: none;}	
+
+
+	div[id$="TopNavigationMenu"] ul.root{/*border: 1px solid #fff;*/ margin: 0; position: absolute; z-index: 2; width:18%; margin-top:0px;}
+	/*div[id$="TopNavigationMenu"] ul.root:hover > li {display: block;}*/
+	
+	.ms-core-listMenu-horizontalBox li.static{ display:block; width:100%;}
+	.ms-core-listMenu-horizontalBox li.static  > .ms-core-listMenu-item{ border-right:none; }
+	.ms-breadcrumb-top{margin:0}
+	ul.static{border-left:none !important;border-top:1px #fff solid;width: 100% !important;}
+	.ms-core-listMenu-horizontalBox li.static{border-right:none !important; border-left:none !important; border-bottom:1px #565655 solid}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(3){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(4){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(5){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(6){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(7){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(8){border-right:none !important;}
+	
+	.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item{/* padding:8px  !important; */}
+	
+	#topnav{ padding:3px 0 4px 0; height:40px}
+	.ms-displayInline, .ms-core-navigation{ padding:7px 0;}	
+	
+	.view{ height:auto}	
+	
+	.listMin li{width:100%;}
+	#min .oneNews{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	#min .oneNews{width:100%; display:block; float:left; margin:0 0 2% 0;}
+	
+	.logoGov{ max-width:350px !important; padding:2% 0 !important; margin:0 auto !important; text-align:center; display:block}
+	#sliderTop.flexslider .slides img {max-width: none !important; height:auto !important; width:100% !important}
+	.ms-rtestate-field {text-align:center !important;} 
+}
+
+
+@media screen and (min-width:601px) and (max-width:800px){
+	/*SENA Contenido */
+	.titleMb{display:block}
+	.fraseSiteMb{display:block}
+	.titleDk{display:none}
+	.fraseSiteDk{display:none}
+	/*fin SENA Contenido */
+
+	#upper, #header, #nav, #container, #copy{max-width:100%; margin:0 auto;}
+	#topnav{background-color: #fff;}
+	
+	#upper #upperContact{font-size:0.75em !important;}
+	#upper #upperContact li	{margin:0 5px 0 0; padding:0 5px 0 0 ;}
+	#upper #upperContact ul{padding:0;}
+	#upperContact li.date, #upperContact li.user{display:none !important; visibility:hidden !important}
+	
+	#header .oneHeader{width:33%; height:110px}
+	#header .twoHeader{width:65%;}
+	
+	.faico li{margin:0}
+	#header .oneHeader, .row1{height:85px !important}
+	
+	#header .logoSena{max-width:110px !important; padding:15px 0 20px 0}
+	#header .skew{width:65%}
+
+	.oneSpace{width:38%;}
+	.oneLogo{width:40%;}
+	.threeLogo{width:58%;}
+	
+	.ms-srch-sb-border, .ms-srch-sb-borderFocused{ width:200px !important}
+	.ms-srch-sb>input{ width:173px !important}
+	
+	.faico li{ margin:0 1px;}
+	.faico a{font-size:1.5em;}
+	
+	#accesosTop .textoA:before {transform: scale(.7); width:45px}
+	#accesosTop .textoB:before {transform: scale(.7); width:50px}
+	#accesosTop .textoC:before {transform: scale(.7); width:45px}
+	#accesosTop .textoD:before {transform: scale(.7); width:50px}
+	
+	#accesosTop .openLight{padding-top:10px}
+	
+	#accesosTop .fontMedium{font-size:1em;}
+	#accesosTop .fontLarge{font-size:1.4em;}
+	#accesosTop .pad1050{padding:0px 10px;}
+	#accesosTop .pad1040{padding:0px 10px;}
+	
+	.oneHome{width:50%}
+	.twoHome{width:47%}
+
+	#accesosBottom .openLight{padding-top:12px}
+	#accesosBottom .fontLarge{font-size:1.4em;}
+	
+	#accesosBottom .pad1060{padding:5px 15px;}
+	#accesosBottom .pad1090{padding:5px 40px;}
+	#accesosBottom .pad10100{padding:5px 45px;}
+	
+	#copy{margin:0; font-size:.7em; line-height:1.5em}
+	#copy .footerIcontec img{max-width:70px !important}
+	#copy{padding:10px;  box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+	#copy .flLeft, #copy .left{float:none; text-align:center}
+	#copy .flRight, #copy .right{float:none; text-align:center}
+	#copy .footerIcontec{float:none; text-align:center; margin:15px 0 20px 0}
+	
+	.migas{margin-bottom:15px; font-size:.8em; height:21px;}
+	.fraseSite{font-size:1.1em;line-height:1.2em;}
+	.titlePag{font-size:3em;}
+	
+	.buble{width:auto; max-width:100%; position:initial; height:auto; margin:10px 0; }
+	.buble:before {display:none; visibility:hidden}
+	.buble:after {display:none; visibility:hidden}
+	
+
+	/* Top navigation */
+	div[id$="TopNavigationMenu"] li.static.ms-listMenu-editLink,
+	div[id$="TopNavigationMenu"] ul.root:hover li.ms-listMenu-editLink{display: none;}
+	
+	.ms-breadcrumb-box {height: 40px; margin: 10px 0 5px -15px;}
+	
+	div[id$="TopNavigationMenu"] ul.root {border:0;background-color: #fff;width: 100%;}
+
+	/* Add "Menu" text before nav list - necessary to prevent mobile user accidentally jumping to first nav item when menu is activated */
+	div[id$="TopNavigationMenu"] ul.root > li.static:first-child:before {display: block; padding: 5%;}
+
+	/* Reset global navigation item formatting */
+	div[id$="TopNavigationMenu"] li.static a.static,  /* First level of nav */
+	div[id$="TopNavigationMenu"] li.static a.dynamic  /* Second level of nav */ {padding:8px; border-top: 0; margin-right: 0; display: block; font-size: 1em; line-height: 1.5; position: relative;}
+	
+	ul.dynamic .ms-core-listMenu-item {display:none}
+	div[id$="TopNavigationMenu"] li.static > a:last-child {border-bottom: 0;}
+	div[id$="TopNavigationMenu"] li.static a:hover  {color:#c81116}
+
+	div[id$="TopNavigationMenu"] ul.dynamic { display:none; visibility:hidden;}
+	div[id$="TopNavigationMenu"] ul.dynamic ul.dynamic {display: none;}
+
+	div[id$="TopNavigationMenu"] ul.root:before {content: "\f0c9";font-family: FontAwesome;color: #575756;font-size:2em;width:20px;height:20px;padding: 4px 0;display: block;text-align: center;margin: 0 15px;}
+
+	/*div[id$="TopNavigationMenu"] ul.root:hover:before {display: none;}*/
+	div[id$="TopNavigationMenu"] ul.root > li {display: none;}	
+
+
+	/*div[id$="TopNavigationMenu"] ul.root:hover {border: 1px solid #fff; margin: 0; position: absolute; z-index: 2; width:18%; margin-top:-16px;}*/
+	/*div[id$="TopNavigationMenu"] ul.root:hover > li {display: block;}*/
+	
+	.ms-core-listMenu-horizontalBox li.static{ display:block; width:100%;}
+	.ms-core-listMenu-horizontalBox li.static  > .ms-core-listMenu-item{ border-right:none; }
+	.ms-breadcrumb-top{margin:0}
+	ul.static{border-left:none !important; border-top:1px #fff solid; width:99.5% !important}
+	.ms-core-listMenu-horizontalBox li.static{border-right:none !important;border-left:none !important;border-bottom: 1px #575756 solid;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(3){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(4){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(5){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(6){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(7){border-right:none !important;}
+	.ms-core-listMenu-horizontalBox li.static:nth-child(8){border-right:none !important;}
+	
+	.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item{padding:8px  !important;}
+	
+	#topnav{ padding:3px 0 4px 0; height:40px;}
+	.ms-displayInline, .ms-core-navigation{ padding:7px 0;}	
+	
+	.view{ height:auto}
+	
+	.listMin li{width:40%;}
+	.logoGov{ padding:5% 0!important}
+
+	
+	
+
+}
+
+/* Max Laptop, Desktop Old etc.
+--------------------------------------------------------------------------------------------------------------- */
+@media screen and (min-width:801px) and (max-width:1023px){
+	/*SENA Contenido */
+	.titleMb{display:none !important}
+	.fraseSiteMb{display:none !important}
+	.titleDk{display:block}
+	.fraseSiteDk{display:block}
+	/*fin SENA Contenido */
+
+	#upper, #header, #nav, #container, #copy{max-width:100%; margin:0 auto;}	
+	#topnav{background-color: #fff;}
+	
+	.faico li{margin:0}
+	.oneHeader, .row1{height:95px !important}
+	
+	#header .logoSena{max-width:115px !important}	
+	.skew{width:37%}
+	
+	#topnav{ font-size:1em !important}
+	.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item{padding:7px 13px !important}
+	.ms-breadcrumb-box{ width:100% !important; max-width:1000px !important; display:inline; margin:0 auto; text-align:center}
+	
+	.ms-srch-sb-border, .ms-srch-sb-borderFocused{ width:200px !important}
+	.ms-srch-sb>input{ width:173px !important}
+	
+	.faico li{ margin:0px !important}
+	
+	.pad1050{padding:10px 20px;}
+	.pad1040{padding:10px 10px;}
+	
+	.pad1060{padding:5px 25px;}
+	.pad1090{padding:5px 55px;}
+	.pad10100{padding:5px 65px;}
+	
+	#copy{margin:0; font-size:.65em; line-height:1.3em}
+	#copy .footerIcontec img{max-width:60px !important}
+	#copy{padding:10px;  box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+	#footCopy .flLeft, #footCopy .flRight{ float:none; text-align:center}
+
+	.buble{width:auto; max-width:180px; padding:10px 20px; position:absolute; top:430px; left:67%}
+	.buble:before {position:absolute; top:20px; right:225px; width: 0;}
+	.buble:after {position:absolute; top:21px; right:215px; width: 0;}
+	
+	.imgContent img{max-width:500px}
+	
+	/*movil*/
+	div[id$="TopNavigationMenu"] ul.root > li {display: inline-block!important;}
+
+}
+
+	
+/* Max Wrapper Width - Laptop, Desktop etc.
+--------------------------------------------------------------------------------------------------------------- */
+@media screen and (min-width:1024px){
+	/*SENA Contenido 1028px*/
+	.titleMb{display:none !important}
+	.fraseSiteMb{display:none !important}
+	.titleDk{display:block}
+	.fraseSiteDk{display:block}
+	/*fin SENA Contenido */
+
+	#upper, #header, #topnav, #container, #copy{max-width:1028px; margin:0 auto;}
+	/*movil*/
+	div[id$="TopNavigationMenu"] ul.root > li {display: inline-block!important;}
+}
+	

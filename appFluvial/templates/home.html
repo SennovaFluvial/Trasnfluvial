@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>
+      {% block title %}TransFluvial De Carga| San Jose Del Guaviare{% endblock%}
+    </title>
+    <link rel="stylesheet"
+      type="text/css"
+      href=" {% static 'admin-lte/dist/css/adminlte.min.css' %}"
+    />    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">       
+    
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+    
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="{% static 'dist/css/bootstrap.min.css' %}">
+
+    
+        <!-- Custom styles for this template -->
+        <link href="{% static 'album.css' %}" rel="stylesheet">
+        <link href="{% static 'comp/Ajustes.css' %}" rel="stylesheet">
+        <link href="{% static 'comp/layout.css' %}" rel="stylesheet">
+
+      <meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;jQuery&quot;:&quot;3.2.1 -ajax,-ajax/jsonp,-ajax/load,-ajax/parseXML,-ajax/script,-ajax/var/location,-ajax/var/nonce,-ajax/var/rquery,-ajax/xhr,-manipulation/_evalUrl,-event/ajax,-effects,-effects/Tween,-effects/animatedSelector&quot;,&quot;Bootstrap&quot;:-1}"><script type="text/javascript" src="chrome-extension://fhhdlnnepfjhlhilgmeepgkhjmhhhjkh/js/detector.js"></script>
+    
+  </head>
+ 
+  <body class="hold-transition sidebar-mini">
+    <header>
+      <div class="top">
+        <a href="https://www.gov.co/" target="_blank" alt="Gov.co">
+          <img src="{% static 'images/header_govco.png' %}" 
+          alt="Gov Co" style="max-height: 20px;">
+        </a>
+
+       
+      </div>
+
+        <div class="collapse bg-dark" id="navbarHeader">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8 col-md-7 py-4">
+                <h4 class="text-white">Sobre la aplicacion</h4>
+                <p class="text-muted">En resumen, la aplicación del transporte fluvial desempeña un papel clave en la conectividad, el comercio y la sostenibilidad en regiones donde los ríos y cuerpos de agua proporcionan rutas de transporte valiosas. La combinación de tecnologías modernas y enfoques sostenibles está transformando esta modalidad de transporte en una opción eficiente y económica para mover personas y mercancías en todo el Rio Guaviare.                    .</p>
+              </div>
+              <div class="col-sm-4 offset-md-1 py-4">
+                <h4 class="text-white">Contact</h4>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="text-white">Twitter</a></li>
+                  <li><a href="#" class="text-white">Like en Facebook</a></li>
+                  <li><a href="#" class="text-white">Email</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+          <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                    <path d="M8.5 11.5h7l-2 3h-3l-2-3z"></path>
+                    <path d="M19 16a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                    <path d="M21 17a2 2 0 0 1-2 2"></path>
+                    <circle cx="6.5" cy="15.5" r="2.5"></circle>
+                    <circle cx="17.5" cy="15.5" r="2.5"></circle>
+                </svg>
+              <strong>TransFluvial De Carga Del Guaviare</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+    </header> 
+    <div class="wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script src="{% static 'admin-lte/dist/js/adminlte.min.js' %}"></script>
+    
+    <footer class="text-muted">
+        <div class="container">
+          <p class="float-right">
+            <a href="#">Arriba</a>
+          </p>
+          <p>!</p>
+          <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+        </div>
+        <div class="fullWidth clear rnd8 push10 pad010 bgWhite border01">
+	
+            <div id="min" class="clear">
+        
+                <div class="oneNews first">
+                    <img class="logoGov" src="{% static 'images/icons/favicon.ico' %}" alt="Gobierno de Colombia">
+
+                </div>
+                <div class="twoNews">
+        
+                    <ul class="listMin clear">
+                        <li><a href="http://es.presidencia.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinPresidencia" style="margin-right:7px"></span>
+                        Presidencia</a></li>
+                        <li><a href="http://www.vicepresidencia.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinVicepresidencia" style="margin-right:7px"></span>
+                        Vicepresidencia</a></li>	
+                        <li><a href="http://www.minjusticia.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMinjusticia" style="margin-right:7px"></span>
+                        MinJusticia</a></li>	
+                        <li><a href="http://www.mindefensa.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMindefensa" style="margin-right:7px"></span>
+                        MinDefensa</a></li>	
+                        <li><a href="http://www.mininterior.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMininterior" style="margin-right:7px"></span>
+                        MinInterior</a></li>	
+                        <li><a href="http://www.cancilleria.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMinrelaciones" style="margin-right:7px"></span>
+                        MinRelaciones</a></li>	
+                        <li><a href="http://www.minhacienda.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMinhacienda" style="margin-right:7px"></span>
+                        MinHacienda</a></li>	
+                        <li><a href="http://www.minminas.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMinminas" style="margin-right:7px"></span>
+                        MinMinas</a></li>	
+                        <li><a href="http://www.mincit.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMincomercio" style="margin-right:7px"></span>
+                        MinComercio</a></li>	
+                        <li><a href="http://www.mineducacion.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMineducacion" style="margin-right:7px"></span>
+                        MinEducación</a></li>
+                        <li><a href="http://www.mincultura.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMincultura" style="margin-right:7px"></span>
+                        MinCultura</a></li>
+                        <li><a href="https://www.minagricultura.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMinagricultura" style="margin-right:7px"></span>
+                        MinAgricultura</a></li>				
+                        <li><a href="http://www.minambiente.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMinambiente" style="margin-right:7px"></span>
+                        MinAmbiente</a></li>				
+                        <li><a href="http://www.mintransporte.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMintransporte" style="margin-right:7px"></span>
+                        MinTransporte</a></li>
+                        <li><a href="http://www.minvivienda.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMinvivienda" style="margin-right:7px"></span>
+                        MinVivienda</a></li>
+                        <li><a href="http://www.mintrabajo.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMintrabajo" style="margin-right:7px"></span>
+                        MinTrabajo</a></li>
+                        <li><a href="http://www.minsalud.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMinsalud" style="margin-right:7px"></span>
+                        MinSalud</a></li>
+                        <li><a href="http://www.urnadecristal.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinVicepresidencia" style="margin-right:7px"></span>
+                        Urna de Cristal</a></li>
+                        <li><a href="http://www.mintic.gov.co/" target="_blank"><span class="fa fa-circle fa-lx pinMinTic" style="margin-right:7px"></span>
+                        MinTic</a></li>				
+                    </ul>        
+                </div>                    
+            
+            </div>	
+        </div>
+    </footer>
+</body>
+</html>

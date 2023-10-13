@@ -1,0 +1,1747 @@
+body{ background: #ffffff; font-size: calibri, sans-serif;}
+.header{ position: relative; width: 100%; top: 0; background: #015dca;}
+.header .top, .footer .bottom{height: 40px; padding: 8px 0; background: #015dca; color: #fff; box-sizing: border-box; max-width: 1021px; margin: 0 auto;}
+.footer .bottom{height: 90px; padding: 15px 0; background: #015dca; color: #fff; vertical-align: baseline;}
+.header .top span{ float: right; display: block; padding: 10px 0 0px;}
+.header .top span a{ font-weight: bold; color: #fff; text-decoration: none;}
+.header .top span a:hover{ color: #67a7f2;}
+
+.header .cabezote{ background: #fff; -webkit-box-shadow: 0px 10px 25px -20px rgba(0,0,0,0.62); -moz-box-shadow: 0px 10px 25px -20px rgba(0,0,0,0.62); box-shadow: 0px 10px 25px -20px rgba(0,0,0,0.62); width: 100%; height: 180px; padding: 0 10%; margin: 0 auto;}
+.header .cabezote .logo{ padding: 10px 0;}
+.header .cabezote .logo img{ width: auto; height: 150px;}
+
+.header .der{ width: 50%; float: right; padding: 10px 0;}
+.header .der nav ul{ float: right; padding: 0; margin: 0;}
+.header .der nav ul li, header .der nav ul li a{ display: inline-block; color: #5d5d5d; font-size: 12px; text-decoration: none;}
+.header .der nav ul li{ padding: 0 10px;}
+.header .der .min{ float: right; margin: 10px;}
+.header .der input{ float: right; margin: 0 10px; font-size: 14px; width: 210px; padding: 2px 10px;}
+
+main{ font-size: 14px; min-height: 47vh;}
+main #contenido{ width: 80%; min-height: 47vh; margin: 0 auto; background: #fff; padding: 30px; font-size: 14px; border-radius: 0 0 5px 5px;}
+
+.footer{ position: relative; bottom: 0; width: 100%; background: #015dca;}
+.footer .info{ padding: 30px 10%; background: #fff; margin: 20px 0 0 0; font-size: 12px; color: #666;}
+.footer .info a{ font-weight: bold; text-decoration: none; color: #666;}
+.footer .info a:hover{ color: #0162a0;}
+.footer .info .icontec{ padding: 90px 10px;}
+.footer .info .icontec img{ float: right;}
+.footer .bottom span a{ padding: 18px 0px 0 0!important; border-left: none;}
+.footer .bottom .co{ padding-left: 16px!important; border-left: 1px solid #fff; margin-left: 1em; padding: 12px; height: 34px; display: inline-block;}
+.footer span a{ color: #fff; text-decoration: none; float: right; display: block;padding: 24px 0;}
+.footer span a:hover{ text-decoration: underline;}
+
+
+#upper #upperContact .user .ms-core-menu-root{ padding: 7px 0; display: block;}
+.threeLogo{ margin-bottom: 1rem;}
+
+#topnav .ms-tableCell{ display: inline-block; height: 25px; cursor: pointer; margin: 0 auto;}
+.ms-breadcrumb-top{ white-space: inherit!important;}
+div[id$="TopNavigationMenu"] ul.root::before{ background: #fff; padding: 10px 0 0 20px; font-size: 1.5em; position: unset;}
+
+.row1{ background: #fff;}
+
+#DeltaTopNavigation, #zz1_TopNavigationMenu, #zz2_RootAspMenu{ width: 100%;}
+.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item{ padding: 7px 6px;}
+
+
+/**/
+/**/
+@media screen and (max-width: 1920px) {
+  header .der{ width: 40%;}
+}
+
+@media screen and (max-width: 1620px) {
+  header .der{ width: 50%;}
+}
+
+@media screen and (max-width: 1300px) {
+}
+
+@media screen and (max-width: 1250px) {
+  header .der{ width: 70%;}
+}
+
+@media screen and (max-width: 1200px) {
+.header .top, .footer .bottom{ padding-right: 5rem; padding-left: 5rem;}
+  .wrapper #header, #upper, #copy{ padding: 0 5rem;}
+  #copy{ padding-top:2em!Important;}
+  .row2 .footerCopy{ width: 50%;}
+}
+
+@media screen and (max-width: 1150px) {
+.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item{ padding: 5px 8px;}
+.wrapper #header, #upper, #copy, #container{ padding: 0 3rem;}
+}
+
+@media screen and (max-width: 1100px) {
+  header .cabezote{ padding: 0 3%;}
+  main #contenido{ width: 94%;}
+  .wrapper #header{ padding: 0 3rem;}
+}
+
+@media screen and (max-width: 1024px) {
+.header .top, .footer .bottom{ padding-right: 2rem; padding-left: 2rem;}
+  #topnav{ padding: 0;}
+  .wrapper #header, #upper, #copy, #container{ padding: 0 2rem;}
+  .ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item{ padding: 7px!important;}
+}
+
+@media screen and (max-width: 980px) {
+.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item{ font-size: 14px;}
+}
+
+
+@media screen and (max-width: 960px) {
+.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item{ padding: 7px !important;}
+.footerCopy{ width: 50%;}
+.flRight{ width: 45%;}
+#copy .footerIcontec{ width: 100%;}
+#copy .footerIcontec img{ width: 80%; max-width: 80% !important;}
+}
+
+
+@media screen and (max-width: 888px) {
+.threeLogo{ float: right;}
+.footerCopy, .row2 .footerCopy{ width: 100%; padding: 2rem 0; text-align: center;}
+.row2 .footerCopy .flLeft{ float: none;}
+#copy .footerIcontec img{ width: 60%; display: block; margin: 0 auto;}
+.flRight { width: 100%;}
+.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item{ padding: 7px 5px !important;}
+}
+
+@media screen and (max-width: 848px) {
+.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item{ padding: 7px 4px !important;}
+}
+
+@media screen and (max-width: 830px) {
+.ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item{ padding: 7px 2.6px !important;}
+}
+
+
+@media screen and (max-width: 800px) {
+  #upperContact{ padding: 0; text-align: right;}
+  #upperContact li{ padding: 0!important; margin: 0!important;}
+  #topnav { height: 43px;}
+  #zz12_TopNavigationMenu{ width:100%;}
+  header .cabezote .logo img{ width: 100%; height: auto;}
+  header .der{ width: 100%;}
+  /*footer .info .icontec{ padding: 50px 10px;}
+  footer .info .icontec img{ float: inherit; margin: 0 auto; display: block;}
+  footer .bottom{ text-align: center; height: auto!important;}
+  .footer .bottom a{ padding: 35px 10px 0 0 !important;}
+  .footer .bottom a img{ height: 80px!important; width: auto;}*/
+}
+
+@media screen and (max-width: 768px) {
+div[id$="TopNavigationMenu"] ul.root{ position: unset;}
+}
+
+@media screen and (max-width: 570px) {
+  header .cabezote{ height: 320px;}
+  header .cabezote .logo{ padding: 10px 0 0 0;}
+  header .cabezote .logo img{ display: block; width: 25%; margin: 0 auto;}
+  footer .info{ padding: 30px 3%;}
+  header .der nav ul, header .der .min{ width: 100%; text-align: center;}
+  header .der input{ width: 100%;}
+  #searchInputBox{ margin-right: 0;}
+  .footer .bottom{ height: auto; text-align: center;}
+  .footer .bottom a img{ max-height: 70px!important;}
+  .footer .bottom span a{ float: none; padding: 1em 0!important;}
+}
+
+
+/***********************
+
+ FOOTER UI KIT
+
+***********************/
+
+.gov-co-footer .gov-co-footer-presetacion,
+.gov-co-footer-lg .gov-co-footer-presetacion,
+.gov-co-footer-sm .gov-co-footer-presetacion,
+.gov-co-footer-xl .gov-co-footer-presetacion,
+.gov-co-footer-xs .gov-co-footer-presetacion {
+ position:relative;
+ display:-webkit-box;
+ display:flex;
+ -webkit-box-orient:horizontal;
+ -webkit-box-direction:normal;
+ flex-flow:row wrap;
+ -webkit-box-pack:justify;
+ justify-content:space-between;
+ align-content:space-between;
+ background-image:-webkit-gradient(linear,left top,left bottom,from(#fff),color-stop(15%,#fff),color-stop(15%,#e6effd),color-stop(85%,#e6effd),color-stop(85%,#e6effd));
+ background-image:linear-gradient(to bottom,#fff,#fff 15%,#e6effd 15%,#e6effd 85%,#e6effd 85%)
+}
+.gov-co-footer .gov-co-footer-presetacion.gov-co-footer-tramites,
+.gov-co-footer-lg .gov-co-footer-presetacion.gov-co-footer-tramites,
+.gov-co-footer-sm .gov-co-footer-presetacion.gov-co-footer-tramites,
+.gov-co-footer-xl .gov-co-footer-presetacion.gov-co-footer-tramites,
+.gov-co-footer-xs .gov-co-footer-presetacion.gov-co-footer-tramites {
+    background:#39a900;
+}
+
+
+.gov-co-footer.bg-2 .gov-co-footer-presetacion.gov-co-footer-tramites,
+.gov-co-footer-lg .gov-co-footer-presetacion.gov-co-footer-tramites,
+.gov-co-footer-sm .gov-co-footer-presetacion.gov-co-footer-tramites,
+.gov-co-footer-xl .gov-co-footer-presetacion.gov-co-footer-tramites,
+.gov-co-footer-xs .gov-co-footer-presetacion.gov-co-footer-tramites {
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),color-stop(15%,#fff),color-stop(15%,#FF6B00),color-stop(85%,#FF6B00),color-stop(85%,#FF6B00));
+	background-image: linear-gradient(to bottom,#fff,#fff 15%,#FF6B0015%,#FF6B0085%,#FF6B0085%);
+}
+.gov-co-footer.bg-2{
+	background: #fff;
+	padding-top:32px;
+}
+
+
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad {
+ position:relative;
+ width:90%;
+ max-width: 964px;  
+ border-radius: 8px;
+ min-width:280px;
+ overflow:hidden;
+ margin:0 auto 15px;
+ padding:10px 0;
+ background-color:#fff;
+ box-shadow:0 0 3px gray;
+ display:-webkit-box;
+ display:flex;
+ -webkit-box-orient:horizontal;
+ -webkit-box-direction:normal;
+ flex-flow:row wrap
+}
+@media screen and (max-width:)
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>div,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>div,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>div,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>div,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>div {
+ -webkit-box-flex:1;
+ flex:1 1 auto
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo {
+ vertical-align:middle
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo>div>div>div,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo>div>div>div,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo>div>div>div,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo>div>div>div,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo>div>div>div {
+ width:95%;
+ overflow:hidden
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div {
+ position:relative
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div>.logo-gov-co,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div>.logo-gov-co,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div>.logo-gov-co,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div>.logo-gov-co,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div>.logo-gov-co {
+ width:95%;
+ max-width:291px;
+ height:71px;
+ margin:0 auto;
+ background-color:#f2f2f2;
+ box-shadow:0 0 3px gray;
+ display:-webkit-box;
+ display:flex;
+ -webkit-box-pack:center;
+ justify-content:center;
+ -webkit-box-align:center;
+ align-items:center
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div {
+ padding-top:10px
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.contenido-sede-gov-co>p,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.contenido-sede-gov-co>p,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.contenido-sede-gov-co>p,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.contenido-sede-gov-co>p,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.contenido-sede-gov-co>p {
+ margin-bottom:3px
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales {
+ display:-webkit-box;
+ display:flex;
+ -webkit-box-pack:justify;
+ justify-content:space-between;
+ padding:10px 0
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales>a,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales>a,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales>a,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales>a,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales>a {
+ text-decoration:underline;
+ text-align:center
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales>a>span,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales>a>span,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales>a>span,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales>a>span,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales>a>span {
+ font-size:.75rem
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>.h-gov-co,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>.h-gov-co,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>.h-gov-co,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>.h-gov-co,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>.h-gov-co {
+ display:none
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>div>div>p,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>div>div>p,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>div>div>p,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>div>div>p,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>div>div>p {
+ margin-bottom:3px
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>.h-gov-co,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>.h-gov-co,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>.h-gov-co,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>.h-gov-co,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>.h-gov-co {
+ display:none
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>div>div>p,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>div>div>p,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>div>div>p,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>div>div>p,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>div>div>p {
+ margin-bottom:3px
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas {
+ display:-webkit-box;
+ display:flex;
+ -webkit-box-orient:horizontal;
+ -webkit-box-direction:normal;
+ flex-flow:row wrap;
+ -webkit-box-pack:justify;
+ justify-content:space-between;
+ align-content:center;
+ height:50px;
+ padding:15px
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas>a,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas>a,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas>a,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas>a,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas>a {
+ font-size:11px
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites {
+ position:absolute;
+ bottom:10px;
+ right:0
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites .gov-co-politicas,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites .gov-co-politicas,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites .gov-co-politicas,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites .gov-co-politicas,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites .gov-co-politicas {
+ -moz-column-gap:10px;
+ -webkit-column-gap:10px;
+ column-gap:10px;
+ -webkit-box-pack:end;
+ justify-content:flex-end
+}
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites .gov-co-politicas a,
+.gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites .gov-co-politicas a,
+.gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites .gov-co-politicas a,
+.gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites .gov-co-politicas a,
+.gov-co-footer-xs .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas.poli-tramites .gov-co-politicas a {
+ color:#4B4B4B
+}
+.gov-co-footer-lg>.gov-co-footer-pie,
+.gov-co-footer-sm>.gov-co-footer-pie,
+.gov-co-footer-xl>.gov-co-footer-pie,
+.gov-co-footer-xs>.gov-co-footer-pie,
+.gov-co-footer>.gov-co-footer-pie {
+ width:100%;
+ background-color:#36c
+}
+.gov-co-footer-lg>.gov-co-footer-pie>.gov-co-footer-auto,
+.gov-co-footer-sm>.gov-co-footer-pie>.gov-co-footer-auto,
+.gov-co-footer-xl>.gov-co-footer-pie>.gov-co-footer-auto,
+.gov-co-footer-xs>.gov-co-footer-pie>.gov-co-footer-auto,
+.gov-co-footer>.gov-co-footer-pie>.gov-co-footer-auto {
+ max-width:1100px;
+ width:100%;
+ height:96px;
+ display:-webkit-box;
+ display:flex;
+ flex-wrap:wrap;
+ -webkit-box-pack:center;
+ justify-content:center;
+ align-content:center;
+ margin:0 auto
+}
+.gov-co-footer-lg>.gov-co-footer-pie>.gov-co-footer-auto>.gov-co-logo-pie-mesa,
+.gov-co-footer-sm>.gov-co-footer-pie>.gov-co-footer-auto>.gov-co-logo-pie-mesa,
+.gov-co-footer-xl>.gov-co-footer-pie>.gov-co-footer-auto>.gov-co-logo-pie-mesa,
+.gov-co-footer-xs>.gov-co-footer-pie>.gov-co-footer-auto>.gov-co-logo-pie-mesa,
+.gov-co-footer>.gov-co-footer-pie>.gov-co-footer-auto>.gov-co-logo-pie-mesa {
+ margin-right:10px
+}
+.gov-co-footer-lg>.gov-co-footer-pie>.gov-co-footer-auto>.gov-co-logo-pie-blanco,
+.gov-co-footer-sm>.gov-co-footer-pie>.gov-co-footer-auto>.gov-co-logo-pie-blanco,
+.gov-co-footer-xl>.gov-co-footer-pie>.gov-co-footer-auto>.gov-co-logo-pie-blanco,
+.gov-co-footer-xs>.gov-co-footer-pie>.gov-co-footer-auto>.gov-co-logo-pie-blanco,
+.gov-co-footer>.gov-co-footer-pie>.gov-co-footer-auto>.gov-co-logo-pie-blanco {
+ border-left:1px solid #fff
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta,
+.gov-co-footer>.gov-co-footer-pie.footer-venta {
+ padding:40px;
+ display:-webkit-box;
+ display:flex;
+ -webkit-box-orient:vertical;
+ -webkit-box-direction:normal;
+ flex-flow:column wrap;
+ -webkit-box-pack:center;
+ justify-content:center;
+ align-content:center;
+ row-gap:30px
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta {
+ -webkit-box-ordinal-group:4;
+ order:3;
+ -webkit-box-flex:1;
+ flex:1 1 auto;
+ display:-webkit-box;
+ display:flex;
+ -webkit-box-orient:horizontal;
+ -webkit-box-direction:normal;
+ flex-flow:row wrap;
+ -webkit-box-pack:justify;
+ justify-content:space-between
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta>.gov-co-logo-pie-mesa,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta>.gov-co-logo-pie-mesa,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta>.gov-co-logo-pie-mesa,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta>.gov-co-logo-pie-mesa,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta>.gov-co-logo-pie-mesa {
+ -webkit-box-ordinal-group:3;
+ order:2
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta>.gov-co-logo-pie-blanco,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta>.gov-co-logo-pie-blanco,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta>.gov-co-logo-pie-blanco,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta>.gov-co-logo-pie-blanco,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta>.gov-co-logo-pie-blanco {
+ -webkit-box-ordinal-group:2;
+ order:1
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta {
+ -webkit-box-ordinal-group:2;
+ order:1;
+ -webkit-box-flex:1;
+ flex:1 1 auto
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-detalles-venta,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-detalles-venta,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-detalles-venta,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-detalles-venta,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-detalles-venta {
+ margin:10px 0
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-detalles-venta>p,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-detalles-venta>p,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-detalles-venta>p,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-detalles-venta>p,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-detalles-venta>p {
+ margin-bottom:3px
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta {
+ display:-webkit-box;
+ display:flex;
+ -webkit-box-orient:vertical;
+ -webkit-box-direction:normal;
+ flex-flow:column wrap;
+ row-gap:20px;
+ -webkit-box-pack:start;
+ justify-content:flex-start
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta>a,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta>a,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta>a,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta>a,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta>a {
+ -webkit-box-flex:1;
+ flex:1 1 auto
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta>a:hover,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta>a:hover,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta>a:hover,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta>a:hover,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta>a:hover {
+ color:#fff
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta {
+ -webkit-box-ordinal-group:3;
+ order:2;
+ -webkit-box-flex:1;
+ flex:1 1 auto
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-detalles-venta-conta>p,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-detalles-venta-conta>p,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-detalles-venta-conta>p,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-detalles-venta-conta>p,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-detalles-venta-conta>p {
+ margin-bottom:3px
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta {
+ display:-webkit-box;
+ display:flex;
+ -webkit-box-orient:vertical;
+ -webkit-box-direction:normal;
+ flex-flow:column wrap;
+ -webkit-box-pack:start;
+ justify-content:flex-start
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta>a,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta>a,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta>a,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta>a,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta>a {
+ -webkit-box-flex:1;
+ flex:1 1 auto
+}
+.gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta>a:hover,
+.gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta>a:hover,
+.gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta>a:hover,
+.gov-co-footer-xs>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta>a:hover,
+.gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta>div>div>div>.gov-co-pilo-venta>a:hover {
+ color:#fff
+}
+@media (min-width:576px) {
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>div,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>div,
+ .gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>div,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>div {
+  -webkit-box-flex:initial;
+  flex:initial
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad,
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo,
+ .gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad,
+ .gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo {
+  width:100%
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div,
+ .gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div {
+  display:-webkit-box;
+  display:flex;
+  -webkit-box-pack:end;
+  justify-content:flex-end
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div>.logo-gov-co,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div>.logo-gov-co,
+ .gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div>.logo-gov-co,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div>.logo-gov-co {
+  margin:0 10px
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion,
+ .gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion {
+  width:70%
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes,
+ .gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes {
+  width:50%
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>.h-gov-co,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>.h-gov-co,
+ .gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>.h-gov-co,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-sedes>div>.h-gov-co {
+  display:inline-block
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos,
+ .gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos {
+  width:50%
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>.h-gov-co,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>.h-gov-co,
+ .gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>.h-gov-co,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-contactos>div>.h-gov-co {
+  display:inline-block
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas,
+ .gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas {
+  width:100%
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas,
+ .gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas {
+  /*width:70%;*/
+  margin:0 auto;
+  padding:10px
+ }
+ .gov-co-footer-lg>.gov-co-footer-pie.footer-venta,
+ .gov-co-footer-sm>.gov-co-footer-pie.footer-venta,
+ .gov-co-footer-xl>.gov-co-footer-pie.footer-venta,
+ .gov-co-footer>.gov-co-footer-pie.footer-venta {
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  flex-flow:column nowrap;
+  row-gap:initial
+ }
+ .gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta,
+ .gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta,
+ .gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta,
+ .gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta {
+  -webkit-box-orient:horizontal;
+  -webkit-box-direction:normal;
+  flex-flow:row wrap
+ }
+ .gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta,
+ .gov-co-footer-sm>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta,
+ .gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta,
+ .gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta {
+  padding:15px 0;
+  margin:15px 0;
+  border-top:1px solid #fff;
+  border-bottom:1px solid #fff
+ }
+}
+
+@media (min-width:992px) {
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad {
+  padding:48px 32px 10px;
+  border-radius:10px;
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-titulo {
+  width:60%
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad {
+  width:40%
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div>.logo-gov-co,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div>.logo-gov-co,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-logo-autoridad>div>div>div>.logo-gov-co {
+  position:absolute
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion {
+  width:60%
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div {
+  width:85%;
+  margin:0
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas {
+  width:50%;
+  padding:0 10px
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas {
+  width:100%;
+  padding:5px
+ }
+ .gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas>a,
+ .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas>a,
+ .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas>a {
+  font-size:.75rem
+ }
+ .gov-co-footer-lg>.gov-co-footer-pie>.gov-co-footer-auto,
+ .gov-co-footer-xl>.gov-co-footer-pie>.gov-co-footer-auto,
+ .gov-co-footer>.gov-co-footer-pie>.gov-co-footer-auto {
+  -webkit-box-pack:start;
+  justify-content:flex-start
+ }
+ .gov-co-footer-lg>.gov-co-footer-pie.footer-venta,
+ .gov-co-footer-xl>.gov-co-footer-pie.footer-venta,
+ .gov-co-footer>.gov-co-footer-pie.footer-venta {
+  -webkit-box-orient:horizontal;
+  -webkit-box-direction:normal;
+  flex-flow:row nowrap;
+  padding:40px 85px
+ }
+ .gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta,
+ .gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta,
+ .gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta {
+  -webkit-box-ordinal-group:2;
+  order:1;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  flex-flow:column wrap;
+  -webkit-box-pack:start;
+  justify-content:flex-start;
+  align-content:flex-end;
+  row-gap:20px
+ }
+ .gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta>.gov-co-logo-pie-mesa,
+ .gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta>.gov-co-logo-pie-mesa,
+ .gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-footer-venta>.gov-co-logo-pie-mesa {
+  margin:0 auto;
+  align-content:flex-end
+ }
+ .gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta,
+ .gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta,
+ .gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta {
+  margin:0 15px;
+  padding:0 15px;
+  border-left:1px solid #fff;
+  border-right:1px solid #fff
+ }
+ .gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta,
+ .gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta,
+ .gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-presen-venta>div>div>div>.gov-co-social-media-venta {
+  margin-top:15px
+ }
+ .gov-co-footer-lg>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta,
+ .gov-co-footer-xl>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta,
+ .gov-co-footer>.gov-co-footer-pie.footer-venta>.gov-co-conta-venta {
+  padding:0;
+  margin:0;
+  border:initial
+ }
+}
+
+@media only screen and (max-device-width:767px) {
+ .title {
+  font-size:2.0625rem!important
+ }
+ .card-description,
+ .card-title {
+  font-size:unset!important
+ }
+}
+.govco-icon {
+ font-family:"Govco Icon";
+ font-size:2em
+}
+.govco-icon.size-1x {
+ font-size:1em
+}
+.govco-icon.size-2x {
+ font-size:2em
+}
+.govco-icon.size-3x {
+ font-size:3em
+}
+.govco-icon.size-4x {
+ font-size:4em
+}
+.govco-icon.size-5x {
+ font-size:5em
+}
+.govco-icon.size-6x {
+ font-size:6em
+}
+.govco-icon.size-7x {
+ font-size:7em
+}
+.govco-icon.size-8x {
+ font-size:8em
+}
+.govco-icon.size-9x {
+ font-size:9em
+}
+.govco-icon.size-10x {
+ font-size:10em
+}
+.govco-icon-head-arrow-right::before {
+ content:"\e802"
+}
+.govco-icon-head-arrow-left::before {
+ content:"\e830"
+}
+.govco-icon-headphones::before {
+ content:"\e820"
+}
+.govco-icon-money-n::before {
+ content:"\e96b"
+}
+.govco-icon-menu-sede::before {
+ content:"\e920"
+}
+.govco-icon-copy-p::before {
+ content:"\e91b"
+}
+.govco-icon-circle-p::before {
+ content:"\e801"
+}
+.govco-icon-star-p::before {
+ content:"\2605"
+}
+.govco-icon-backspace-p::before {
+ content:"\e91a"
+}
+.govco-icon-padlock-p-v2::before {
+ content:"\e919"
+}
+.govco-icon-menu::before {
+ content:"\e0fd"
+}
+.govco-icon-dropdown-v2::before {
+ content:"\e826"
+}
+.govco-icon-instagram-cp::before {
+ content:"\e91c"
+}
+.govco-icon-twiter-cp::before {
+ content:"\e828"
+}
+.govco-icon-facebook-cp::before {
+ content:"\e918"
+}
+.govco-icon-tramite-sin-costo::before {
+ content:"\e8df"
+}
+.govco-icon-tramite-presencial::before {
+ content:"\e8de"
+}
+.govco-icon-tramite-en-linea::before {
+ content:"\e8e1"
+}
+.govco-icon-close::before,
+.govco-icon-tramite-error::before {
+ content:"\e803"
+}
+.govco-icon-tramite-duracion::before {
+ content:"\e8e3"
+}
+.govco-icon-logo-govco-blanco::before {
+ content:"\e8e4"
+}
+.govco-icon-logo-govco-negro::before {
+ content:"\e8e0"
+}
+.govco-icon-tramite-con-costo::before {
+ content:"\e8e2"
+}
+.govco-icon-exclamation::before {
+ content:"\e903"
+}
+.govco-icon-exclamation-cn::before {
+ content:"\e901"
+}
+.govco-icon-plus::before {
+ content:"\e902"
+}
+.govco-icon-plus-n::before {
+ content:"\e93f"
+}
+.govco-icon-plus-p::before {
+ content:"\e940"
+}
+.govco-icon-plus-cn::before {
+ content:"\e9af"
+}
+.govco-icon-plus-cp::before {
+ content:"\e9b0"
+}
+.govco-icon-analytic::before {
+ content:"\e905"
+}
+.govco-icon-analytic-p::before {
+ content:"\e946"
+}
+.govco-icon-analytic-n::before {
+ content:"\e945"
+}
+.govco-icon-analytic-cn::before {
+ content:"\e904"
+}
+.govco-icon-idea::before {
+ content:"\e907"
+}
+.govco-icon-idea-cn::before {
+ content:"\e906"
+}
+.govco-icon-searchdoc::before {
+ content:"\e909"
+}
+.govco-icon-call-center::before {
+ content:"\e90b"
+}
+.govco-icon-call-center-cn::before {
+ content:"\e90a"
+}
+.govco-icon-call-center-cp::before {
+ content:"\e960"
+}
+.govco-icon-call-center-p::before {
+ content:"\e954"
+}
+.govco-icon-call-center-n::before {
+ content:"\e953"
+}
+.govco-icon-share::before {
+ content:"\e90e"
+}
+.govco-icon-share-cn::before {
+ content:"\e90d"
+}
+.govco-icon-share-p::before {
+ content:"\e970"
+}
+.govco-icon-share-n::before {
+ content:"\e96f"
+}
+.govco-icon-circle-share-cp::before {
+ content:"\e964"
+}
+.govco-icon-circle-share-cn::before {
+ content:"\e963"
+}
+.govco-icon-dropdown-cn::before {
+ content:"\e90f"
+}
+.govco-icon-dropdown::before {
+ content:"\e914"
+}
+.govco-icon-callback-cn::before {
+ content:"\e97f"
+}
+.govco-icon-callback-cp::before {
+ content:"\e980"
+}
+.govco-icon-building::before {
+ content:"\e911"
+}
+.govco-icon-favorite::before {
+ content:"\e913"
+}
+.govco-icon-favorite-cn::before {
+ content:"\e912"
+}
+.govco-icon-favorite-p::before {
+ content:"\e994"
+}
+.govco-icon-favorite-n::before {
+ content:"\e993"
+}
+.govco-icon-pc::before {
+ content:"\e822"
+}
+.govco-icon-print::before {
+ content:"\e808"
+}
+.govco-icon-print-cn::before {
+ content:"\e91f"
+}
+.govco-icon-print-p::before {
+ content:"\e99f"
+}
+.govco-icon-print-n::before {
+ content:"\e9a0"
+}
+.govco-icon-info::before {
+ content:"\e922"
+}
+.govco-icon-info-cn::before {
+ content:"\e921"
+}
+.govco-icon-info-cp::before {
+ content:"\e9a2"
+}
+.govco-icon-legal::before {
+ content:"\e923"
+}
+.govco-icon-key::before {
+ content:"\e927"
+}
+.govco-icon-key-cn::before {
+ content:"\e9ac"
+}
+.govco-icon-key-cp::before {
+ content:"\e9ad"
+}
+.govco-icon-email::before {
+ content:"\e929"
+}
+.govco-icon-email-cn::before {
+ content:"\e928"
+}
+.govco-icon-email-cp::before {
+ content:"\e966"
+}
+.govco-icon-email-p::before {
+ content:"\e976"
+}
+.govco-icon-email-n::before {
+ content:"\e975"
+}
+.govco-icon-like::before {
+ content:"\e92c"
+}
+.govco-icon-like-cn::before {
+ content:"\e92b"
+}
+.govco-icon-like-p::before {
+ content:"\e9b2"
+}
+.govco-icon-like-n::before {
+ content:"\e9b1"
+}
+.govco-icon-message::before {
+ content:"\e92f"
+}
+.govco-icon-message-cn::before {
+ content:"\e92e"
+}
+.govco-icon-pin::before {
+ content:"\e933"
+}
+.govco-icon-pin-cn::before {
+ content:"\e932"
+}
+.govco-icon-question::before {
+ content:"\e936"
+}
+.govco-icon-question-cn::before {
+ content:"\e935"
+}
+.govco-icon-questions-p::before {
+ content:"\e984"
+}
+.govco-icon-questions-n::before {
+ content:"\e983"
+}
+.govco-icon-clock::before {
+ content:"\e937"
+}
+.govco-icon-clock-p::before {
+ content:"\e9c3"
+}
+.govco-icon-clock-n::before {
+ content:"\e9c4"
+}
+.govco-icon-telephone::before {
+ content:"\e938"
+}
+.govco-icon-wifi-cn::before {
+ content:"\e9aa"
+}
+.govco-icon-wifi-cp::before {
+ content:"\e9d9"
+}
+.govco-icon-wifi-p::before {
+ content:"\e9ab"
+}
+.govco-icon-wifi-n::before {
+ content:"\e9a9"
+}
+.govco-icon-callin-cn::before {
+ content:"\e924"
+}
+.govco-icon-callin-cp::before {
+ content:"\e96a"
+}
+.govco-icon-callin-p::before {
+ content:"\e9a8"
+}
+.govco-icon-callin-n::before {
+ content:"\e9a7"
+}
+.govco-icon-accessibility-cp::before {
+ content:"\e93b"
+}
+.govco-icon-accessibility-cn::before {
+ content:"\e93a"
+}
+.govco-icon-attached-p::before {
+ content:"\e93d"
+}
+.govco-icon-attached-n::before {
+ content:"\e93c"
+}
+.govco-icon-scared-face::before {
+ content:"\e93e"
+}
+.govco-icon-sad-face::before {
+ content:"\e9a6"
+}
+.govco-icon-sad-face-n::before {
+ content:"\e9a5"
+}
+.govco-icon-shock-face::before {
+ content:"\e9ae"
+}
+.govco-icon-happy-face::before {
+ content:"\e9d4"
+}
+.govco-icon-happy-face-n::before {
+ content:"\e9d3"
+}
+.govco-icon-bell-p::before {
+ content:"\e943"
+}
+.govco-icon-bell-n::before {
+ content:"\e941"
+}
+.govco-icon-bell-sound-p::before {
+ content:"\e944"
+}
+.govco-icon-bell-sound-n::before {
+ content:"\e942"
+}
+.govco-icon-grad-cap-p::before {
+ content:"\e948"
+}
+.govco-icon-grad-cap-n::before {
+ content:"\e947"
+}
+.govco-icon-x::before {
+ content:"\e93e"
+}
+.govco-icon-x-n::before {
+ content:"\e949"
+}
+.govco-icon-x-p::before {
+ content:"\e94c"
+}
+.govco-icon-x-cn::before {
+ content:"\e908"
+}
+.govco-icon-delete-p::before {
+ content:"\e94e"
+}
+.govco-icon-delete-n::before {
+ content:"\e94b"
+}
+.govco-icon-tag-p::before {
+ content:"\e94d"
+}
+.govco-icon-tag-n::before {
+ content:"\e94a"
+}
+.govco-icon-search-p::before {
+ content:"\e950"
+}
+.govco-icon-search-n::before {
+ content:"\e94f"
+}
+.govco-icon-search-cn::before {
+ content:"\e95b"
+}
+.govco-icon-search-cp::before {
+ content:"\e95c"
+}
+.govco-icon-calendar-p::before {
+ content:"\e952"
+}
+.govco-icon-calendar-n::before {
+ content:"\e951"
+}
+.govco-icon-calendar-cn::before {
+ content:"\e95d"
+}
+.govco-icon-calendar-cp::before {
+ content:"\e95e"
+}
+.govco-icon-shop-car::before {
+ content:"\e90c"
+}
+.govco-icon-shop-car-n::before {
+ content:"\e955"
+}
+.govco-icon-shop-car-p::before {
+ content:"\e956"
+}
+.govco-icon-relief-p::before {
+ content:"\e958"
+}
+.govco-icon-relief-n::before {
+ content:"\e957"
+}
+.govco-icon-check-p::before {
+ content:"\e95a"
+}
+.govco-icon-check-n::before {
+ content:"\e959"
+}
+.govco-icon-check-cp::before {
+ content:"\e962"
+}
+.govco-icon-check-cn::before {
+ content:"\e961"
+}
+.govco-icon-right-arrow::before {
+ content:"\e916"
+}
+.govco-icon-right-arrow-cp::before {
+ content:"\e968"
+}
+.govco-icon-right-arrow-cn::before {
+ content:"\e915"
+}
+.govco-icon-right-arrow-p::before {
+ content:"\e996"
+}
+.govco-icon-right-arrow-n::before {
+ content:"\e995"
+}
+.govco-icon-left-arrow::before {
+ content:"\e918"
+}
+.govco-icon-left-arrow-cp::before {
+ content:"\e968"
+}
+.govco-icon-left-arrow-cn::before {
+ content:"\e917"
+}
+.govco-icon-left-arrow-p::before {
+ content:"\e996"
+}
+.govco-icon-left-arrow-n::before {
+ content:"\e995"
+}
+.govco-icon-down-arrow-p::before {
+ content:"\e97c"
+}
+.govco-icon-down-arrow-n::before {
+ content:"\e97b"
+}
+.govco-rotate-180 {
+ -webkit-transform:rotate(180deg) scaleX(-1);
+ transform:rotate(180deg) scaleX(-1)
+}
+.govco-icon-simpled-arrow::before {
+ content:"\e914"
+}
+.govco-icon-simpler-arrow::before {
+ content:"\e919"
+}
+.govco-icon-shortr-arrow::before {
+ content:"\e91c"
+}
+.govco-icon-shortr-arrow-cn::before {
+ content:"\e91d"
+}
+.govco-icon-shortl-arrow::before {
+ content:"\e91b"
+}
+.govco-icon-shortl-arrow-cn::before {
+ content:"\e91a"
+}
+.govco-icon-shortu-arrow-p::before {
+ content:"\e97e"
+}
+.govco-icon-shortu-arrow-n::before {
+ content:"\e97d"
+}
+.govco-icon-shortd-arrow-p::before {
+ content:"\e9d8"
+}
+.govco-icon-shortd-arrow-n::before {
+ content:"\e9d7"
+}
+.govco-icon-voice-call-p::before {
+ content:"\e96c"
+}
+.govco-icon-voice-call-n::before {
+ content:"\e96b"
+}
+.govco-icon-colombia-p::before {
+ content:"\e96e"
+}
+.govco-icon-colombia-n::before {
+ content:"\e96d"
+}
+.govco-icon-shield-col-p::before {
+ content:"\e98e"
+}
+.govco-icon-shield-col-n::before {
+ content:"\e98d"
+}
+.govco-icon-peso-col::before {
+ content:"\e931"
+}
+.govco-icon-peso-col-p::before {
+ content:"\e9bc"
+}
+.govco-icon-peso-col-n::before {
+ content:"\e9bb"
+}
+.govco-icon-peso-col-cn::before {
+ content:"\e96b"
+}
+.govco-icon-peso-col-cp::before {
+ content:"\e96c"
+}
+.govco-icon-contrast-p::before {
+ content:"\e972"
+}
+.govco-icon-contrast-n::before {
+ content:"\e971"
+}
+.govco-icon-music-p::before {
+ content:"\e974"
+}
+.govco-icon-music-n::before {
+ content:"\e973"
+}
+.govco-icon-4-phases-p::before {
+ content:"\e978"
+}
+.govco-icon-4-phases-n::before {
+ content:"\e977"
+}
+.govco-icon-3-phases-p::before {
+ content:"\e9d0"
+}
+.govco-icon-3-phases-n::before {
+ content:"\e9cf"
+}
+.govco-icon-data-up-p::before {
+ content:"\e97a"
+}
+.govco-icon-data-up-n::before {
+ content:"\e979"
+}
+.govco-icon-document-p::before {
+ content:"\e982"
+}
+.govco-icon-document-n::before {
+ content:"\e981"
+}
+.govco-icon-edit-slim-p::before {
+ content:"\e986"
+}
+.govco-icon-edit-slim-n::before {
+ content:"\e985"
+}
+.govco-icon-edit-p::before {
+ content:"\e988"
+}
+.govco-icon-edit-n::before {
+ content:"\e987"
+}
+.govco-icon-padlock-p::before {
+ content:"\e98a"
+}
+.govco-icon-padlock-n::before {
+ content:"\e989"
+}
+.govco-icon-link-p::before {
+ content:"\e98c"
+}
+.govco-icon-link-n::before {
+ content:"\e98b"
+}
+.govco-icon-language-es-p::before {
+ content:"\e990"
+}
+.govco-icon-language-es-n::before {
+ content:"\e98f"
+}
+.govco-icon-language-en-p::before {
+ content:"\e9a4"
+}
+.govco-icon-language-en-n::before {
+ content:"\e9a3"
+}
+.govco-icon-statistics-p::before {
+ content:"\e992"
+}
+.govco-icon-statistics-n::before {
+ content:"\e991"
+}
+.govco-icon-save-p::before {
+ content:"\e998"
+}
+.govco-icon-save-n::before {
+ content:"\e997"
+}
+.govco-icon-hand-p::before {
+ content:"\e99a"
+}
+.govco-icon-hand-n::before {
+ content:"\e999"
+}
+.govco-icon-home-p::before {
+ content:"\e99c"
+}
+.govco-icon-home-n::before {
+ content:"\e99b"
+}
+.govco-icon-image-p::before {
+ content:"\e99e"
+}
+.govco-icon-image-n::before {
+ content:"\e99d"
+}
+.govco-icon-minus::before {
+ content:"\e92d"
+}
+.govco-icon-minus-cp::before {
+ content:"\e9b4"
+}
+.govco-icon-minus-cn::before {
+ content:"\e9b3"
+}
+.govco-icon-movil-cp::before {
+ content:"\e9b6"
+}
+.govco-icon-movil-cn::before {
+ content:"\e9b5"
+}
+.govco-icon-pitch-p::before {
+ content:"\e9b8"
+}
+.govco-icon-pitch-n::before {
+ content:"\e9b7"
+}
+.govco-icon-eye-p::before {
+ content:"\e9ba"
+}
+.govco-icon-eye-n::before {
+ content:"\e9b9"
+}
+.govco-icon-play::before {
+ content:"\e934"
+}
+.govco-icon-play-cp::before {
+ content:"\e9be"
+}
+.govco-icon-play-cn::before {
+ content:"\e9bd"
+}
+.govco-icon-social-p::before {
+ content:"\e9c0"
+}
+.govco-icon-social-n::before {
+ content:"\e9bf"
+}
+.govco-icon-reload-p::before {
+ content:"\e9c2"
+}
+.govco-icon-reload-n::before {
+ content:"\e9c1"
+}
+.govco-icon-answer-p::before {
+ content:"\e9c6"
+}
+.govco-icon-answer-n::before {
+ content:"\e9c5"
+}
+.govco-icon-sound-p::before {
+ content:"\e9c8"
+}
+.govco-icon-sound-n::before {
+ content:"\e9c7"
+}
+.govco-icon-table-p::before {
+ content:"\e9ca"
+}
+.govco-icon-table-n::before {
+ content:"\e9c9"
+}
+.govco-icon-less-size-p::before {
+ content:"\e9ce"
+}
+.govco-icon-less-size-n::before {
+ content:"\e9cd"
+}
+.govco-icon-more-size-p::before {
+ content:"\e9cc"
+}
+.govco-icon-more-size-n::before {
+ content:"\e9cb"
+}
+.govco-icon-user-p::before {
+ content:"\e9d2"
+}
+.govco-icon-user-n::before {
+ content:"\e9d1"
+}
+.govco-icon-video-p::before {
+ content:"\e9d6"
+}
+.govco-icon-video-n::before {
+ content:"\e9d5"
+}
+.govco-icon-pause::before {
+ content:"\e930"
+}
+.example-icon::before {
+ color:#ff6c00!important
+}
+
+.titulo-sede-gov-co {
+ font-family:Montserrat,sans-serif;
+ font-weight:600;
+ font-size:1.25rem;
+ color:#4B4B4B;
+ margin-bottom:16px;
+}
+.titulo-venta {
+ font-family:Montserrat,sans-serif;
+ font-weight:600;
+ font-size:1.25rem;
+ color:#fff
+}
+.sub-titulo-venta {
+ font-family:Montserrat,sans-serif;
+ font-weight:600;
+ font-size:1rem;
+ color:#fff
+}
+.sub-titulo-sede-gov-co {
+ font-family:Montserrat,sans-serif;
+ font-weight:700;
+ font-size:1rem;
+ color:#4B4B4B
+}
+.gov-detalles {
+ font-family:"Work Sans",sans-serif;
+ font-weight:400;
+ font-size:.875rem;
+ color:#4b4b4b;
+     line-height: 180%;
+    
+     
+}
+.gov-detalles-venta {
+ font-family:"Work Sans",sans-serif;
+ font-weight:400;
+ font-size:1rem;
+ color:#fff;
+ margin-bottom:3px
+}
+.gov-detalles-venta-conta {
+ font-family:"Work Sans",sans-serif;
+ font-weight:400;
+ font-size:.875rem;
+ color:#fff;
+ margin-bottom:3px
+}
+.gov-co-link-presentacion {
+ font-family:"Work Sans",sans-serif;
+ font-size:.875rem;
+ font-weight:500;
+ color:#4B4B4B
+}
+.gov-co-link-presentacion span {
+ text-decoration:none;
+ font-size:1.125rem!important
+}
+.gov-co-link-venta {
+ font-family:"Work Sans",sans-serif;
+ font-size:.75rem;
+ color:#fff
+}
+.goc-co-link-poli {
+ font-family:Montserrat,sans-serif;
+ font-weight:700;
+ font-size:.75rem
+}
+.goc-co-link-poli-venta {
+ font-family:Montserrat,sans-serif;
+ font-weight:700;
+ font-size:.75rem;
+ color:#fff;
+ text-decoration:underline
+}
+.gov-co-logo-pie-mesa {
+ width:48px!important;
+ height:48px!important;
+ margin-right: 10px!important;
+}
+.gov-co-logo-pie-blanco {
+ height: 48px!important;
+ padding-left: 20px!important;
+ border-left: 1px solid #fff!important;
+}
+
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-presentacion>div>div>div>.gov-co-redes-sociales{
+    flex-wrap:wrap;
+}
+
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas, .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas, .gov-co-footer-sm .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas, .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas>div>div>div>.gov-co-politicas {
+height: auto;
+   justify-content: flex-start;
+    gap: 16px;
+    padding: 10px 0;
+    column-gap: 32px;
+    
+}
+
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas, .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas, .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad>.footer-politicas{
+    padding-left:15px;
+    padding-right:15px;
+    padding-bottom: 30px;
+}
+
+.footer-presentacion, .footer-politicas{
+   width:100%!important;
+}
+
+.gov-co-footer-autoridad{
+   margin-top:60px;
+}
+
+@media screen and (min-width:991px){
+.gov-co-footer .gov-co-footer-presetacion>.gov-co-footer-autoridad, .gov-co-footer-lg .gov-co-footer-presetacion>.gov-co-footer-autoridad, .gov-co-footer-xl .gov-co-footer-presetacion>.gov-co-footer-autoridad {
+    padding: 48px 32px 10px;
+    border-radius: 10px;
+}    
+    .footer-logo-autoridad{
+       height:10px;
+    }
+}
+
+.footer-logo-autoridad img{
+   height:90px!important;
+}
+
+.pt-4, .py-4 {
+   padding-top: 1.5rem !important;
+}
+
+.gov-co-redes-sociales {
+padding: 10px 0;
+   display: flex;
+   align-items: center;
+   gap: 20px;
+    flex-wrap:wrap;
+}
+
+.gov-co-redes-sociales .social-icon{
+  background-color: #39a900;
+  padding: 10px;
+  border-radius: 100px;
+  width: 4px;
+  height: 4px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gov-co-redes-sociales .social-icon span{
+  height: 10px;
+}
+
+.gov-co-redes-sociales .gov-co-link-presentacion{
+  display: flex;
+  align-items: center;
+  gap:8px;
+}
+.social-icon svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+@media screen and (max-width:991px){
+    .footer-logo-autoridad{
+        text-align:center;
+        width: 100%;
+    }
+}
+
+.footer-logo-col{
+    flex-direction: column;
+    align-items: flex-end;    
+}
+
+.footer-logo-container{
+    display:flex;
+    width:221px;
+    justify-content: center;
+    margin-bottom:20px;
+}
+
+@media screen and (max-width: 991px){
+    .footer-logo-container {
+        width:100%
+    }
+}
+
+.gov-co-footer h1, .gov-co-footer h2, .gov-co-footer h3, .gov-co-footer h4, .gov-co-footer h5{
+    text-transform:initial;
+}
+
+.w-100 {
+   width: 100% !important;
+}
+
+
+
