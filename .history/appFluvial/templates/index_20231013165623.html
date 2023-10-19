@@ -1,0 +1,81 @@
+{% extends 'home.html' %}
+
+{% load static %}
+{% block content %}
+<!--div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="content">
+                        <h1 class="title">TransFluvial De Carga</h1>
+                        <p class="city">Transporte fluvial del departamento del Guaviare</p>
+                    </div>
+                    <h1>Bienvenido a la página de inicio</h1>
+                    <p>Esta es la aplicación modelo de TransFluvial del Guaviare SENA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div-->
+<main role="main">
+
+    <section class="jumbotron text-center imagen-background">
+      <div class="container">
+        <h1 class="jumbotron-heading text-white">Administración  de las motonaves y de la carga  en el transporte fluvial de la cuenca del orinoco</h1>
+        <div class="text-left"> <!-- Aplicar alineación a la derecha -->
+            <p class="">Una aplicación informática para los usuarios del transporte fluvial permite una comunicación rápida, segura, eficiente a lo largo de toda la cadena de transporte fluvial y la interacción con todos los actores de la cadena de abastecimiento. Esto disminuirá costos y mejorará los procesos logísticos.</p>
+        </div>
+        <p  style="margin-top: 100px;">
+          <a href="#" class="btn btn-primary my-2">Iniciar sesión</a>
+          <a href="../admin" class="btn btn-secondary my-2">Administración</a>
+        </p>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row">
+          {% for card in cards %}          
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="{% static card.image %}" 
+              alt="{{ card.name }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ card.name }}</h5>
+                <p class="card-text">
+                  {{ card.text }}
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="/{{ card.id_card }}">Ver</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Editar</button>
+                  </div>
+                  <small class="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% empty %}
+            <p>No hay cards disponibles.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+<style>
+    .imagen-background {
+        background-image: url('{% static "images/Imagen1.jpg" %}');
+        background-size: cover;
+    }
+    .half-width-paragraph {
+        width: 50%; /* Establecer el ancho en la mitad (50%) */
+    }
+</style>
+
+
+
+{% endblock %}
