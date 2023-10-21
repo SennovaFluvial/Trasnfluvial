@@ -88,10 +88,9 @@ label {
   padding: 12px;
   margin: 10px 0;
   border: none;
-  width: 20%;
+  width: 10%;
   border-radius: 3px;
   cursor: pointer;
-  font-size: 17px;
 }
 
 .btn:hover {
@@ -111,7 +110,7 @@ span.price {
   color: grey;
 }
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+
 @media (max-width: 800px) {
   .row {
     flex-direction: column-reverse;
@@ -177,7 +176,6 @@ span.price {
       <p><a href="../../card/1/pago">Pago</a> <span class="price"> </span></p>
       <p><a href="../../card/1/revision">Revisión</a> <span class="price"> </span></p>
       <hr>
-      <!--p>Total <span class="price" style="color:black"><b>$30</b></span></p-->
     </div>
   </div>
 
@@ -188,11 +186,11 @@ span.price {
       <div class="row"><br />
         <div class="col-md-12">          
         <div class="progress">           
-            <div class="one no-color"></div>
-            <div class="two no-color"></div>
-            <div class="three no-color"></div>
-            <div class="four no-color"></div>
-            <div class="progress-bar progress-bar-success" style="width: 0%"></div>
+            <div class="one success-color"></div>
+            <div class="two success-color"></div>
+            <div class="three success-color"></div>
+            <div class="four success-color"></div>
+            <div class="progress-bar progress-bar-success" style="width: 98%"></div>
         </div>
         <br>
         <label for="one" style="position: absolute; top: 30px; left: 25%; z-index: 1; margin-top: 10px;">Remitente/Destinatario</label>
@@ -206,61 +204,47 @@ span.price {
     <br>
     <!-- -*****************************************END**********************************************-->
     <div class="text-center"> 
-      <h2>Información del Remitente</h2>
+      <h2>Detalle de orden</h2>
     </div>
     <div class="container">
-      <form method="post">
+      <form method="post">        
         {% csrf_token %}
         <div class="row">
           <div class="col-50">
             <h3>  </h3>
-            <label for="fname"><i class="fa fa-user"></i> Nombres Remitente</label>
-            <input type="text" id="fname" name="fname" placeholder="Robinson" required="">
-            <div class="col-md-5 mb-3">
-                <label for="tipodocumento">Tipo documento</label>
-                <select class="custom-select d-block w-100" id="tipodocumento" name="tipodocumento" required="">
-                  <option value="">Seleccione...</option>
-                  <option>CC</option>
-                  <option>CE</option>
-                  <option>Pasaporte</option>
-                </select>                
-            </div>             
 
-            <label for="adr"><i class="fa fa-address-card-o"></i> Dirección</label>
-            <input type="text" id="adr" name="address" placeholder="direccion">
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="robin@example.com">
-            <label for="city"><i class="fa fa-institution"></i> Ciudad</label>
-            <input type="text" id="city" name="city" placeholder="San Jose del Guaviare">
-
-          </div>
-
-          <div class="col-50">
-            <h3>  </h3>            
-            <label for="apellidos">Apellidos Remitente</label>
-            <input type="text" id="apellidos" name="apellidos" placeholder="Fonseca">
-            <label for="documento">Documento</label>
-            <input type="text" id="documento" name="documento" placeholder="1111111">
-            <label for="telefono">Teléfono</label>
-            <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
-            <label for="empresa">Empresa</label>
-            <input type="text" id="empresa" name="empresa" placeholder="Empresa">
-            <label for="dep">Departamento</label>
-            <input type="text" id="dep" name="dep" placeholder="Departamento">
-           
             
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pagoefectivo" value="option1">
+              <label class="form-check-label" for="pagoefectivo">Pago en efectivo</label>
+            </div>
+            <br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pagotransferecia" value="option2">
+              <label class="form-check-label" for="pagotransferecia">Pago por trasnferencia</label>
+            </div>
+            <br>
+            <label for="titularcuenta"><i class="fa fa-envelope"></i> Nombre del titular de la cuenta</label>
+            <input type="text" id="titularcuenta" name="titularcuenta" placeholder="Robinson Diaz">
+
+            <label for="numerocuenta"><i class="fa fa-institution"></i> Número de la cuenta</label>
+            <input type="text" id="numerocuenta" name="numerocuenta" placeholder="032132000-5">
+
+            <label for="fechatransacion"><i class="fa fa-institution"></i> Fecha de transcion</label>
+            <input type="date" id="fechatransacion" name="fechatransacion">
+
           </div>
+
+          
           
         </div>
-        
         <div class="text-center"> 
-        <input type="submit" value="Siguiente" class="btn">
+          <button href="javascript:history.back()" class="btn btn-secondary">Atrás</button>
+          <button type="submit" class="btn btn-success">Siguiente</button>
         </div>
       </form>
     </div>
   </div>
-  
-  
 </div>
 
 </body>

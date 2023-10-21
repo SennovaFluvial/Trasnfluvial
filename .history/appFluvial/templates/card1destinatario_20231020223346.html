@@ -88,10 +88,9 @@ label {
   padding: 12px;
   margin: 10px 0;
   border: none;
-  width: 20%;
+  width: 10%;
   border-radius: 3px;
   cursor: pointer;
-  font-size: 17px;
 }
 
 .btn:hover {
@@ -111,7 +110,7 @@ span.price {
   color: grey;
 }
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+
 @media (max-width: 800px) {
   .row {
     flex-direction: column-reverse;
@@ -177,7 +176,6 @@ span.price {
       <p><a href="../../card/1/pago">Pago</a> <span class="price"> </span></p>
       <p><a href="../../card/1/revision">Revisión</a> <span class="price"> </span></p>
       <hr>
-      <!--p>Total <span class="price" style="color:black"><b>$30</b></span></p-->
     </div>
   </div>
 
@@ -188,7 +186,7 @@ span.price {
       <div class="row"><br />
         <div class="col-md-12">          
         <div class="progress">           
-            <div class="one no-color"></div>
+            <div class="one success-color"></div>
             <div class="two no-color"></div>
             <div class="three no-color"></div>
             <div class="four no-color"></div>
@@ -206,19 +204,20 @@ span.price {
     <br>
     <!-- -*****************************************END**********************************************-->
     <div class="text-center"> 
-      <h2>Información del Remitente</h2>
+      <h2>Información destinatario</h2>
     </div>
     <div class="container">
-      <form method="post">
+      <form method="post">        
         {% csrf_token %}
         <div class="row">
           <div class="col-50">
             <h3>  </h3>
-            <label for="fname"><i class="fa fa-user"></i> Nombres Remitente</label>
-            <input type="text" id="fname" name="fname" placeholder="Robinson" required="">
+
+            <label for="dfname"><i class="fa fa-user"></i> Nombres Destinatario</label>
+            <input type="text" id="dfname" name="dfname" placeholder="Robinson">
             <div class="col-md-5 mb-3">
-                <label for="tipodocumento">Tipo documento</label>
-                <select class="custom-select d-block w-100" id="tipodocumento" name="tipodocumento" required="">
+                <label for="dtipodocumento">Tipo documento</label>
+                <select class="custom-select d-block w-100" id="dtipodocumento" required="">
                   <option value="">Seleccione...</option>
                   <option>CC</option>
                   <option>CE</option>
@@ -226,41 +225,38 @@ span.price {
                 </select>                
             </div>             
 
-            <label for="adr"><i class="fa fa-address-card-o"></i> Dirección</label>
-            <input type="text" id="adr" name="address" placeholder="direccion">
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="robin@example.com">
-            <label for="city"><i class="fa fa-institution"></i> Ciudad</label>
-            <input type="text" id="city" name="city" placeholder="San Jose del Guaviare">
+            <label for="dadr"><i class="fa fa-address-card-o"></i> Dirección</label>
+            <input type="text" id="dadr" name="dadr" placeholder="direccion">
+            <label for="demail"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="demail" name="demail" placeholder="robin@example.com">
+            <label for="dcity"><i class="fa fa-institution"></i> Ciudad</label>
+            <input type="text" id="dcity" name="dcity" placeholder="San Jose del Guaviare">
 
           </div>
 
           <div class="col-50">
             <h3>  </h3>            
-            <label for="apellidos">Apellidos Remitente</label>
-            <input type="text" id="apellidos" name="apellidos" placeholder="Fonseca">
-            <label for="documento">Documento</label>
-            <input type="text" id="documento" name="documento" placeholder="1111111">
-            <label for="telefono">Teléfono</label>
-            <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
-            <label for="empresa">Empresa</label>
-            <input type="text" id="empresa" name="empresa" placeholder="Empresa">
-            <label for="dep">Departamento</label>
-            <input type="text" id="dep" name="dep" placeholder="Departamento">
-           
-            
+            <label for="dapellidos">Apellidos Destinatario</label>
+            <input type="text" id="dapellidos" name="dapellidos" placeholder="Fonseca">
+            <label for="ddocumento">Documento</label>
+            <input type="text" id="ddocumento" name="ddocumento" placeholder="1111111">
+            <label for="dtelefono">Teléfono</label>
+            <input type="text" id="dtelefono" name="dtelefono" placeholder="Teléfono">
+            <label for="dempresa">Empresa</label>
+            <input type="text" id="dempresa" name="dempresa" placeholder="Empresa">
+            <label for="ddep">Departamento</label>
+            <input type="text" id="ddep" name="ddep" placeholder="Departamento">
+            </div>
           </div>
           
         </div>
-        
         <div class="text-center"> 
-        <input type="submit" value="Siguiente" class="btn">
+          <a href="javascript:history.back()" class="btn btn-secondary">Atrás</a>
+          <a type="submit" class="btn btn-success">Siguiente</a>
         </div>
       </form>
     </div>
   </div>
-  
-  
 </div>
 
 </body>

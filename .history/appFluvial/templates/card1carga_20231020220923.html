@@ -161,15 +161,14 @@ span.price {
 <script>
   function addRow() {
 
-      var producto = document.getElementById('tipocarga').value;
+      //--var producto = document.getElementById('producto').value;
       var cant = document.getElementById('cantidadcarga').value;
       var fechasal = document.getElementById('fechasalida').value;
       var valorca = document.getElementById('costoflete').value;
       var valorse = document.getElementById('asegurarcarga').value;
       var valorto = document.getElementById('costoflete').value;
       var table = document.getElementById("myTable");
-      var rowCount = table.rows.length;
-      rowCount++;
+
       var row = table.insertRow(-1);
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
@@ -179,16 +178,20 @@ span.price {
       var cell6 = row.insertCell(5);
       var cell7 = row.insertCell(6);
       var cell8 = row.insertCell(7);
-      cell1.innerHTML = ""+rowCount;
-      cell2.innerHTML = producto;
+      cell1.innerHTML = "<input type='text' name='id' class='form-control'>";
+      //cell2.innerHTML = producto;
       cell3.innerHTML = cant;
       cell4.innerHTML = fechasal;
       cell5.innerHTML = valorca;
       cell6.innerHTML = valorse;
       cell7.innerHTML = valorto;
-      cell8.innerHTML = "<button type='button' class='btn btn-danger' onclick='deleteRow(this)'>-</button>";
+      cell8.innerHTML = "<button type='button' class='btn btn-danger' onclick='deleteRow(this)'>Eliminar</button>";
 
-      document.getElementById("dismissModal1").click();
+    /*var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+        backdrop: 'static', // Opciones de fondo para el modal
+        keyboard: false // Indicación de si se puede cerrar el modal con el teclado
+      });
+      myModal.hide();*/
 
   }
 
@@ -262,7 +265,7 @@ span.price {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    
+                    ***
                     <div class="row">
                       <div class="form-group col">
                           <label for="idcarga">Nro Guia:</label>
@@ -393,7 +396,7 @@ span.price {
                         <textarea type="text" class="form-control" id="descripcion" style="height: 100px" ></textarea>
                       </div>
                     </div>
-                    
+                    ****
                     <!--td><input type="text" name="producto" id="producto"></td>
                     <td><input type="text" name="cant" id="cant"></td>
                     <td><input type="text" name="fechasal" id="fechasal"></td>
@@ -402,7 +405,7 @@ span.price {
                     <td><input type="text" name="valorto" id="valorto"></td>-->
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="dismissModal1">Cancelar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-primary" onclick="addRow()" >Agregar</button>
                   </div>
                 </div>
@@ -414,7 +417,7 @@ span.price {
             <table class="table">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>ID</th>
                   <th>Producto</th>
                   <th>Cant.</th>
                   <th>Fecha Salida</th>
@@ -439,7 +442,7 @@ span.price {
             </table>
 
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-backdrop="static">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Agregar(+)
             </button>
             <!--a type="button"  class="btn btn-success" onclick="addRow()">Agregar+</!--a-->            
@@ -447,8 +450,8 @@ span.price {
         </div>
         <br>
         <div class="text-center"> 
-          <button href="javascript:history.back()" class="btn btn-secondary">Atrás</button>
-          <button type="submit" class="btn btn-success">Siguiente</button>
+        <a href="javascript:history.back()" class="btn btn-secondary">Atrás</a>
+        <a type="submit" value="Siguiente" class="btn btn-success"> Siguiente</a>
         </div>
       </form>
     </div>

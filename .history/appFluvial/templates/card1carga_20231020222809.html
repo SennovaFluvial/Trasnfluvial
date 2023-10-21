@@ -186,7 +186,7 @@ span.price {
       cell5.innerHTML = valorca;
       cell6.innerHTML = valorse;
       cell7.innerHTML = valorto;
-      cell8.innerHTML = "<button type='button' class='btn btn-danger' onclick='deleteRow(this)'>-</button>";
+      cell8.innerHTML = "<button type='button' class='btn btn-danger' onclick='deleteRow(this)'>Eliminar</button>";
 
       document.getElementById("dismissModal1").click();
 
@@ -262,7 +262,7 @@ span.price {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    
+                    ***
                     <div class="row">
                       <div class="form-group col">
                           <label for="idcarga">Nro Guia:</label>
@@ -393,7 +393,7 @@ span.price {
                         <textarea type="text" class="form-control" id="descripcion" style="height: 100px" ></textarea>
                       </div>
                     </div>
-                    
+                    ****
                     <!--td><input type="text" name="producto" id="producto"></td>
                     <td><input type="text" name="cant" id="cant"></td>
                     <td><input type="text" name="fechasal" id="fechasal"></td>
@@ -414,7 +414,7 @@ span.price {
             <table class="table">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>ID</th>
                   <th>Producto</th>
                   <th>Cant.</th>
                   <th>Fecha Salida</th>
@@ -447,8 +447,8 @@ span.price {
         </div>
         <br>
         <div class="text-center"> 
-          <button href="javascript:history.back()" class="btn btn-secondary">Atrás</button>
-          <button type="submit" class="btn btn-success">Siguiente</button>
+        <a href="javascript:history.back()" class="btn btn-secondary">Atrás</a>
+        <a type="submit" value="Siguiente" class="btn btn-success"> Siguiente</a>
         </div>
       </form>
     </div>
