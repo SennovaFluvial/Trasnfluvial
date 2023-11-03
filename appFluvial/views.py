@@ -20,17 +20,8 @@ def logistica(request):
         print(" apellidos: " , apellidos)
     if request.method == 'POST':
         request.session['form_data'] = request.POST
-        return redirect('../1/destinatario')
+        return redirect('../../card/1/destinatario')
     return render(request, 'card1.html')
-
-########################################################
-#def otracosa_view(request):
-#    form_data = request.session.get('form_data')
-#    if form_data:
-#        first_name = form_data.get('fname')
-#        
-#    return render(request, 'card1pago.html', {'first_name': first_name})
-#########################################################
 
 def logistica_destinatario(request):
     print("---destinatario---")
