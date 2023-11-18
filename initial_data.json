@@ -21,6 +21,20 @@
         }
     },
     {
+        "model": "appFluvial.departamento",
+        "pk": 4,
+        "fields": {
+            "nombre": "Vaupés"
+        }
+    },
+    {
+        "model": "appFluvial.departamento",
+        "pk": 5,
+        "fields": {
+            "nombre": "Guainía"
+        }
+    },
+    {
         "model": "appFluvial.municipio",
         "pk": 1,
         "fields": {
@@ -32,7 +46,7 @@
         "model": "appFluvial.municipio",
         "pk": 2,
         "fields": {
-            "nombre": "El Retorno",
+            "nombre": "Barranquillita",
             "departamento": 1
         }
     },
@@ -78,7 +92,7 @@
     },
     {
         "model": "appFluvial.municipio",
-        "pk":8,
+        "pk": 8,
         "fields": {
             "nombre": "Puerto Carreño",
             "departamento": 2
@@ -104,8 +118,56 @@
         "model": "appFluvial.municipio",
         "pk": 11,
         "fields": {
-            "nombre": "Caño jabón",
+            "nombre": "Mapiripan",
             "departamento": 3
+        }
+    },
+     {
+        "model": "appFluvial.municipio",
+        "pk": 12,
+        "fields": {
+            "nombre": "Carurú",
+            "departamento": 4
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 13,
+        "fields": {
+            "nombre": "Pucarón",
+            "departamento": 4
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 14,
+        "fields": {
+            "nombre": "mitú",
+            "departamento": 4
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 15,
+        "fields": {
+            "nombre": "Raudal de la mapiripana",
+            "departamento": 5
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 16,
+        "fields": {
+            "nombre": "Barrancominas",
+            "departamento": 5
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 17,
+        "fields": {
+            "nombre": "Inirida",
+            "departamento": 5
         }
     }
 ]
