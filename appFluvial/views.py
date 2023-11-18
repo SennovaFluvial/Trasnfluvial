@@ -1,9 +1,11 @@
+import json
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .models import CardDescription, Destinatario
 
 from .forms import Card1RemitenteForm
 from .models import Departamento, Municipio
+from django.contrib import messages
 
 # def home(request):
 #    return render(request, 'home.html')
@@ -13,17 +15,58 @@ def index(request):
     return render(request, 'index.html', {'cards': cards})
 
 
+from django.shortcuts import get_object_or_404
+
 def logistica(request):
     print("---remitente---")     
-    municipios = Municipio.objects.none()  
-    departamentos = Departamento.objects.all()
+    #municipios = Municipio.objects.none()  
+    #departamentos = Departamento.objects.all()
+
     if request.method == 'POST':
-        print("22222222222222222222")
         form = Card1RemitenteForm(request.POST)
-        
+
         if form.is_valid():
-            destinatario_instance = form.save()    
-            print(destinatario_instance)     
+            # Obtener la cédula del formulario
+            cedula = form.cleaned_data['documento']
+
+            # Intentar obtener un Destinatario existente con la misma cédula
+            destinatario_existente = Destinatario.objects.filter(documento=cedula).first()
+
+            # Actualizar los campos existentes con los valores del formulario
+            if destinatario_existente:
+                form_instance = form.save(commit=False)
+                destinatario_existente.fname = form_instance.fname
+                destinatario_existente.tipodocumento = form_instance.tipodocumento
+                destinatario_existente.adr = form_instance.adr
+                destinatario_existente.email = form_instance.email
+                destinatario_existente.dep = form_instance.dep
+                destinatario_existente.empresa = form_instance.empresa
+                destinatario_existente.apellidos = form_instance.apellidos
+                destinatario_existente.telefono = form_instance.telefono
+                destinatario_existente.city = form_instance.city
+                destinatario_existente.save()
+            else:
+                # Si no existe, guardar como un nuevo registro
+                # Si no existe, guardar como un nuevo registro
+                new_destinatario = form.save()
+                messages.success(request, 'Destinatario agregado exitosamente.')
+
+                # Serializar el objeto del destinatario a JSON y guardarlo en la sesión
+                remitente_json = json.dumps({
+                    'fname': new_destinatario.fname,
+                    'tipodocumento': new_destinatario.tipodocumento,
+                    'adr': new_destinatario.adr,
+                    'email': new_destinatario.email,
+                    'dep': new_destinatario.dep,
+                    'empresa': new_destinatario.empresa,
+                    'apellidos': new_destinatario.apellidos,
+                    'documento': new_destinatario.documento,
+                    'telefono': new_destinatario.telefono,
+                    'city': new_destinatario.city,
+                })
+
+                request.session['remitente_info'] = remitente_json
+
             return redirect('../../card/1/destinatario')
         else:
             print("formulario invalido..........")
@@ -31,9 +74,7 @@ def logistica(request):
     else:
         form = Card1RemitenteForm()
         
-    
-    return render(request, 'card1.html', {'form': form, 'municipios': municipios, 'departamentos': departamentos})
-
+    return render(request, 'card1.html', {'form': form})
 
 def obtener_municipios(request):
     departamento_id = request.GET.get('departamento_id')
@@ -76,8 +117,17 @@ def obtener_destinatario_por_cedula(request):
         # Si no es una solicitud GET, devolver un objeto vacío
         return JsonResponse({})
   
-def logistica_destinatario(request):
+def logistica_destinatario(request):    
     print("---destinatario---")
+    # Obtener la información del destinatario desde la sesión
+    remitente_json = request.session.get('remitente_info', None)
+
+    if remitente_json:
+        # Deserializar el JSON para obtener el objeto del destinatario
+        remitente_info = json.loads(remitente_json)
+        # Ahora puedes usar destinatario_info como un diccionario que contiene la información del destinatario
+        # ...
+        print(remitente_info)
     form_data = request.session.get('form_data')
     if form_data:
         first_name = form_data.get('fname')
