@@ -118,7 +118,7 @@
         "model": "appFluvial.municipio",
         "pk": 11,
         "fields": {
-            "nombre": "Caño jabón",
+            "nombre": "Mapiripan",
             "departamento": 3
         }
     },
