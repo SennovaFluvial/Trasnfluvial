@@ -247,7 +247,7 @@ span.price {
             {% csrf_token %}
             <div class="row">
                 <div class="col-50">
-                    <h3>Información del Remitente</h3>
+                    <h3></h3>
         
                     <div class="form-group">
                         <label for="{{ form.fname.id_for_label }}">Nombres Remitente</label>
@@ -273,17 +273,13 @@ span.price {
                     <div class="form-group">
                         <label for="{{ form.dep.id_for_label }}">Departamento</label>
                         {{ form.dep }}
-                    </div>
-                    
+                    </div>                    
         
-                    <div class="form-group">
-                        <label for="{{ form.empresa.id_for_label }}">Empresa</label>
-                        {{ form.empresa }}
-                    </div>
+                    
                 </div>
         
                 <div class="col-50">
-                    <h3>Apellidos y Documento</h3>
+                    <h3></h3>
         
                     <div class="form-group">
                         <label for="{{ form.apellidos.id_for_label }}">Apellidos Remitente</label>
@@ -294,10 +290,66 @@ span.price {
                         <label for="{{ form.documento.id_for_label }}">Documento</label>
                         {{ form.documento }}
                     </div>
+                    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                    <script>
+                        $(document).ready(function() {
+                            $('#id_documento').keyup(function() {
+                                var cedula = $(this).val();
+                                console.log( cedula);
+                                $('#wait-message').show();
+                                // Validar que el campo de cédula no esté vacío
+                                if (cedula.trim() === '') {
+                                    // Puedes mostrar un mensaje de error o simplemente salir sin hacer la solicitud AJAX
+                                    return;
+                                }
+                    
+                                // Realizar la solicitud AJAX solo si la cédula no está vacía
+                                $.ajax({
+                                    url: '/obtener_destinatario_por_cedula/',  // Ajusta la URL según tu configuración
+                                    data: {'cedula': cedula},
+                                    dataType: 'json',
+                                    success: function(data) {
+                                        // Verificar si los datos no están vacíos antes de actualizar el formulario
+                                        if (!$.isEmptyObject(data)) {
+                                            // Actualizar los campos del formulario con los datos obtenidos
+                                            $('#id_fname').val(data.fname);
+                                            $('#id_tipodocumento').val(data.tipodocumento);
+                                            $('#id_adr').val(data.adr);
+                                            $('#id_email').val(data.email);
+                                            $('#id_dep').val(data.dep);
+                                            $('#id_empresa').val(data.empresa);
+                                            $('#id_apellidos').val(data.apellidos);
+                                            $('#id_telefono').val(data.telefono);
+                                            $('#id_city').val(data.city);
+                                        } else {
+                                            // Si la cédula está vacía, establecer todos los campos en blanco
+                                            $('#id_fname').val('');
+                                            $('#id_tipodocumento').val('');
+                                            $('#id_adr').val('');
+                                            $('#id_email').val('');
+                                            $('#id_dep').val('');
+                                            $('#id_empresa').val('');
+                                            $('#id_apellidos').val('');
+                                            $('#id_telefono').val('');
+                                            $('#id_city').val('');
+                                        }
+                                    },complete: function () {
+                                      // Oculta el mensaje de espera cuando la solicitud se completa
+                                      $('#wait-message').hide();
+                                  },
+                                });
+                            });
+                        });
+                    </script>
         
                     <div class="form-group">
                         <label for="{{ form.telefono.id_for_label }}">Teléfono</label>
                         {{ form.telefono }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.empresa.id_for_label }}">Empresa</label>
+                        {{ form.empresa }}
                     </div>
         
                     <div class="form-group">

@@ -21,7 +21,7 @@ class Command(BaseCommand):
         
         Municipio.objects.get_or_create(nombre='Cumaribo', departamento=vichada)
         Municipio.objects.get_or_create(nombre='La Primavera', departamento=vichada)
-        Municipio.objects.get_or_create(nombre='San José del Guaviare Ocune', departamento=vichada)        
+        Municipio.objects.get_or_create(nombre='San José de Ocune', departamento=vichada)        
         Municipio.objects.get_or_create(nombre='Puerto Carreño', departamento=vichada)
         Municipio.objects.get_or_create(nombre='Santa Rosalía', departamento=vichada)
         Municipio.objects.get_or_create(nombre='Santa Rita', departamento=vichada)

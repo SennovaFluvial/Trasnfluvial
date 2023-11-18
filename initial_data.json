@@ -3,7 +3,7 @@
         "model": "appFluvial.departamento",
         "pk": 1,
         "fields": {
-            "nombre": "San José del Guaviare"
+            "nombre": "Guaviare"
         }
     },
     {

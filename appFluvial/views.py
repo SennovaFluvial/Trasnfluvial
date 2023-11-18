@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from .models import CardDescription
+from .models import CardDescription, Destinatario
 
 from .forms import Card1RemitenteForm
 from .models import Departamento, Municipio
@@ -47,7 +47,35 @@ def obtener_municipios(request):
         return JsonResponse(municipios_data)
     else:
         return JsonResponse({'municipios': {}})
-    
+
+def obtener_destinatario_por_cedula(request):
+    if request.method == 'GET':
+        cedula = request.GET.get('cedula', None)
+        if cedula:
+            try:
+                destinatario = Destinatario.objects.get(documento=cedula)
+                data = {
+                    'fname': destinatario.fname,
+                    'tipodocumento': destinatario.tipodocumento,
+                    'adr': destinatario.adr,
+                    'email': destinatario.email,
+                    'dep': destinatario.dep,
+                    'empresa': destinatario.empresa,
+                    'apellidos': destinatario.apellidos,
+                    'telefono': destinatario.telefono,
+                    'city': destinatario.city,
+                }
+                return JsonResponse(data)
+            except Destinatario.DoesNotExist:
+                # Si no se encuentra el destinatario, devolver un objeto vacío
+                return JsonResponse({})
+        else:
+            # Si no se proporciona la cédula, devolver un objeto vacío
+            return JsonResponse({})
+    else:
+        # Si no es una solicitud GET, devolver un objeto vacío
+        return JsonResponse({})
+  
 def logistica_destinatario(request):
     print("---destinatario---")
     form_data = request.session.get('form_data')
