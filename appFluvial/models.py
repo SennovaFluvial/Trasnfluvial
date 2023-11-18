@@ -70,7 +70,31 @@ class Cargo(models.Model):
     def __str__(self):
         return self.Nombre_cargo
 
+class Departamento(models.Model):
+    nombre = models.CharField(max_length=255)
 
+class Municipio(models.Model):
+    nombre = models.CharField(max_length=255)
+    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
+
+#admin.register(Departamento)
+class DepartamentoAdmin(admin.ModelAdmin):
+    list_display = ('nombre',)
+
+#admin.register(Municipio)
+class MunicipioAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'departamento_nombre')  # Agregar la columna del nombre del departamento
+    list_filter = ('departamento',)
+
+    def departamento_nombre(self, obj):
+        return obj.departamento.nombre
+
+    departamento_nombre.admin_order_field = 'departamento__nombre'
+    departamento_nombre.short_description = 'Departamento'
+# def load_fixture(apps, schema_editor):
+#    from django.core.management import call_command
+#    call_command('loaddata', 'initial_data.json')   
+    
 class Motonave(models.Model):
     ESTADOS_MOTONAVE = (
         ('Activa', 'Activa'),
@@ -235,7 +259,8 @@ admin.site.register(Destinatario)
 admin.site.register(Negocio)
 admin.site.register(Viaje, ViajeAdmin)
 admin.site.register(CardDescription, CardDescriptionAdmin)
-
+admin.site.register(Departamento,DepartamentoAdmin)
+admin.site.register(Municipio, MunicipioAdmin)
 
 def create_superuser(apps, schema_editor):
     User.objects.create_superuser(
@@ -245,6 +270,8 @@ def create_superuser(apps, schema_editor):
     )
 
 
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -252,6 +279,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RunPython(create_superuser),
+        #migrations.RunPython(load_fixture),
         migrations.RunPython(CardDescription.prepopulate)
     ]
     

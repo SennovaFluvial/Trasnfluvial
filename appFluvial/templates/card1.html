@@ -227,28 +227,45 @@ span.price {
             </div>             
 
             <label for="adr"><i class="fa fa-address-card-o"></i> Dirección</label>
-            <input type="text" id="adr" name="address" placeholder="direccion">
+            <input type="text" id="adr" name="address" placeholder="direccion" required="">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="robin@example.com">
+            <input type="text" id="email" name="email" placeholder="robin@example.com" required="">
             <label for="city"><i class="fa fa-institution"></i> Ciudad</label>
-            <input type="text" id="city" name="city" placeholder="San Jose del Guaviare">
+            <input type="text" id="city" name="city" placeholder="San Jose del Guaviare" required="">
+            <form method="post" id="select-departamento-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Seleccionar">
+            </form>
+            
 
           </div>
 
           <div class="col-50">
             <h3>  </h3>            
             <label for="apellidos">Apellidos Remitente</label>
-            <input type="text" id="apellidos" name="apellidos" placeholder="Fonseca">
+            <input type="text" id="apellidos" name="apellidos" placeholder="Fonseca" required="">
             <label for="documento">Documento</label>
-            <input type="text" id="documento" name="documento" placeholder="1111111">
+            <input type="text" id="documento" name="documento" placeholder="1111111" required="">
             <label for="telefono">Teléfono</label>
-            <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
+            <input type="text" id="telefono" name="telefono" placeholder="Teléfono" required="">
             <label for="empresa">Empresa</label>
             <input type="text" id="empresa" name="empresa" placeholder="Empresa">
             <label for="dep">Departamento</label>
-            <input type="text" id="dep" name="dep" placeholder="Departamento">
-           
-            
+            <input type="text" id="dep" name="mun" placeholder="Departamento" required="">
+            <select id="id_municipios" name="municipios" multiple>
+                {% for municipio in municipios %}
+                    <option value="{{ municipio.id }}">{{ municipio.nombre }}</option>
+                {% endfor %}
+            </select>
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#id_nombre').change(function () {
+                        $('#select-departamento-form').submit();
+                    });
+                });
+            </script>            
           </div>
           
         </div>

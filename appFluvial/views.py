@@ -1,12 +1,29 @@
 from django.shortcuts import render, redirect
 from .models import CardDescription
 
+from .forms import SelectDepartamentoForm
+from .models import Departamento, Municipio
+
 #def home(request):
 #    return render(request, 'home.html')
 
 def index(request):
     cards = CardDescription.objects.all()
     return render(request, 'index.html', {'cards': cards})
+
+def mi_vista(request):
+    departamentos = Departamento.objects.all()
+    
+    if request.method == 'POST':
+        form = SelectDepartamentoForm(request.POST)
+        if form.is_valid():
+            departamento_seleccionado = form.cleaned_data['nombre']
+            municipios = Municipio.objects.filter(departamento__nombre=departamento_seleccionado)
+    else:
+        form = SelectDepartamentoForm()
+        municipios = Municipio.objects.none()
+
+    return render(request, 'mi_template.html', {'form': form, 'municipios': municipios, 'departamentos': departamentos})
 
 def logistica(request):
     print("---remitente---")
@@ -20,6 +37,7 @@ def logistica(request):
         print(" apellidos: " , apellidos)
     if request.method == 'POST':
         request.session['form_data'] = request.POST
+        
         return redirect('../../card/1/destinatario')
     return render(request, 'card1.html')
 

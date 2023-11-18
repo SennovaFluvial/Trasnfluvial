@@ -1,0 +1,103 @@
+[
+    {
+        "model": "appFluvial.departamento",
+        "pk": 1,
+        "fields": {
+            "nombre": "San José del Guaviare"
+        }
+    },
+    {
+        "model": "appFluvial.departamento",
+        "pk": 2,
+        "fields": {
+            "nombre": "Vichada"
+        }
+    },
+    {
+        "model": "appFluvial.departamento",
+        "pk": 3,
+        "fields": {
+            "nombre": "Meta"
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 1,
+        "fields": {
+            "nombre": "Calamar",
+            "departamento": 1
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 2,
+        "fields": {
+            "nombre": "El Retorno",
+            "departamento": 1
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 3,
+        "fields": {
+            "nombre": "Miraflores",
+            "departamento": 1
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 4,
+        "fields": {
+            "nombre": "San José del Guaviare",
+            "departamento": 1
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 5,
+        "fields": {
+            "nombre": "Cumaribo",
+            "departamento": 2
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 6,
+        "fields": {
+            "nombre": "La Primavera",
+            "departamento": 2
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 7,
+        "fields": {
+            "nombre": "San José del Guaviare Ocune",
+            "departamento": 2
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk":8,
+        "fields": {
+            "nombre": "Puerto Carreño",
+            "departamento": 2
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 9,
+        "fields": {
+            "nombre": "Santa Rosalía",
+            "departamento": 2
+        }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 10,
+        "fields": {
+            "nombre": "Santa Rita",
+            "departamento": 2
+        }
+    }
+]
