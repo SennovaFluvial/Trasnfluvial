@@ -169,14 +169,25 @@ class Cliente(models.Model):
 
 
 class Destinatario(models.Model):
+    NOMBRE_CHOICES = [
+        ('CC', 'Cédula de Ciudadanía'),
+        ('CE', 'Cédula de Extranjería'),
+        ('Pasaporte', 'Pasaporte'),
+    ]
     ID_Destinatario = models.AutoField(primary_key=True)
-    Nombre = models.CharField(max_length=100)
-    Dirección = models.CharField(max_length=200)
-    Teléfono_contacto = models.CharField(max_length=15)
-    Otros_contacto = models.EmailField(blank=True, null=True)
-    email = models.CharField(blank=True,  max_length=400)
+    fname = models.CharField(max_length=255)
+    tipodocumento = models.CharField(max_length=20, choices=NOMBRE_CHOICES)
+    adr = models.CharField(max_length=255)
+    email = models.EmailField()
+    dep = models.CharField(max_length=255)
+    empresa = models.CharField(max_length=255, blank=True, null=True)
+    apellidos = models.CharField(max_length=255)
+    documento = models.CharField(max_length=20)
+    telefono = models.CharField(max_length=20)
+    city = models.CharField(max_length=255)
+
     def __str__(self):
-        return self.Nombre
+        return self.fname
 
 
 class Negocio(models.Model):

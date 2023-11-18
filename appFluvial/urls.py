@@ -5,6 +5,7 @@ urlpatterns = [
     #path('', views.home, name='home2'),
     path('', views.index, name='index'),
     path('card/1', views.logistica, name='LOGÍSTICA-REMITENTE'),
+    path('obtener-municipios/', views.obtener_municipios, name='obtener_municipios'),
     path('card/1/remitente', views.logistica, name='LOGÍSTICA-REMITENTE'),
     path('card/1/destinatario', views.logistica_destinatario, name='LOGÍSTICA-DESTINATARIO'),
     path('card/1/carga', views.logistica_carga, name='LOGÍSTICA-CARGA'),

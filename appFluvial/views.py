@@ -1,46 +1,53 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .models import CardDescription
 
-from .forms import SelectDepartamentoForm
+from .forms import Card1RemitenteForm
 from .models import Departamento, Municipio
 
-#def home(request):
+# def home(request):
 #    return render(request, 'home.html')
 
 def index(request):
     cards = CardDescription.objects.all()
     return render(request, 'index.html', {'cards': cards})
 
-def mi_vista(request):
-    departamentos = Departamento.objects.all()
-    
-    if request.method == 'POST':
-        form = SelectDepartamentoForm(request.POST)
-        if form.is_valid():
-            departamento_seleccionado = form.cleaned_data['nombre']
-            municipios = Municipio.objects.filter(departamento__nombre=departamento_seleccionado)
-    else:
-        form = SelectDepartamentoForm()
-        municipios = Municipio.objects.none()
-
-    return render(request, 'mi_template.html', {'form': form, 'municipios': municipios, 'departamentos': departamentos})
 
 def logistica(request):
-    print("---remitente---")
-    form_data = request.session.get('form_data')
-    if form_data:
-        first_name = form_data.get('fname')
-        tipodocumento = form_data.get('tipodocumento')
-        apellidos = form_data.get('apellidos')
-        print(" Nombres: ",first_name)
-        print(" tipo documento: ",tipodocumento)
-        print(" apellidos: " , apellidos)
+    print("---remitente---")     
+    municipios = Municipio.objects.none()  
+    departamentos = Departamento.objects.all()
     if request.method == 'POST':
-        request.session['form_data'] = request.POST
+        print("22222222222222222222")
+        form = Card1RemitenteForm(request.POST)
         
-        return redirect('../../card/1/destinatario')
-    return render(request, 'card1.html')
+        if form.is_valid():
+            destinatario_instance = form.save()    
+            print(destinatario_instance)     
+            return redirect('../../card/1/destinatario')
+        else:
+            print("formulario invalido..........")
+            print(form.errors)
+    else:
+        form = Card1RemitenteForm()
+        
+    
+    return render(request, 'card1.html', {'form': form, 'municipios': municipios, 'departamentos': departamentos})
 
+
+def obtener_municipios(request):
+    departamento_id = request.GET.get('departamento_id')
+
+    if departamento_id:
+        municipios = Municipio.objects.filter(departamento__id=departamento_id)
+        municipios_data = {'municipios': {}}
+        for municipio in municipios:
+            municipios_data['municipios'][municipio.id] = municipio.nombre
+        print(municipios_data)
+        return JsonResponse(municipios_data)
+    else:
+        return JsonResponse({'municipios': {}})
+    
 def logistica_destinatario(request):
     print("---destinatario---")
     form_data = request.session.get('form_data')

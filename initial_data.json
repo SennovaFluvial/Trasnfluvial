@@ -99,5 +99,13 @@
             "nombre": "Santa Rita",
             "departamento": 2
         }
+    },
+    {
+        "model": "appFluvial.municipio",
+        "pk": 1,
+        "fields": {
+            "nombre": "Caño jabón",
+            "departamento": 3
+        }
     }
 ]
