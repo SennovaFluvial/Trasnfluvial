@@ -1,7 +1,8 @@
 # populate_data.py
 
 from django.core.management.base import BaseCommand
-from appFluvial.models import Departamento, Municipio
+from django.http import HttpResponse
+from appFluvial.models import CardDescription, Departamento, Municipio
 
 class Command(BaseCommand):
     help = 'Populate data for San José del Guaviare, Vichada, and Meta'
@@ -38,4 +39,10 @@ class Command(BaseCommand):
         Municipio.objects.get_or_create(nombre='Pucarón', departamento=vaupes)
         Municipio.objects.get_or_create(nombre='Mitú', departamento=vaupes)
 
+        # Crear registros de CardDescription
+        card_description = CardDescription()
+        card_description.prepopulate()
+        
         self.stdout.write(self.style.SUCCESS('Data populated successfully!'))
+
+

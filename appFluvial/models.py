@@ -1,3 +1,5 @@
+import datetime
+from django.utils import timezone
 import random
 import string
 import time
@@ -133,17 +135,38 @@ class MotonaveAdmin(admin.ModelAdmin):
 
 class Carga(models.Model):
     ID_Carga = models.AutoField(primary_key=True)
-    Descripción = models.TextField()
-    Peso = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Peso (Kg)')
-    Origen = models.CharField(max_length=100)
-    Destino = models.CharField(max_length=100)
-    Tipo_carga = models.CharField(max_length=100)
-    Estado_carga = models.CharField(max_length=100)
-    Fecha_transporte = models.DateField()
+    Descripción = models.TextField(blank=True, null=True)
+    Peso = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Peso (Kg)',blank=True, null=True)
+    Origen = models.CharField(max_length=100, blank=True, null=True)
+    Destino = models.CharField(max_length=100, blank=True, null=True)
+    Tipo_carga = models.CharField(max_length=100, blank=True, null=True)
+    Estado_carga = models.CharField(max_length=100, blank=True, null=True)
+    Fecha_transporte = models.DateField(blank=True, null=True)
     Otros_detalles = models.TextField(blank=True, null=True)
+    
+    nro_guia = models.CharField(max_length=255, blank=True, null=True)
+    ciudad_carga = models.CharField(max_length=255, blank=True, null=True)
+    departamento_carga = models.CharField(max_length=255, blank=True, null=True)
+    embarcacion = models.CharField(max_length=255, blank=True, null=True)
+    capitan = models.CharField(max_length=255, blank=True, null=True)
+    tipo_carga = models.CharField(max_length=255, blank=True, null=True)
+    cantidad_carga = models.CharField(max_length=255, blank=True, null=True)
+    unidad_medida = models.CharField(max_length=255, blank=True, null=True)
+    volumen_carga = models.CharField(max_length=255, blank=True, null=True)
+    peso = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    fecha_recibo = models.DateField(blank=True, null=True)
+    fecha_cargue = models.DateField(blank=True, null=True)
+    fecha_salida = models.DateField(blank=True, null=True)
+    categoria = models.CharField(max_length=255, blank=True, null=True)
+    ruta = models.CharField(max_length=255, blank=True, null=True)
+    costo_flete = models.CharField(max_length=255, blank=True, null=True)
+    descripcion = models.TextField(blank=True, null=True)
+    asegurar_carga = models.BooleanField(default=False)
+    #viaje = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.Descripción
+
 class CargaAdmin(admin.ModelAdmin):
     list_display = ('ID_Carga', 'Descripción', 'Peso', 'Origen', 'Destino', 'Tipo_carga', 'Estado_carga', 'Fecha_transporte')
     list_display_links = ('ID_Carga', 'Descripción')
@@ -202,15 +225,16 @@ class Negocio(models.Model):
         return f"Negocio - ID: {self.ID_Negocio}"
 
 
-class Viaje(models.Model):
+class Viaje(models.Model):   
     ID_Viaje = models.AutoField(primary_key=True)
     Guía_zarpe = models.CharField(max_length=100, verbose_name='Guía zarpe', blank=True)
-    Motonave = models.ForeignKey(Motonave, on_delete=models.CASCADE)
-    Piloto = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    Motonave = models.ForeignKey(Motonave, on_delete=models.CASCADE, blank=True, null=True)
+    Piloto = models.ForeignKey(Persona, on_delete=models.CASCADE, blank=True, null=True)
     Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, blank=True, null=True)
-    Destinatario = models.ForeignKey(Destinatario, on_delete=models.CASCADE, blank=True, null=True)
-    Carga = models.ForeignKey(Carga, on_delete=models.CASCADE)
-    Fecha_inicio_viaje = models.DateField()
+    Remitente = models.ForeignKey(Destinatario, on_delete=models.CASCADE, related_name='viajes_remitente', blank=True, null=True)
+    Destinatario = models.ForeignKey(Destinatario, on_delete=models.CASCADE, related_name='viajes_destinatario', blank=True, null=True)
+    Cargas = models.ManyToManyField(Carga)  # Relación ManyToMany con Carga
+    Fecha_inicio_viaje = models.DateField(default=timezone.now, blank=True, null=True)
     Fecha_fin_viaje = models.DateField(blank=True, null=True)
 
     def __str__(self):
@@ -218,8 +242,14 @@ class Viaje(models.Model):
 
 
 class ViajeAdmin(admin.ModelAdmin):
-    list_display = ('ID_Viaje', 'Guía_zarpe', 'Motonave', 'Piloto', 'Carga', 'Fecha_inicio_viaje', 'Fecha_fin_viaje')
+    list_display = ('ID_Viaje', 'Guía_zarpe', 'Motonave', 'Piloto', 'display_cargas', 'Fecha_inicio_viaje', 'Fecha_fin_viaje')
     list_display_links = ('ID_Viaje', 'Guía_zarpe')
+
+    def display_cargas(self, obj):
+        return ', '.join(str(carga) for carga in obj.Cargas.all())
+
+    display_cargas.short_description = 'Cargas'
+
 
 class CardDescription(models.Model):
     id_card = models.AutoField(primary_key=True)
@@ -232,6 +262,7 @@ class CardDescription(models.Model):
     
     @classmethod
     def prepopulate(cls):
+        print("Prepopulating CardDescription...")
         card = cls(
             name='Logística',
             text='Esta es una tarjeta más amplia con texto de apoyo a continuación como introducción natural al contenido adicional. Este contenido es un poco más largo.',
