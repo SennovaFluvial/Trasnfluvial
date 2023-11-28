@@ -1,16 +1,18 @@
 from decimal import Decimal
 import decimal
+from django.forms import model_to_dict
 from django.utils import timezone
 import json
 import uuid
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from .models import CardDescription, Destinatario, Viaje
+from .models import CardDescription, Carga, Destinatario, Viaje
 
 from .forms import Card1DestinatarioForm, Card1RemitenteForm, CargaForm
 from .models import Departamento, Municipio
 from django.contrib import messages
 from django.core.serializers.json import DjangoJSONEncoder
+from django.views.decorators.http import require_POST
 
 # def home(request):
 #    return render(request, 'home.html')
@@ -213,7 +215,7 @@ def logistica_destinatario(request):
                                          Remitente=remite, 
                                          Destinatario= destinatario_existente,
                                          Fecha_inicio_viaje=timezone.now())
-            print(viaje) 
+            
             viaje_data = {
                 'ID_Viaje': viaje.ID_Viaje,
                 'Guía_zarpe': viaje.Guía_zarpe,
@@ -261,69 +263,55 @@ def logistica_carga(request):
     
     remitente_info = request.session.get('remitente_info', None)
     destinatario_info = request.session.get('destinatario_json', None)
-    viaje = request.session.get('viaje', None)
-    print("*******************************************************************************************1")
-    print(remitente_info)
-    print("*******************************************************************************************2")
-    print(destinatario_info)
-    print("*******************************************************************************************3")
-    print(viaje)
-    print("********************************************************************************************")
-    
-    
-    print("1---")   
+    viaje_ = request.session.get('viaje', '{}')       
     request.session['remitente_info'] = remitente_info
     request.session['destinatario_info'] = destinatario_info
     print("2---")                     
     """     
-    if request.method == 'POST':
-        request.session['form_data'] = request.POST
         return redirect('../1/pago')"""
-    return render(request, 'card1carga.html')
+    viaje = json.loads(viaje_)
+    viaje_id = viaje.get('ID_Viaje')
+        
+    registros_de_carga = Carga.objects.filter(viaje__ID_Viaje=viaje_id)
+    context = {
+        'remitente_info': remitente_info,
+        'destinatario_info': destinatario_info,
+        'viaje': viaje,
+        'registros_de_carga': registros_de_carga,
+    }   
+    return render(request, 'card1carga.html',context)
 
 def agregar_carga(request):    
     if request.method == 'POST':
         
-        form = CargaForm(request.POST)
-        print("_______________ONON__________________")
-        
-        #print(form)
-        print("_______________")
-        print(request.POST)
-        print("_______________XXXX__________________")
+        form = CargaForm(request.POST)        
         
         if form.is_valid():
-            carga = form.save(commit=False)  # Crea un objeto Carga pero no lo guarda en la base de datos todavía
-            carga.Descripción = request.POST.get('Descripción', '')
-            # Validar el campo Peso como un valor decimal antes de asignarlo
-            try:
-                print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$-------"+request.POST.get('Peso', ''))
-                carga.Peso = Decimal(request.POST.get('Peso', ''))                
+            carga = form.save(commit=False) 
+            try:                
+                carga.peso = Decimal(form.cleaned_data['peso'])                
             except decimal.InvalidOperation:
-                # Manejar el caso en el que el valor no sea un número decimal válido
                 return JsonResponse({'exito': False, 'errores': {'Peso': 'Por favor, ingrese un valor decimal válido.'}})
 
-            carga.Origen = request.POST.get('Origen', '')
-            carga.Destino = request.POST.get('Destino', '')
-            carga.Tipo_carga = request.POST.get('Tipo_carga', '')
-            carga.Estado_carga = request.POST.get('Estado_carga', '')
-            carga.Fecha_transporte = request.POST.get('Fecha_transporte', '')
-            carga.Otros_detalles = request.POST.get('Otros_detalles', '')
-            carga.save()  # Ahora guarda el objeto Carga en la base de datos
+            carga_data = form.cleaned_data
+            carga_data['nro_guia'] = str(uuid.uuid4())
+
+            carga = Carga(**carga_data)
+            carga.save()
             
             print(carga)
             
-            viaje_json = request.session.get('viaje', None)
-            viaje_existente = Viaje.objects.get(Guía_zarpe=viaje_json['Guía_zarpe'])
+            viaje_json = request.session.get('viaje', '{}')
+            viaje_data = json.loads(viaje_json)
+            viaje_existente = Viaje.objects.get(ID_Viaje=viaje_data.get('ID_Viaje'))
             
             viaje_existente.Cargas.add(carga)
             
             viaje_existente.save()
             
-            return JsonResponse({'exito': True})
+            carga_dict = model_to_dict(carga)
+            return JsonResponse({'exito': True, 'carga':carga_dict})
         else:
-            #print(form.errors)
-            #print("_______________")
             return JsonResponse({'exito': False, 'errores': form.errors})
     else:
         form = CargaForm()
@@ -331,7 +319,63 @@ def agregar_carga(request):
     return render(request, 'card1carga.html', {'form': form})
 
 
+def eliminar_carga(request, carga_id):
+    carga = get_object_or_404(Carga, pk=carga_id)
+    try:
+        carga.delete()
+        return JsonResponse({'success': True, 'message': 'Carga eliminada con éxito'})
+    except Exception as e:
+        return JsonResponse({'success': False, 'message': str(e)})
 
+def consultar_viaje(request):
+    if request.method == 'GET':
+        # Obtiene el número de guía de la solicitud GET
+        numero_guia = request.GET.get('numero_guia', None)
+
+        # Realiza la consulta del viaje por número de guía
+        try:
+            viaje = Viaje.objects.get(pk=numero_guia)
+            registros_de_carga = Carga.objects.filter(viaje__ID_Viaje=numero_guia)
+            registros_de_carga_list = [{'ID_Carga': carga.ID_Carga, 'nro_guia': carga.nro_guia, 'tipo_carga': carga.tipo_carga, 'cantidad_carga': carga.cantidad_carga, 'fecha_salida': carga.fecha_salida, 'costo_flete': carga.costo_flete, 'asegurar_carga': carga.asegurar_carga} for carga in registros_de_carga]
+            data = {
+                'numero_guia': viaje.ID_Viaje,
+                'guia_zarpe': viaje.Guía_zarpe,
+                'motonave': str(viaje.Motonave),
+                'piloto': str(viaje.Piloto),
+                'Remitente': {
+                    'fname': viaje.Remitente.fname,
+                    'tipodocumento': viaje.Remitente.tipodocumento,
+                    'adr': viaje.Remitente.adr,
+                    'email': viaje.Remitente.email,
+                    'dep': viaje.Remitente.dep,
+                    'empresa': viaje.Remitente.empresa,
+                    'apellidos': viaje.Remitente.apellidos,
+                    'documento': viaje.Remitente.documento,
+                    'telefono': viaje.Remitente.telefono,
+                    'city': viaje.Remitente.city,
+                },
+                'Destinatario': {
+                    'fname': viaje.Destinatario.fname,
+                    'tipodocumento': viaje.Destinatario.tipodocumento,
+                    'adr': viaje.Destinatario.adr,
+                    'email': viaje.Destinatario.email,
+                    'dep': viaje.Destinatario.dep,
+                    'empresa': viaje.Destinatario.empresa,
+                    'apellidos': viaje.Destinatario.apellidos,
+                    'documento': viaje.Destinatario.documento,
+                    'telefono': viaje.Destinatario.telefono,
+                    'city': viaje.Destinatario.city,
+                },
+                'Fecha_inicio_viaje': viaje.Fecha_inicio_viaje.isoformat() if viaje.Fecha_inicio_viaje else None,
+                'Fecha_fin_viaje': viaje.Fecha_fin_viaje.isoformat() if viaje.Fecha_fin_viaje else None,
+                'registros_de_carga': registros_de_carga_list,
+                # Agrega más campos según tus necesidades
+            }
+            return JsonResponse({'success': True, 'data': data})
+        except Viaje.DoesNotExist:
+            return JsonResponse({'success': False, 'message': 'Viaje no encontrado'})
+    else:
+        return JsonResponse({'success': False, 'message': 'Método no permitido'})
 
 def logistica_pago(request):
     print("--pago---")   

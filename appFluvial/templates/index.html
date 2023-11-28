@@ -2,23 +2,142 @@
 
 {% load static %}
 {% block content %}
-<!--div class="content-wrapper">
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="content">
-                        <h1 class="title">TransFluvial De Carga</h1>
-                        <p class="city">Transporte fluvial del departamento del Guaviare</p>
-                    </div>
-                    <h1>Bienvenido a la página de inicio</h1>
-                    <p>Esta es la aplicación modelo de TransFluvial del Guaviare SENA.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-</div-->
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Bootstrap CSS y JS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+<script>
+  $(document).ready(function() {
+    var csrf_token = $("[name=csrfmiddlewaretoken]").val();
+    $('#consultarBtn').on('click', function() {
+      // Obtiene el número de guía ingresado por el usuario
+      $('#wait-message').show();
+      var numeroGuia = $('#numeroGuiaInput').val();     
+      console.log(numeroGuia); 
+      // Realiza la solicitud Ajax
+      $.ajax({
+        url: '/consultar_viaje/',
+        type: 'GET',
+        data: {'numero_guia': numeroGuia},
+        headers: { "X-CSRFToken": csrf_token },
+        success: function(response) {
+          if (response.success) {
+            // Manejar la respuesta exitosa, por ejemplo, mostrar los datos en el modal
+            console.log(response.data);
+          } else {
+            // Manejar el caso en que el viaje no fue encontrado
+            console.error(response.message);
+          }
+        },
+        error: function(error) {
+          // Manejar errores de la solicitud Ajax
+          console.error('Error en la solicitud Ajax:', error);
+        },complete: function () {
+            // Oculta el mensaje de espera cuando la solicitud se completa
+            $('#wait-message').hide();
+        },
+      });
+    });
+  });
+</script>
+<script>
+  function buscarPorGuia() {
+      $('#wait-message').show();
+      var numeroGuia = $('#numeroGuia').val();
+      var csrf_token = $("[name=csrfmiddlewaretoken]").val();
+      // Realizar la lógica de búsqueda, por ejemplo, mediante una solicitud AJAX
+      // Supongamos que obtienes resultados en formato HTML
+      console.log(numeroGuia); 
+      // Realiza la solicitud Ajax
+      $.ajax({
+        url: '/consultar_viaje/',
+        type: 'GET',
+        data: {'numero_guia': numeroGuia},
+        headers: { "X-CSRFToken": csrf_token },
+        success: function(response) {
+          if (response.success) {
+            // Manejar la respuesta exitosa, por ejemplo, mostrar los datos en el modal
+            console.log(response.data);
+            var resultadosHTML = '<p>Resultados para ' + numeroGuia + ':</p>';
+            
+            // Agrega información del viaje
+            resultadosHTML += '<p>ID Viaje: ' + response.data.id_viaje + '</p>';
+            resultadosHTML += '<p>Guía Zarpe: ' + response.data.guia_zarpe + '</p>';
+            resultadosHTML += '<p>Motonave: ' + response.data.motonave + '</p>';
+            resultadosHTML += '<p>Piloto: ' + response.data.piloto + '</p>';
+            // Agrega información de Remitente y Destinatario
+            resultadosHTML += '<p>Remitente: ' + response.data.Remitente.fname + ' (' + response.data.Remitente.documento + ')' + '</p>';
+            resultadosHTML += '<p>Destinatario: ' + response.data.Destinatario.fname + ' (' + response.data.Destinatario.documento + ')' + '</p>';
+            // Agrega más información según tus necesidades
+
+            // Agrega información de las cargas
+            resultadosHTML += '<p>Registros de Carga:</p><ul>';
+            for (var i = 0; i < response.data.registros_de_carga.length; i++) {
+                var carga = response.data.registros_de_carga[i];
+                resultadosHTML += '<li>ID Carga: ' + carga.id_carga + ', Nro Guía: ' + carga.nro_guia + ', Tipo Carga: ' + carga.tipo_carga + '</li>';
+                // Agrega más información de carga según tus necesidades
+            }
+            resultadosHTML += '</ul>';// Mostrar los resultados en el modal
+
+            $('#resultadoBusqueda').html(resultadosHTML);
+          } else {
+            var resultadosHTML = '<p>Resultados para Guia n° ' + numeroGuia + ':</p><ul><li>'+response.message+'</li></ul>';
+            // Mostrar los resultados en el modal
+            $('#resultadoBusqueda').html(resultadosHTML);
+          }
+        },
+        error: function(error) {
+          // Manejar errores de la solicitud Ajax
+          console.error('Error en la solicitud Ajax:', error);
+        },complete: function () {
+            // Oculta el mensaje de espera cuando la solicitud se completa
+            $('#wait-message').hide();
+        },
+      });
+      
+  }
+</script>
+<style>
+  #wait-message {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      font-size: 24px;
+      z-index: 1000;
+  }
+
+  #wait-spinner {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+      animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+  }
+</style>
 <main role="main">
+
+<div id="wait-message">
+    <div id="wait-spinner"></div>
+    <p>Espera, por favor...</p>
+</div>
+
 
     <section class="jumbotron text-center imagen-background">
       <div class="container">
@@ -29,6 +148,26 @@
         <p  style="margin-top: 100px;">
           <a href="#" class="btn btn-primary my-2">Iniciar sesión</a>
           <a href="../admin" class="btn btn-secondary my-2">Administración</a>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#buscarModal">Buscador</button>
+                            <!-- Modal de búsqueda -->
+                            <div class="modal fade" id="buscarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Buscar por número de guía</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <label for="numeroGuia">Número de guía:</label>
+                                    <input type="text" id="numeroGuia" class="form-control">
+                                    <button type="button" class="btn btn-primary mt-2" onclick="buscarPorGuia()">Buscar</button>
+                                    <div id="resultadoBusqueda" class="mt-3"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
         </p>
       </div>
     </section>

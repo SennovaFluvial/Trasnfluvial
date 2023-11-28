@@ -134,16 +134,7 @@ class MotonaveAdmin(admin.ModelAdmin):
 
 
 class Carga(models.Model):
-    ID_Carga = models.AutoField(primary_key=True)
-    Descripción = models.TextField(blank=True, null=True)
-    Peso = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Peso (Kg)',blank=True, null=True)
-    Origen = models.CharField(max_length=100, blank=True, null=True)
-    Destino = models.CharField(max_length=100, blank=True, null=True)
-    Tipo_carga = models.CharField(max_length=100, blank=True, null=True)
-    Estado_carga = models.CharField(max_length=100, blank=True, null=True)
-    Fecha_transporte = models.DateField(blank=True, null=True)
-    Otros_detalles = models.TextField(blank=True, null=True)
-    
+    ID_Carga = models.AutoField(primary_key=True) 
     nro_guia = models.CharField(max_length=255, blank=True, null=True)
     ciudad_carga = models.CharField(max_length=255, blank=True, null=True)
     departamento_carga = models.CharField(max_length=255, blank=True, null=True)
@@ -162,22 +153,25 @@ class Carga(models.Model):
     costo_flete = models.CharField(max_length=255, blank=True, null=True)
     descripcion = models.TextField(blank=True, null=True)
     asegurar_carga = models.BooleanField(default=False)
-    #viaje = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return self.Descripción
+        #return self.nro_guia
+        return f"ID_Carga: {self.ID_Carga},nro_guia: {self.nro_guia},ciudad_carga: {self.ciudad_carga},departamento_carga: {self.departamento_carga},embarcacion: {self.embarcacion},capitan: {self.capitan},tipo_carga: {self.tipo_carga},cantidad_carga: {self.cantidad_carga},unidad_medida: {self.unidad_medida},volumen_carga: {self.volumen_carga},peso: {self.peso},fecha_recibo: {self.fecha_recibo},fecha_cargue: {self.fecha_cargue},fecha_salida: {self.fecha_salida},categoria: {self.categoria},ruta: {self.ruta},costo_flete: {self.costo_flete},descripcion: {self.descripcion},asegurar_carga: {self.asegurar_carga}"
 
 class CargaAdmin(admin.ModelAdmin):
-    list_display = ('ID_Carga', 'Descripción', 'Peso', 'Origen', 'Destino', 'Tipo_carga', 'Estado_carga', 'Fecha_transporte')
-    list_display_links = ('ID_Carga', 'Descripción')
+    list_display = ('ID_Carga', 'nro_guia', 'ciudad_carga', 'departamento_carga', 'embarcacion', 'capitan',
+                    'tipo_carga', 'cantidad_carga', 'unidad_medida', 'volumen_carga', 'peso', 'fecha_recibo',
+                    'fecha_cargue', 'fecha_salida', 'categoria', 'ruta', 'costo_flete', 'descripcion', 'asegurar_carga')
+    list_display_links = ('ID_Carga', 'nro_guia')
+
     def formfield_for_dbfield(self, db_field, request, **kwargs):
         field = super().formfield_for_dbfield(db_field, request, **kwargs)
-        
-        # Verifica si el campo es 'Peso'
-        if db_field.name == 'Peso':
+
+        # Verifica si el campo es 'peso'
+        if db_field.name == 'peso':
             # Agrega '(KG)' a la etiqueta del campo
-            field.label = f'{field.label} (KG)'
-        
+            field.label += ' (KG)'
+
         return field
 
 class Cliente(models.Model):
