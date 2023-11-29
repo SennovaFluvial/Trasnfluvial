@@ -211,6 +211,11 @@ span.price {
       <p><a href="../../card/1/pago">Pago</a> <span class="price"> </span></p>
       <p><a href="../../card/1/revision">Revisión</a> <span class="price"> </span></p>
       <hr>
+      {% if user.is_authenticated %}
+          <p>Bienvenido, {{ user.username }}. <a href="{% url 'logout' %}">Cerrar sesión</a></p>
+      {% else %}
+          <p><a href="{% url 'login' %}">Iniciar sesión</a></p>
+      {% endif %}
       <!--p>Total <span class="price" style="color:black"><b>$30</b></span></p-->
     </div>
   </div>

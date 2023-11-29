@@ -13,6 +13,10 @@ from .models import Departamento, Municipio
 from django.contrib import messages
 from django.core.serializers.json import DjangoJSONEncoder
 from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.views import LoginView
+from django.urls import reverse_lazy
 
 # def home(request):
 #    return render(request, 'home.html')
@@ -21,14 +25,13 @@ def index(request):
     cards = CardDescription.objects.all()
     return render(request, 'index.html', {'cards': cards})
 
+class MiLoginView(LoginView):
+    template_name = 'appFluvial/login.html'  # Puedes personalizar tu plantilla de inicio de sesión
+    success_url = reverse_lazy('logistica')  # Redirige a esta vista después de iniciar sesión
 
-from django.shortcuts import get_object_or_404
-
+#@login_required
 def logistica(request):
     print("---remitente---")     
-    #municipios = Municipio.objects.none()  
-    #departamentos = Departamento.objects.all()
-
     if request.method == 'POST':
         form = Card1RemitenteForm(request.POST)
 

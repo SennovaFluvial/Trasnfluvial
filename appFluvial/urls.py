@@ -1,10 +1,14 @@
-from django.urls import path
 from . import views
-
+from django.contrib import admin
+from django.urls import path, include
+from django.contrib.auth.decorators import login_required
 urlpatterns = [
     #path('', views.home, name='home2'),
     path('', views.index, name='index'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/login/', views.MiLoginView.as_view(), name='login'),
     path('consultar_viaje/', views.consultar_viaje, name='consultar_viaje'),
+    #path('card/1', login_required(views.logistica), name='LOGÍSTICA-REMITENTE'),
     path('card/1', views.logistica, name='LOGÍSTICA-REMITENTE'),
     path('obtener-municipios/', views.obtener_municipios, name='obtener_municipios'),
     path('obtener_destinatario_por_cedula/', views.obtener_destinatario_por_cedula, name='obtener_destinatario_por_cedula'),

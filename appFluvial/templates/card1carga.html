@@ -251,7 +251,7 @@
                 cell6.innerHTML = valorse;
                 cell7.innerHTML = valorto;
                 cell8.innerHTML = "<button type='button' class='btn btn-warning' onclick='' style='width:35px;'> <i class='fa fa-pencil-square-o'></i></button>"
-                cell8.innerHTML = cell8.innerHTML+" <button type='button' class='btn btn-danger' onclick='deleteRow(this)' style='width:35px;'><i class='fa fa-trash'></i> </button>";
+                cell8.innerHTML = cell8.innerHTML+" <button type='button' class='btn btn-danger' onclick='deleteRow(this, " + data.carga.ID_Carga + ")' style='width:35px;'><i class='fa fa-trash'></i> </button>";
                 document.getElementById("dismissModal1").click();
               }
           },
@@ -264,9 +264,6 @@
             $('#wait-message').hide();
         },
       });
-
-      
-
   }
   function deleteRow_ID(id){  
     $('#wait-message').show();  
@@ -291,27 +288,22 @@
     });
 
   }
-  function deleteRow(btn) {
+  function deleteRow(btn, id) {
       $('#wait-message').show();
-      // Obtener el ID u otro identificador único del objeto que se va a eliminar
       var objectId = obtenerIdDelObjeto(btn);
       var csrf_token = $("[name=csrfmiddlewaretoken]").val();
-      // Realizar la solicitud DELETE al servicio web
       $.ajax({
-          url: '/eliminar_carga/' + objectId + '/',  // Reemplaza con la URL de tu servicio
+          url: '/eliminar_carga/' + id + '/',
           type: 'DELETE',
           headers: { "X-CSRFToken": csrf_token },
           success: function(response) {
-              // Manejar el éxito, como eliminar la fila de la tabla
-              var row = btn.parentNode.parentNode;
-              row.parentNode.removeChild(row);
-              console.log('Objeto eliminado con éxito');
+            var row = id;
+            row.parentNode.removeChild(row);
+            console.log('Objeto eliminado con éxito');
           },
           error: function(error) {
-              // Manejar el error, por ejemplo, mostrar un mensaje de error
               console.error('Error al eliminar el objeto:', error);
           },complete: function () {
-              // Oculta el mensaje de espera cuando la solicitud se completa
               $('#wait-message').hide();
           },
       });
