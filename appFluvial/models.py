@@ -153,7 +153,7 @@ class Carga(models.Model):
     ruta = models.CharField(max_length=255, blank=True, null=True)
     costo_flete = models.CharField(max_length=255, blank=True, null=True)
     descripcion = models.TextField(blank=True, null=True)
-    asegurar_carga = models.BooleanField(default=False)
+    asegurar_carga = models.BooleanField(default=False, blank=True, null=True)
 
     def __str__(self):
         #return self.nro_guia

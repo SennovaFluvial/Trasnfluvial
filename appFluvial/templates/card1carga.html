@@ -429,24 +429,13 @@ function obtenerIdDelObjeto(btn) {
                         <div class="form-group col">
                             <label for="idcarga">Nro Guia:</label>
                             <input type="text" class="form-control" id="idcarga" disabled>
-                        </div>
+                        </div>                        
                         <div class="form-group col">
-                          <label for="ciudadcarga">Ciudad de carga:</label>
-                          <!--input type="text" class="form-control" id="ciudadcarga"-->
-                          <select class="custom-select d-block w-100" id="ciudadcarga" name="ciudadcarga" >
-                              <option value="">Seleccione...</option>
-                              <option value="sjg">San José del Guaviare</option>
-                              <option value="Calamar">Calamar</option>
-                              <option value="Retorno">El Retorno</option>
-                              <option value="Miraflores">Miraflores</option>
-                          </select>
-                        </div>
-                        <div class="form-group col">
-                            <label for="departamentocarga">Departamento carga:</label>
+                            <label for="departamento_carga">Departamento carga:</label>
                             <!--input type="text" class="form-control" id="departamentocarga"-->
-                            <select class="custom-select d-block w-100" id="departamentocarga" name="departamentocarga">
+                            <select class="custom-select d-block w-100" id="departamento_carga" name="departamento_carga">
                               <option value="">Seleccione...</option>
-                              <option>San Jose Del Guaviare</option>
+                              <option>Guaviare</option>
                               <option>Meta</option>
                               <option>Amazonas</option>
                               <option>Vaupes</option>
@@ -455,8 +444,19 @@ function obtenerIdDelObjeto(btn) {
                             </select>
                         </div>
                         <div class="form-group col">
+                          <label for="ciudad_carga">Ciudad de carga:</label>
+                          <!--input type="text" class="form-control" id="ciudadcarga"-->
+                          <select class="custom-select d-block w-100" id="ciudad_carga" name="ciudad_carga" >
+                              <option value="">Seleccione...</option>
+                              <option value="sjg">San José del Guaviare</option>
+                              <option value="Calamar">Calamar</option>
+                              <option value="Retorno">El Retorno</option>
+                              <option value="Miraflores">Miraflores</option>
+                          </select>
+                        </div>
+                        <div class="form-group col">
                             <label for="embarcacion">Embarcacion:</label>
-                            <input type="text" class="form-control" id="embarcacion">
+                            <input type="text" class="form-control" id="embarcacion" name="embarcacion">
                         </div>
                         <div class="form-group col">
                             <label for="capitan">Capitán:</label>
@@ -472,9 +472,9 @@ function obtenerIdDelObjeto(btn) {
                       
                       <div class="row">
                         <div class="form-group col">
-                            <label for="tipocarga">Tipo carga:</label>
+                            <label for="tipo_carga">Tipo carga:</label>
                             <!--input type="text" class="form-control" id="tipocarga"-->
-                            <select class="custom-select d-block w-100" id="tipocarga" name="tipocarga">
+                            <select class="custom-select d-block w-100" id="tipo_carga" name="tipo_carga">
                               <option value="">Seleccione...</option>
                               <option>Solida</option>
                               <option>Liquida</option>
@@ -485,13 +485,13 @@ function obtenerIdDelObjeto(btn) {
                             </select>
                         </div>
                         <div class="form-group col">
-                          <label for="cantidadcarga">Cantidad:</label>
-                          <input type="text" class="form-control" id="cantidadcarga">
+                          <label for="cantidad_carga">Cantidad:</label>
+                          <input type="text" class="form-control" id="cantidad_carga" name="cantidad_carga">
                         </div>
                         <div class="form-group col">
-                            <label for="unidadmedida">Ud. medida:</label>
+                            <label for="unidad_medida">Ud. medida:</label>
                             <!--input type="text" class="form-control" id="unidadmedida"-->
-                            <select class="custom-select d-block w-100" id="unidadmedida" name="unidadmedida">
+                            <select class="custom-select d-block w-100" id="unidad_medida" name="unidad_medida">
                               <option value="">Seleccione...</option>
                               <option>metro cúbico</option>
                               <option>yarda cúbica</option>
@@ -499,8 +499,8 @@ function obtenerIdDelObjeto(btn) {
                             </select>
                         </div>
                         <div class="form-group col">
-                            <label for="volumencarga">Volumen:</label>
-                            <input type="text" class="form-control" id="volumencarga">
+                            <label for="volumen_carga">Volumen:</label>
+                            <input type="text" class="form-control" id="volumen_carga" name="volumen_carga">
                         </div>
                         <div class="form-group col">
                             <label for="peso">Peso (Kg):</label>
@@ -513,16 +513,16 @@ function obtenerIdDelObjeto(btn) {
 
                       <div class="row">
                         <div class="form-group col">
-                            <label for="fecharecibo">Fecha recibo:</label>
-                            <input type="date" class="form-control" id="fecharecibo" required>
+                            <label for="fecha_recibo">Fecha recibo:</label>
+                            <input type="date" class="form-control" id="fecha_recibo" name="fecha_recibo" required>
                         </div>
                         <div class="form-group col">
-                          <label for="fechacargue">Fecha cargue:</label>
-                          <input type="date" class="form-control" id="fechacargue" required>
+                          <label for="fecha_cargue">Fecha cargue:</label>
+                          <input type="date" class="form-control" id="fecha_cargue" name="fecha_cargue" required>
                         </div>
                         <div class="form-group col">
-                            <label for="fechasalida">Fecha Salida:</label>
-                            <input type="date" class="form-control" id="fechasalida" required>
+                            <label for="fecha_salida">Fecha Salida:</label>
+                            <input type="date" class="form-control" id="fecha_salida" name="fecha_salida" required>
                         </div>
                         <div class="form-group col">
                             <label for="categoria">Categoria:</label>
@@ -540,28 +540,36 @@ function obtenerIdDelObjeto(btn) {
                             <!--input type="text" class="form-control" id="ruta"-->
                             <select class="custom-select d-block w-100" id="ruta" name="ruta">
                               <option value="">Seleccione...</option>
-                              <option>Ruta 1</option>
-                              <option>Ruta 2</option>
-                              <option>Ruta 3</option>
+                              <option value="Ruta 1">Ruta 1</option>
+                              <option value="Ruta 2">Ruta 2</option>
+                              <option value="Ruta 3">Ruta 3</option>
                             </select>
                         </div>
                       </div>
 
                       <div class="row">
                         <div class="form-group col-4">
-                            <label for="costoflete">Costo Flete $:</label>
-                            <input type="text" class="form-control" id="costoflete" disabled>
+                            <label for="costo_flete">Costo Flete $:</label>
+                            <input type="text" class="form-control" id="costo_flete" name="costo_flete" disabled>
                         </div>
                         <div class="form-group col-8">
                           <label for="descripcion">Descripcion:</label>
-                          <textarea type="text" class="form-control" id="descripcion" style="height: 100px" ></textarea>
+                          <textarea type="text" class="form-control" id="descripcion" name="descripcion" style="height: 100px" ></textarea>
                         </div>
                         <div class="form-group col form-check form-switch">
-                            <label for="asegurarcarga">Asegurar carga</label>
-                            <input type="checkbox" class="form-control form-check-input" id="asegurarcarga">
+                            <label for="asegurar_carga">Asegurar carga</label>
+                            <input type="checkbox" class="form-control form-check-input" id="asegurar_carga" name="asegurar_carga">
                         </div>
                       </div>
-                      
+                      <script>
+                        function addRow_(){
+                          var a = document.getElementById('asegurar_carga').checked;
+                          var b = document.getElementById('asegurar_carga').value;
+                          console.log(a);
+                          console.log(b);
+
+                        }
+                      </script>
                     </div>
                     
                     <div id="error-container" class="alert alert-danger"></div>
@@ -569,7 +577,7 @@ function obtenerIdDelObjeto(btn) {
                   </form>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="dismissModal1" onclick="terminar()" >Cancelar</button>
-                    <button type="button" class="btn btn-primary" onclick="addRow()" >Agregar</button>
+                    <button type="button" class="btn btn-primary" onclick="addRow_()" >Agregar</button>
                   </div>
                 </div>
               </div>
