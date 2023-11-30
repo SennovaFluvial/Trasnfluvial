@@ -6,9 +6,11 @@ import json
 import uuid
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+
+from appFluvial.tables import TuModeloTable
 from .models import CardDescription, Carga, Destinatario, Viaje
 
-from .forms import Card1DestinatarioForm, Card1RemitenteForm, CargaForm
+from .forms import Card1DestinatarioForm, Card1RemitenteForm, CargaForm, MiAuthenticationForm, TuFormularioDePago
 from .models import Departamento, Municipio
 from django.contrib import messages
 from django.core.serializers.json import DjangoJSONEncoder
@@ -17,6 +19,11 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+from django.core.serializers import serialize
+
+
 
 # def home(request):
 #    return render(request, 'home.html')
@@ -25,9 +32,22 @@ def index(request):
     cards = CardDescription.objects.all()
     return render(request, 'index.html', {'cards': cards})
 
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Inicia sesión después de registrarse
+            return redirect('index')  # Redirige a la página principal después del registro
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'registration/signup.html', {'form': form})
+
 class MiLoginView(LoginView):
-    template_name = 'appFluvial/login.html'  # Puedes personalizar tu plantilla de inicio de sesión
-    success_url = reverse_lazy('logistica')  # Redirige a esta vista después de iniciar sesión
+    template_name = 'appFluvial/login.html'
+    form_class = MiAuthenticationForm
+    success_url = reverse_lazy('logistica')
 
 #@login_required
 def logistica(request):
@@ -36,13 +56,8 @@ def logistica(request):
         form = Card1RemitenteForm(request.POST)
 
         if form.is_valid():
-            # Obtener la cédula del formulario
             cedula = form.cleaned_data['documento']
-
-            # Intentar obtener un Destinatario existente con la misma cédula
             destinatario_existente = Destinatario.objects.filter(documento=cedula).first()
-
-            # Actualizar los campos existentes con los valores del formulario
             if destinatario_existente:
                 form_instance = form.save(commit=False)
                 destinatario_existente.fname = form_instance.fname
@@ -381,17 +396,41 @@ def consultar_viaje(request):
         return JsonResponse({'success': False, 'message': 'Método no permitido'})
 
 def logistica_pago(request):
-    print("--pago---")   
-    form_data = request.session.get('form_data')
-    if form_data:
-        first_name = form_data.get('fname')
-        tipodocumento = form_data.get('tipodocumento')
-        print(first_name)
-        print(tipodocumento) 
+    print("--pago---")
+     
     if request.method == 'POST':
-        request.session['form_data'] = request.POST
-        return redirect('../1/revision')
-    return render(request, 'card1pago.html')
+        # Obtener datos del formulario de pago
+        pago_form = TuFormularioDePago(request.POST)
+        if pago_form.is_valid():
+            # Guardar el pago en la base de datos
+            print("................")
+            pago = pago_form.save(commit=False)
+            
+            pago = pago_form.save()
+            
+            viaje_ = request.session.get('viaje', '{}') 
+            viaje = json.loads(viaje_)
+            viaje_id = viaje.get('ID_Viaje')
+            viaje_existente = Viaje.objects.get(ID_Viaje=viaje_id)
+            viaje_existente.Pagos=pago                        
+            viaje_existente.save()
+            pago_serializado = serialize('json', [pago])
+            request.session['pago'] = pago_serializado            
+            return redirect('../1/revision')
+        else:
+            for field, errors in pago_form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field}: {error}")
+
+            # Manejar otras acciones en caso de errores
+            print("El formulario no es válido. Manejar de alguna manera.")
+
+            print(pago_form.errors)
+
+    else:
+        pago_form = TuFormularioDePago()
+
+    return render(request, 'card1pago.html', {'pago_form': pago_form})
 
 def logistica_revision(request):
     print("---Revision---")  
@@ -405,7 +444,9 @@ def logistica_revision(request):
 
 
 def informes(request):
-    return render(request, 'card2.html')
+    data = Viaje.objects.all()
+    table = TuModeloTable(data)
+    return render(request, 'card2.html',  {'table': table})
 
 def notificaciones(request):
     return render(request, 'card3.html')

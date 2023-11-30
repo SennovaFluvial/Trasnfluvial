@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'appFluvial', 
     'adminlte3',
     'adminlte3_theme',
+    'django_tables2',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -87,6 +88,10 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    # Otros backends si los tienes
+]
 
 
 # Password validation

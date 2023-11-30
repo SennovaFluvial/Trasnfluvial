@@ -1,8 +1,16 @@
 # forms.py
 
 from django import forms
-from .models import Carga, Departamento, Destinatario
+from .models import Carga, Departamento, Destinatario, Pago
 from .models import Municipio
+from django.contrib.auth.forms import AuthenticationForm
+
+class MiAuthenticationForm(AuthenticationForm):
+    # Puedes personalizar el formulario si es necesario
+    pass
+
+
+    
 
 class Card1RemitenteForm(forms.ModelForm):    
     fname = forms.CharField(label='Nombres Remitente', max_length=100, required=True)
@@ -45,3 +53,29 @@ class CargaForm(forms.ModelForm):
         model = Carga
         fields = '__all__'
 
+
+class TuFormularioDePago(forms.ModelForm):
+    class Meta:
+        model = Pago
+        fields = '__all__'
+        
+    def clean(self):
+        cleaned_data = super().clean()
+        tipo_pago = cleaned_data.get('tipo_pago')
+        titular_cuenta = cleaned_data.get('titular_cuenta')
+        numero_cuenta = cleaned_data.get('numero_cuenta')
+        fecha_transaccion = cleaned_data.get('fecha_transaccion')
+
+        if tipo_pago == 'transferencia':
+            if not titular_cuenta:
+                raise forms.ValidationError("El valor pagado es obligatorio para tipo de pago transferencia.")
+            if not numero_cuenta:
+                raise forms.ValidationError("El Numero de cuenta es obligatorio para tipo de pago transferencia.")
+            if not fecha_transaccion:
+                raise forms.ValidationError("La Fecha de transación es obligatoria para tipo de pago transferencia.")
+
+    
+            # Validaciones específicas para efectivo
+            # Puedes agregar más validaciones según sea necesario para efectivo
+
+        # Agrega otras validaciones según tus necesidades

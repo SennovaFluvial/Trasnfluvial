@@ -1,4 +1,5 @@
 import datetime
+from django.forms import ValidationError
 from django.utils import timezone
 import random
 import string
@@ -219,6 +220,20 @@ class Negocio(models.Model):
         return f"Negocio - ID: {self.ID_Negocio}"
 
 
+
+    
+class Pago(models.Model):
+    pagoefectivo = models.BooleanField(default=False, blank=True, null=True)
+    pagotransferencia = models.BooleanField(default=False, blank=True, null=True)
+    valor_pagado = models.DecimalField(max_digits=50, decimal_places=2)
+    titular_cuenta = models.CharField(max_length=100, blank=True, null=True)
+    numero_cuenta = models.CharField(max_length=20, blank=True, null=True)
+    fecha_transaccion = models.DateField(blank=True, null=True)
+            
+    def __str__(self):
+        return f"{self.fecha_transaccion} - ${self.valor_pagado}"
+
+
 class Viaje(models.Model):   
     ID_Viaje = models.AutoField(primary_key=True)
     Guía_zarpe = models.CharField(max_length=100, verbose_name='Guía zarpe', blank=True)
@@ -230,11 +245,11 @@ class Viaje(models.Model):
     Cargas = models.ManyToManyField(Carga)  # Relación ManyToMany con Carga
     Fecha_inicio_viaje = models.DateField(default=timezone.now, blank=True, null=True)
     Fecha_fin_viaje = models.DateField(blank=True, null=True)
-
+    Pagos = models.ForeignKey(Pago, on_delete=models.CASCADE, blank=True, null=True)
     def __str__(self):
         return f"Viaje - ID: {self.ID_Viaje}"
-
-
+    
+    
 class ViajeAdmin(admin.ModelAdmin):
     list_display = ('ID_Viaje', 'Guía_zarpe', 'Motonave', 'Piloto', 'display_cargas', 'Fecha_inicio_viaje', 'Fecha_fin_viaje')
     list_display_links = ('ID_Viaje', 'Guía_zarpe')
@@ -286,6 +301,7 @@ class CardDescriptionAdmin(admin.ModelAdmin):
 
 # Registra el modelo con la clase ModelAdmin personalizada
 admin.site.register(Motonave, MotonaveAdmin)
+admin.site.register(Pago)
 admin.site.register(EmpresaTransporteFluvial)
 admin.site.register(Persona)
 admin.site.register(Cargo)

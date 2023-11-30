@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -187,7 +188,7 @@ span.price {
       100% { transform: rotate(360deg); }
   }
 </style>
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 
@@ -243,39 +244,136 @@ span.price {
       <h2>Información de Pago</h2>
     </div>
     <div class="container">
-      <form method="post">        
+      <form method="post" id="pago-form" onsubmit="return validateForm()">        
         {% csrf_token %}
         <div class="row">
           <div class="col-50">
             <h3>  </h3>
+            <div id="error_check" class="error-message" style="color: red; display: none;"></div>
+                
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pagoefectivo"  name="pagoefectivo"  onclick="toggleFields('pagoefectivo')">
+              <label class="form-check-label" for="pagoefectivo" value="True">Pago en efectivo</label>
+          </div>
+          <br>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pagotransferencia" name="pagotransferencia"  onclick="toggleFields('pagotransferencia')">
+              <label class="form-check-label" for="pagotransferencia">Pago por transferencia</label>
+          </div>
+          <br>
+          <div class="form-group">
+              <label class="sr-only" for="valor_pagado">Valor Pagado: 
+                <div id="error_valor_pagado" class="error-message" style="color: red; display: none;"></div>
+              </label>
+              <div class="input-group">
+                  <div class="input-group-addon">$(cop) :</div>
+                  <input type="number" min="0.00" step="0.05" value="1.00" id="valor_pagado" name="valor_pagado" class="form-control" placeholder="Price">
+              </div>
+          </div>
+          
+          <br>
+          <label for="titular_cuenta" id="titular_cuentaLabel" style="display: none;"><i class="fa fa-envelope"></i> Nombre del titular de la cuenta: <div id="error_titular_cuenta" class="error-message" style="color: red; display: none;"></div></label>
+          <input type="text" id="titular_cuenta" name="titular_cuenta" placeholder="Robinson Diaz" style="display: none;">
+          
+          <label for="numero_cuenta" id="numero_cuentaLabel" style="display: none;"><i class="fa fa-institution"></i> Número de la cuenta: <div id="error_numero_cuenta" class="error-message" style="color: red; display: none;"></div></label>
+          <input type="text" id="numero_cuenta" name="numero_cuenta" placeholder="032132000-5" style="display: none;">
+          
+          <label for="fecha_transaccion" id="fecha_transaccionLabel" style="display: none;"><i class="fa fa-institution"></i> Fecha de transacción: <div id="error_fecha_cuenta" class="error-message" style="color: red; display: none;"></div></label>
+          <input type="date" id="fecha_transaccion" name="fecha_transaccion" style="display: none;">
+          
+          <script>
+              function toggleFields(paymentMethod) {
+                  // Obtener referencias a los elementos de los campos a ocultar/mostrar
+                  var titular_cuentaLabel = document.getElementById('titular_cuentaLabel');
+                  var titular_cuentaInput = document.getElementById('titular_cuenta');
+                  var numero_cuentaLabel = document.getElementById('numero_cuentaLabel');
+                  var numero_cuentaInput = document.getElementById('numero_cuenta');
+                  var fecha_transaccionLabel = document.getElementById('fecha_transaccionLabel');
+                  var fecha_transaccionInput = document.getElementById('fecha_transaccion');
+          
+                  // Mostrar u ocultar campos según el método de pago seleccionado
+                  if (paymentMethod === 'pagoefectivo') {
+                      titular_cuentaLabel.style.display = 'none';
+                      titular_cuentaInput.style.display = 'none';
+                      numero_cuentaLabel.style.display = 'none';
+                      numero_cuentaInput.style.display = 'none';
+                      fecha_transaccionLabel.style.display = 'none';
+                      fecha_transaccionInput.style.display = 'none';
+                  } else if (paymentMethod === 'pagotransferencia') {
+                      titular_cuentaLabel.style.display = 'block';
+                      titular_cuentaInput.style.display = 'block';
+                      numero_cuentaLabel.style.display = 'block';
+                      numero_cuentaInput.style.display = 'block';
+                      fecha_transaccionLabel.style.display = 'block';
+                      fecha_transaccionInput.style.display = 'block';
+                  }
+              }
+              function validateForm() {
+                  var pagoefectivoChecked = document.getElementById('pagoefectivo').checked;
+                  var pagotransferenciaChecked = document.getElementById('pagotransferencia').checked;
+                  var valorPagado = document.getElementById('valor_pagado').value;
+                  var errorcheck = document.getElementById('error_check');
+                  var errorValorPagado = document.getElementById('error_valor_pagado');                  
+                  var titularCuenta = document.getElementById('titular_cuenta').value;
+                  var errorTitularCuenta = document.getElementById('error_titular_cuenta');
+                  var numeroCuenta = document.getElementById('numero_cuenta').value;
+                  var errorNumeroCuenta = document.getElementById('error_numero_cuenta');
+                  var fechaCuenta = document.getElementById('fecha_transaccion').value;
+                  var errorFechaCuenta = document.getElementById('error_fecha_cuenta');
+                  
+                  errorValorPagado.style.display = 'none';
+                  errorValorPagado.innerText = '';
+                  errorcheck.style.display = 'none';
+                  errorcheck.innerText = '';
+                  errorTitularCuenta.style.display = 'none';
+                  errorTitularCuenta.innerText = '';
+                  errorNumeroCuenta.style.display = 'none';
+                  errorNumeroCuenta.innerText = '';
+                  errorFechaCuenta.style.display = 'none';
+                  errorFechaCuenta.innerText = '';
 
-            
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pagoefectivo" value="option1">
-              <label class="form-check-label" for="pagoefectivo">Pago en efectivo</label>
-            </div>
-            <br>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pagotransferecia" value="option2">
-              <label class="form-check-label" for="pagotransferecia">Pago por trasnferencia</label>
-            </div>
-            <br>
-            <label for="titularcuenta"><i class="fa fa-envelope"></i> Nombre del titular de la cuenta</label>
-            <input type="text" id="titularcuenta" name="titularcuenta" placeholder="Robinson Diaz">
+                  error = 0;
+                  if (!pagoefectivoChecked && !pagotransferenciaChecked) {
+                      error++;
+                      errorcheck.style.display = 'block';
+                      errorcheck.innerText = 'Selecciona al menos un tipo de pago.';
+                  }
+                  if (!valorPagado || valorPagado.trim() === '') {
+                      error++;
+                      errorValorPagado.style.display = 'block';
+                      errorValorPagado.innerText = 'El campo Valor Pagado es requerido.';
+                  }
 
-            <label for="numerocuenta"><i class="fa fa-institution"></i> Número de la cuenta</label>
-            <input type="text" id="numerocuenta" name="numerocuenta" placeholder="032132000-5">
-
-            <label for="fechatransacion"><i class="fa fa-institution"></i> Fecha de transcion</label>
-            <input type="date" id="fechatransacion" name="fechatransacion">
-
+                  if (pagotransferenciaChecked && (!titularCuenta || titularCuenta.trim() === '')) {
+                      errorTitularCuenta.style.display = 'block';
+                      errorTitularCuenta.innerText = 'El campo Titular de la cuenta es requerido.';
+                      error++; // Evita que el formulario se envíe
+                  }
+                  if (pagotransferenciaChecked && (!numeroCuenta || numeroCuenta.trim() === '')) {
+                      errorNumeroCuenta.style.display = 'block';
+                      errorNumeroCuenta.innerText = 'El campo Numero de la cuenta es requerido.';
+                      error++; // Evita que el formulario se envíe
+                  }
+                  if (pagotransferenciaChecked && (!fechaCuenta || fechaCuenta.trim() === '')) {
+                      errorFechaCuenta.style.display = 'block';
+                      errorFechaCuenta.innerText = 'El campo Fecha es requerido.';
+                      error++; // Evita que el formulario se envíe
+                  }
+                  if(error>0){
+                    return false;
+                  }
+          
+                  return true; // Permite que el formulario se envíe
+              }
+          </script>
+          
           </div>
 
           
           
         </div>
         <div class="text-center"> 
-          <button href="javascript:history.back()" class="btn btn-secondary">Atrás</button>
+          <button onclick="window.location.href='{% url 'LOGÍSTICA-CARGA' %}'" class="btn btn-secondary">Atrás</button>
           <button type="submit" class="btn btn-success">Siguiente</button>
         </div>
       </form>

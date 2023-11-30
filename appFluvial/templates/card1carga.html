@@ -231,8 +231,9 @@
                 var valorto = document.getElementById('costoflete').value;
                 var table = document.getElementById("myTable");
                 var rowCount = table.rows.length;
-                rowCount++;
+                rowCount++;                
                 var row = table.insertRow(-1);
+                row.id = "fila_" + data.carga.ID_Carga;
                 var cell1 = row.insertCell(0);
                 var cell1a= row.insertCell(1);
                 var cell2 = row.insertCell(2);
@@ -242,7 +243,7 @@
                 var cell6 = row.insertCell(6);
                 var cell7 = row.insertCell(7);
                 var cell8 = row.insertCell(8);
-                cell1.innerHTML = ""+rowCount;
+                cell1.innerHTML = ""+data.carga.ID_Carga;
                 cell1a.innerHTML= data.carga.nro_guia;
                 cell2.innerHTML = producto;
                 cell3.innerHTML = cant;
@@ -251,7 +252,7 @@
                 cell6.innerHTML = valorse;
                 cell7.innerHTML = valorto;
                 cell8.innerHTML = "<button type='button' class='btn btn-warning' onclick='' style='width:35px;'> <i class='fa fa-pencil-square-o'></i></button>"
-                cell8.innerHTML = cell8.innerHTML+" <button type='button' class='btn btn-danger' onclick='deleteRow(this, " + data.carga.ID_Carga + ")' style='width:35px;'><i class='fa fa-trash'></i> </button>";
+                cell8.innerHTML = cell8.innerHTML+" <button type='button' class='btn btn-danger' onclick='deleteRow_ID("+data.carga.ID_Carga+")' style='width:35px;'><i class='fa fa-trash'></i> </button>";
                 document.getElementById("dismissModal1").click();
               }
           },
@@ -297,9 +298,11 @@
           type: 'DELETE',
           headers: { "X-CSRFToken": csrf_token },
           success: function(response) {
+            row.remove();
             var row = id;
             row.parentNode.removeChild(row);
             console.log('Objeto eliminado con éxito');
+
           },
           error: function(error) {
               console.error('Error al eliminar el objeto:', error);
@@ -623,7 +626,7 @@ function obtenerIdDelObjeto(btn) {
         <br>
         <div class="text-center"> 
           <button href="javascript:history.back()" class="btn btn-secondary">Atrás</button>
-          <button type="submit" class="btn btn-success">Siguiente</button>
+          <button type="button" class="btn btn-success" onclick="window.location.href='{% url 'LOGÍSTICA-PAGO' %}'">Siguiente</button>
         </div>
       
     </div>
