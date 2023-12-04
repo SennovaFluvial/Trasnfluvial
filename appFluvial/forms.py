@@ -52,9 +52,27 @@ class CargaForm(forms.ModelForm):
     class Meta:
         model = Carga
         fields = '__all__'
-
+        
+        
+""" 
 
 class TuFormularioDePago(forms.ModelForm):
+    tipo_pago = forms.ChoiceField(choices=[('pago en efectivo', 'pago en efectivo'),('pago por transferencia', 'pago por transferencia'),], label='Tipo Pago: ', required=True)
+    valor_pagado = forms.CharField(label='Valor pagado: ', initial=total_cargas_viaje, max_length=20, required=True)
+    titular_cuenta= forms.CharField(label='Titular de la cuenta: ', max_length=20, required=True)
+    numero_cuenta= forms.CharField(label='Numero de cuenta: ', max_length=20, required=True)
+    fecha_transaccion= forms.CharField(label='Fecha de la transaccion: ', max_length=20, required=True)
+    
+    def __init__(self, *args, **kwargs):
+        super(TuFormularioDePago, self).__init__(*args, **kwargs)
+        
+        # Setear el valor predeterminado y hacer el campo ineditable
+        self.fields['valor_pagado'].widget.attrs['readonly'] = True
+        self.fields['valor_pagado'].widget.attrs['class'] = 'mi-clase-estilo'
+        #self.fields['valor_pagado'].initial = '0.00'  
+    def setvalue(self, arg):
+        self.valor_pagado = arg
+          
     class Meta:
         model = Pago
         fields = '__all__'
@@ -79,3 +97,5 @@ class TuFormularioDePago(forms.ModelForm):
             # Puedes agregar más validaciones según sea necesario para efectivo
 
         # Agrega otras validaciones según tus necesidades
+        
+"""

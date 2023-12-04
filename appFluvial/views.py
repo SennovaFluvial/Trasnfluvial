@@ -1,5 +1,6 @@
 from decimal import Decimal
 import decimal
+from django import forms
 from django.forms import model_to_dict
 from django.utils import timezone
 import json
@@ -8,9 +9,9 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 from appFluvial.tables import TuModeloTable
-from .models import CardDescription, Carga, Destinatario, Viaje
+from .models import CardDescription, Carga, Destinatario, Pago, Parameter, Viaje
 
-from .forms import Card1DestinatarioForm, Card1RemitenteForm, CargaForm, MiAuthenticationForm, TuFormularioDePago
+from .forms import Card1DestinatarioForm, Card1RemitenteForm, CargaForm, MiAuthenticationForm
 from .models import Departamento, Municipio
 from django.contrib import messages
 from django.core.serializers.json import DjangoJSONEncoder
@@ -22,7 +23,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.core.serializers import serialize
-
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 
 # def home(request):
@@ -165,7 +167,11 @@ def logistica_destinatario(request):
     print(remitente_info)
     
     if remitente_info:
-        remitente_info = json.loads(remitente_info)
+        #remitente_info = json.loads(remitente_info)
+        try:
+            remitente_info = json.loads(remitente_info)
+        except json.JSONDecodeError as e:
+            return redirect('../card/1/remitente')
         print(remitente_info)
     print("---destinatario---1111") 
     if request.method == 'POST':
@@ -283,11 +289,11 @@ def logistica_carga(request):
     destinatario_info = request.session.get('destinatario_json', None)
     viaje_ = request.session.get('viaje', '{}')       
     request.session['remitente_info'] = remitente_info
-    request.session['destinatario_info'] = destinatario_info
-    print("2---")                     
-    """     
-        return redirect('../1/pago')"""
-    viaje = json.loads(viaje_)
+    request.session['destinatario_info'] = destinatario_info    
+    try:
+        viaje = json.loads(viaje_)
+    except json.JSONDecodeError as e:
+        return redirect('../card/1/remitente')
     viaje_id = viaje.get('ID_Viaje')
         
     registros_de_carga = Carga.objects.filter(viaje__ID_Viaje=viaje_id)
@@ -296,31 +302,74 @@ def logistica_carga(request):
         'destinatario_info': destinatario_info,
         'viaje': viaje,
         'registros_de_carga': registros_de_carga,
-    }   
+    }  
+    form = CargaForm() 
+    print(form)
     return render(request, 'card1carga.html',context)
 
 def agregar_carga(request):    
-    if request.method == 'POST':
-        
+    if request.method == 'POST':        
         form = CargaForm(request.POST)        
-        
+                        
         if form.is_valid():
-            carga = form.save(commit=False) 
-            try:                
-                carga.peso = Decimal(form.cleaned_data['peso'])                
-            except decimal.InvalidOperation:
-                return JsonResponse({'exito': False, 'errores': {'Peso': 'Por favor, ingrese un valor decimal válido.'}})
-
+            carga = form.save(commit=False)                
             carga_data = form.cleaned_data
-            carga_data['nro_guia'] = str(uuid.uuid4())
+            print(carga_data)
+            if carga_data['nro_guia'] is None or carga_data['nro_guia'] == '':
+                carga_data['nro_guia'] = str(uuid.uuid4())
 
-            carga = Carga(**carga_data)
-            carga.save()
-            
-            print(carga)
+            carga_existente = Carga.objects.filter(nro_guia=carga_data['nro_guia']).first()
+            existente = False
+            if carga_existente:
+                print("<existente>-------------------------------------------------------------")
+                existente = True
+                carga = carga_existente                
+                for key, value in carga_data.items():
+                    setattr(carga, key, value)
+                
+                par = Parameter.find_parameter_for_subtotal(carga.costo_flete) 
+                #par = Parameter.objects.filter(key='factorSeguro').first()
+                if not par: 
+                    return JsonResponse({'exito': False, 'errores': 'No existe un parametro con el rango para factorSeguro'})
+                
+                factorSeguro = float(par.value)
+                                
+                if carga.asegurar_carga:
+                    carga.total = float(carga.costo_flete) + float(carga.costo_flete)*factorSeguro
+                    carga.factorSeguro = str(factorSeguro)
+                else:
+                    carga.total = carga.costo_flete
+                    carga.factorSeguro = "0"
+                
+                carga.save()
+            else:
+                print("-------------------------------------------------------------<inexistente>")
+                existente = False
+                carga = Carga(**carga_data)
+                
+                par = Parameter.find_parameter_for_subtotal(carga.costo_flete) 
+                #par = Parameter.objects.filter(key='factorSeguro').first()
+                if not par: 
+                    return JsonResponse({'exito': False, 'errores': 'No existe un parametro con el rango para factorSeguro'})
+                
+                
+                factorSeguro = float(par.value)
+                                
+                if carga.asegurar_carga:
+                    carga.total = float(carga.costo_flete) + float(carga.costo_flete)*factorSeguro
+                    carga.factorSeguro = str(factorSeguro)
+                else:
+                    carga.total = carga.costo_flete
+                    carga.factorSeguro = "0"
+                
+                carga.save()           
             
             viaje_json = request.session.get('viaje', '{}')
-            viaje_data = json.loads(viaje_json)
+            
+            try:
+                viaje_data = json.loads(viaje_json)
+            except json.JSONDecodeError as e:
+                return redirect('../card/1/remitente')
             viaje_existente = Viaje.objects.get(ID_Viaje=viaje_data.get('ID_Viaje'))
             
             viaje_existente.Cargas.add(carga)
@@ -328,14 +377,44 @@ def agregar_carga(request):
             viaje_existente.save()
             
             carga_dict = model_to_dict(carga)
-            return JsonResponse({'exito': True, 'carga':carga_dict})
+            #return render(request, 'card1carga.html', {'form': form})
+            
+            return JsonResponse({'exito': True, 'carga':carga_dict,'existente':existente })
         else:
+            print(form.errors)
             return JsonResponse({'exito': False, 'errores': form.errors})
     else:
-        form = CargaForm()
-
+        form = CargaForm()    
     return render(request, 'card1carga.html', {'form': form})
 
+def obtener_info_carga(request, carga_id):
+    carga = get_object_or_404(Carga, ID_Carga=carga_id)
+
+    # Aquí, crea un diccionario con la información que deseas devolver
+    carga_info = {
+        'ID_Carga': carga.ID_Carga,
+        'nro_guia': carga.nro_guia,
+        'ciudad_carga': carga.ciudad_carga,
+        'departamento_carga': carga.departamento_carga,
+        'embarcacion': carga.embarcacion,
+        'capitan': carga.capitan,
+        'tipo_carga': carga.tipo_carga,
+        'cantidad_carga': carga.cantidad_carga,
+        'unidad_medida': carga.unidad_medida,
+        'volumen_carga': carga.volumen_carga,
+        'peso': carga.peso,
+        'fecha_recibo': carga.fecha_recibo,
+        'fecha_cargue': carga.fecha_cargue,
+        'fecha_salida': carga.fecha_salida,
+        'categoria': carga.categoria,
+        'ruta': carga.ruta,
+        'costo_flete': carga.costo_flete,
+        'descripcion': carga.descripcion,
+        'asegurar_carga': carga.asegurar_carga,
+        'total':carga.total,
+    }
+
+    return JsonResponse({'carga': carga_info})
 
 def eliminar_carga(request, carga_id):
     carga = get_object_or_404(Carga, pk=carga_id)
@@ -395,52 +474,134 @@ def consultar_viaje(request):
     else:
         return JsonResponse({'success': False, 'message': 'Método no permitido'})
 
+def validate_numero_cuenta(value):
+    if not value:
+        raise ValidationError(_('El número de cuenta no puede estar vacío.'), code='invalid')
+
 def logistica_pago(request):
     print("--pago---")
-     
-    if request.method == 'POST':
-        # Obtener datos del formulario de pago
-        pago_form = TuFormularioDePago(request.POST)
+    viaje_ = request.session.get('viaje', '{}') 
+    try:
+        viaje = json.loads(viaje_)
+    except json.JSONDecodeError as e:
+        return redirect('../card/1/remitente')
+    viaje_id = viaje.get('ID_Viaje')
+    viaje_existente = Viaje.objects.get(pk=viaje_id) 
+    if viaje_existente.Pagos:
+        pago = get_object_or_404(Pago, pk=viaje_existente.Pagos.pk)
+        if pago: 
+            viaje_existente.Pagos.remove(pago)
+            viaje_existente.save()
+            pago.delete()
+        
+    total_cargas_viaje = viaje_existente.calcular_total_cargas()
+    
+    class TuFormularioDePago(forms.Form):
+        tipo_pago = forms.ChoiceField(choices=[('pago en efectivo', 'pago en efectivo'),('pago por transferencia', 'pago por transferencia'),], label='Tipo Pago: ', required=True)
+        valor_pagado = forms.CharField(label='Valor pagado', initial=total_cargas_viaje, max_length=20, required=True)
+        titular_cuenta= forms.CharField(label='Titular de la cuenta', max_length=20, required=True)
+        numero_cuenta= forms.CharField(label='Numero de cuenta', max_length=20, required=True, validators=[validate_numero_cuenta])
+        fecha_transaccion= forms.DateField(label='Fecha de la transaccion',  required=True, widget=forms.DateInput(attrs={'type': 'date'}))
+        
+        def __init__(self, *args, **kwargs):
+            super(TuFormularioDePago, self).__init__(*args, **kwargs)            
+            self.fields['valor_pagado'].widget.attrs['readonly'] = True
+            self.fields['valor_pagado'].widget.attrs['class'] = 'mi-clase-estilo'
+            self.fields['valor_pagado'].widget.attrs['onchange'] = 'ocultarCampo();'
+        def setvalue(self, arg):
+            self.valor_pagado = arg
+            
+        class Meta:
+            model = Pago
+            fields = '__all__'
+            
+            def clean(self):
+                cleaned_data = super().clean()
+                tipo_pago = cleaned_data.get('tipo_pago')
+
+                if tipo_pago == 'pago por transferencia':
+                    if not cleaned_data.get('numero_cuenta'):
+                        raise ValidationError({'numero_cuenta': _('El número de cuenta es obligatorio.')})
+
+            def save(self, *args, **kwargs):
+                self.clean()
+                super().save(*args, **kwargs)
+    
+    pago_form = TuFormularioDePago(request.POST)    
+    if request.method == 'POST':      
+        print(total_cargas_viaje)
+        
         if pago_form.is_valid():
-            # Guardar el pago en la base de datos
-            print("................")
-            pago = pago_form.save(commit=False)
+            pago_data = pago_form.cleaned_data
+            pago = Pago(**pago_data)
+            pago.save()
             
-            pago = pago_form.save()
-            
-            viaje_ = request.session.get('viaje', '{}') 
-            viaje = json.loads(viaje_)
-            viaje_id = viaje.get('ID_Viaje')
-            viaje_existente = Viaje.objects.get(ID_Viaje=viaje_id)
             viaje_existente.Pagos=pago                        
             viaje_existente.save()
+            #import pdb; pdb.set_trace()
             pago_serializado = serialize('json', [pago])
-            request.session['pago'] = pago_serializado            
+            request.session['pago'] = pago_serializado          
             return redirect('../1/revision')
         else:
             for field, errors in pago_form.errors.items():
                 for error in errors:
                     messages.error(request, f"{field}: {error}")
 
-            # Manejar otras acciones en caso de errores
             print("El formulario no es válido. Manejar de alguna manera.")
 
             print(pago_form.errors)
 
     else:
         pago_form = TuFormularioDePago()
+    return render(request, 'card1pago.html', {'pago_form': pago_form, 'total_cargas_viaje':total_cargas_viaje})
 
-    return render(request, 'card1pago.html', {'pago_form': pago_form})
+
 
 def logistica_revision(request):
     print("---Revision---")  
-    form_data = request.session.get('form_data')
-    if form_data:
-        first_name = form_data.get('firstname')
-        tipodocumento = form_data.get('tipodocumento')
-        print(first_name)
-        print(tipodocumento)  
-    return render(request, 'card1revision.html')
+    viaje_ = request.session.get('viaje', '{}') 
+    try:
+        viaje = json.loads(viaje_)
+    except json.JSONDecodeError as e:
+        return redirect('../../card/1/remitente')
+    viaje_id = viaje.get('ID_Viaje')
+    viaje_existente = Viaje.objects.get(pk=viaje_id) 
+    
+    remitente_info_ = request.session.get('remitente_info', None)
+    remitente_info = json.loads(remitente_info_) if isinstance(remitente_info_, str) else remitente_info_
+
+    destinatario_info_ = request.session.get('destinatario_json', None)
+    destinatario_info = json.loads(destinatario_info_) if isinstance(destinatario_info_, str) else destinatario_info_
+
+    pago_info_ = request.session.get('pago', None)
+    pago_info = json.loads(pago_info_) if isinstance(pago_info_, str) else pago_info_
+
+
+    
+    registros_de_carga = Carga.objects.filter(viaje__ID_Viaje=viaje_id)
+    #registros = serialize('json', [registros_de_carga])
+    context = {
+        'remitente': remitente_info,
+        'destinatario': destinatario_info,
+        'viaje': viaje,
+        'cargas': registros_de_carga,
+        'pago':pago_info
+    } 
+    
+    print(viaje)
+    print("__________________________________registros_de_carga")
+    print(registros_de_carga)
+    print("__________________________________pago_info")
+    print(pago_info)
+    print("__________________________________")
+    if request.POST:
+        request.session['remitente_info'] = ""
+        request.session['destinatario_json'] = ""
+        request.session['destinatario_info'] = ""
+        request.session['viaje'] = ""
+        request.session['pago'] = ""     
+        return redirect('../../card/1/remitente')
+    return render(request, 'card1revision.html',context)
 
 
 def informes(request):

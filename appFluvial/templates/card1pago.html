@@ -5,156 +5,156 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"-->
 <style>
-body {
-  font-family: Arial;
-  font-size: 17px;
-  padding: 8px;
-}
+  body {
+    font-family: Arial;
+    font-size: 17px;
+    padding: 8px;
+  }
 
-* {
-  box-sizing: border-box;
-}
+  * {
+    box-sizing: border-box;
+  }
 
-.row {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  margin: 0 -16px;
-}
-
-.col-25 {
-  -ms-flex: 25%; /* IE10 */
-  flex: 25%;
-}
-
-.col-50 {
-  -ms-flex: 50%; /* IE10 */
-  flex: 50%;
-}
-
-.col-75 {
-  -ms-flex: 75%; /* IE10 */
-  flex: 75%;
-}
-
-.col-25,
-.col-50,
-.col-75 {
-  padding: 0 16px;
-}
-
-.container {
-  background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-}
-
-input[type=text], select {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-label {
-  margin-bottom: 10px;
-  display: block;
-}
-
-.icon-container {
-  margin-bottom: 20px;
-  padding: 7px 0;
-  font-size: 24px;
-}
-
-.btn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  width: 10%;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #45a049;
-}
-
-a {
-  color: #2196F3;
-}
-
-hr {
-  border: 1px solid lightgrey;
-}
-
-span.price {
-  float: right;
-  color: grey;
-}
-
-
-@media (max-width: 800px) {
   .row {
-    flex-direction: column-reverse;
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
   }
+
   .col-25 {
-    margin-bottom: 20px;
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
   }
-}
+
+  .col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+  }
+
+  .col-75 {
+    -ms-flex: 75%; /* IE10 */
+    flex: 75%;
+  }
+
+  .col-25,
+  .col-50,
+  .col-75 {
+    padding: 0 16px;
+  }
+
+  .container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+  }
+
+  input[type=text], select {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+  label {
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+  }
+
+  .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 10%;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: #45a049;
+  }
+
+  a {
+    color: #2196F3;
+  }
+
+  hr {
+    border: 1px solid lightgrey;
+  }
+
+  span.price {
+    float: right;
+    color: grey;
+  }
+
+
+  @media (max-width: 800px) {
+    .row {
+      flex-direction: column-reverse;
+    }
+    .col-25 {
+      margin-bottom: 20px;
+    }
+  }
 
 </style>
 <style>
   .one, .two, .three, .four{
-    position:absolute;
-    margin-top: -8px;
-    z-index:1;
-    height:30px;
-    width:30px;
-    border-radius:20px;
-}
-.one{
-	left:25%;
-}
-.two{
-	left:50%;
-}
-.three{
-	left:75%;
-}
-.four{
-	left:98%;
-}
-.primary-color{
-	background-color:#4989bd;
-}
-.success-color{
-	background-color:#5cb85c;
-}
-.info-color{
-	background-color:#5bc0de;
-}
-.no-color{
-	background-color:inherit;
-}
+      position:absolute;
+      margin-top: -8px;
+      z-index:1;
+      height:30px;
+      width:30px;
+      border-radius:20px;
+  }
+  .one{
+    left:25%;
+  }
+  .two{
+    left:50%;
+  }
+  .three{
+    left:75%;
+  }
+  .four{
+    left:98%;
+  }
+  .primary-color{
+    background-color:#4989bd;
+  }
+  .success-color{
+    background-color:#5cb85c;
+  }
+  .info-color{
+    background-color:#5bc0de;
+  }
+  .no-color{
+    background-color:inherit;
+  }
 
 </style>
 
@@ -206,7 +206,7 @@ span.price {
   <div class="col-25">
 
     <div class="container">
-      <h4>Menú <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
+      <h4>Menú </i> <b></b></span></h4>
       <p><a href="../../">Inicio</a> <span class="price"> </span></p>
       <p><a href="../../card/1/remitente">Remitente/Destinatario</a> <span class="price">  </span></p>
       <p><a href="../../card/1/carga">Carga</a> <span class="price"> </span></p>
@@ -251,38 +251,70 @@ span.price {
             <h3>  </h3>
             <div id="error_check" class="error-message" style="color: red; display: none;"></div>
                 
-          <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pagoefectivo"  name="pagoefectivo"  onclick="toggleFields('pagoefectivo')">
+          <!--div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="pagoefectivo" value="pagoefectivo"   name="inlineRadioOptions"  onclick="toggleFields('pagoefectivo')">
               <label class="form-check-label" for="pagoefectivo" value="True">Pago en efectivo</label>
           </div>
           <br>
           <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pagotransferencia" name="pagotransferencia"  onclick="toggleFields('pagotransferencia')">
+              <input class="form-check-input" type="radio" id="pagotransferencia" value="pagotransferencia"  name="inlineRadioOptions"  onclick="toggleFields('pagotransferencia')">
               <label class="form-check-label" for="pagotransferencia">Pago por transferencia</label>
-          </div>
+          </div-->
+          <style>
+                .mi-clase-estilo {
+                    background-color: #e9ecef;
+                    /* Otros estilos que desees aplicar */
+                }
+                
+                .mi-clase-estilo[readonly] {
+                    /* Estilos específicos para el modo de solo lectura */
+                    opacity: 0.7; /* Por ejemplo, reducir la opacidad */
+                }
+          </style>
           <br>
-          <div class="form-group">
-              <label class="sr-only" for="valor_pagado">Valor Pagado: 
-                <div id="error_valor_pagado" class="error-message" style="color: red; display: none;"></div>
-              </label>
-              <div class="input-group">
-                  <div class="input-group-addon">$(cop) :</div>
-                  <input type="number" min="0.00" step="0.05" value="1.00" id="valor_pagado" name="valor_pagado" class="form-control" placeholder="Price">
-              </div>
-          </div>
-          
+         
           <br>
-          <label for="titular_cuenta" id="titular_cuentaLabel" style="display: none;"><i class="fa fa-envelope"></i> Nombre del titular de la cuenta: <div id="error_titular_cuenta" class="error-message" style="color: red; display: none;"></div></label>
-          <input type="text" id="titular_cuenta" name="titular_cuenta" placeholder="Robinson Diaz" style="display: none;">
-          
-          <label for="numero_cuenta" id="numero_cuentaLabel" style="display: none;"><i class="fa fa-institution"></i> Número de la cuenta: <div id="error_numero_cuenta" class="error-message" style="color: red; display: none;"></div></label>
-          <input type="text" id="numero_cuenta" name="numero_cuenta" placeholder="032132000-5" style="display: none;">
-          
-          <label for="fecha_transaccion" id="fecha_transaccionLabel" style="display: none;"><i class="fa fa-institution"></i> Fecha de transacción: <div id="error_fecha_cuenta" class="error-message" style="color: red; display: none;"></div></label>
-          <input type="date" id="fecha_transaccion" name="fecha_transaccion" style="display: none;">
+          {{pago_form}}
+          <br>
           
           <script>
-              function toggleFields(paymentMethod) {
+              function ocultarCampo() {
+                  var label1 = document.querySelector('label[for="id_titular_cuenta"]');
+                  var label2 = document.querySelector('label[for="id_numero_cuenta"]');
+                  var label3 = document.querySelector('label[for="id_fecha_transaccion"]');
+
+                  var valorCampoCondicional = document.getElementById("id_tipo_pago").value;
+                  if (valorCampoCondicional === "pago en efectivo") {
+                      document.getElementById("id_titular_cuenta").style.display = "none";
+                      document.getElementById("id_titular_cuenta").value="N/A";
+                      document.getElementById("id_numero_cuenta").style.display = "none";
+                      document.getElementById("id_numero_cuenta").value="N/A";
+                      document.getElementById("id_fecha_transaccion").style.display = "none";
+                      document.getElementById("id_fecha_transaccion").value="0001-01-01";
+                      label1.style.display = 'none';
+                      label2.style.display = 'none';
+                      label3.style.display = 'none';
+                  } else {
+                      document.getElementById("id_titular_cuenta").style.display = "block";
+                      document.getElementById("id_numero_cuenta").style.display = "block";
+                      document.getElementById("id_fecha_transaccion").style.display = "block";
+                      document.getElementById("id_titular_cuenta").value="";
+                      document.getElementById("id_numero_cuenta").value="";
+                      document.getElementById("id_fecha_transaccion").value="";
+                      label1.style.display = 'block';
+                      label2.style.display = 'block';
+                      label3.style.display = 'block';
+                  }
+              }
+              document.getElementById("id_tipo_pago").onchange = ocultarCampo;
+              ocultarCampo();
+          </script>
+          <br>
+                    
+          <br>
+          
+          <script>
+             /* function toggleFields(paymentMethod) {
                   // Obtener referencias a los elementos de los campos a ocultar/mostrar
                   var titular_cuentaLabel = document.getElementById('titular_cuentaLabel');
                   var titular_cuentaInput = document.getElementById('titular_cuenta');
@@ -290,6 +322,8 @@ span.price {
                   var numero_cuentaInput = document.getElementById('numero_cuenta');
                   var fecha_transaccionLabel = document.getElementById('fecha_transaccionLabel');
                   var fecha_transaccionInput = document.getElementById('fecha_transaccion');
+
+                  //var aux1 = document.getElementById('aux1');
           
                   // Mostrar u ocultar campos según el método de pago seleccionado
                   if (paymentMethod === 'pagoefectivo') {
@@ -305,7 +339,7 @@ span.price {
                       numero_cuentaLabel.style.display = 'block';
                       numero_cuentaInput.style.display = 'block';
                       fecha_transaccionLabel.style.display = 'block';
-                      fecha_transaccionInput.style.display = 'block';
+                      fecha_transaccionInput.style.display = 'block';                     
                   }
               }
               function validateForm() {
@@ -364,17 +398,17 @@ span.price {
                   }
           
                   return true; // Permite que el formulario se envíe
-              }
+              }*/
           </script>
-          
+         
           </div>
-
-          
-          
         </div>
         <div class="text-center"> 
           <button onclick="window.location.href='{% url 'LOGÍSTICA-CARGA' %}'" class="btn btn-secondary">Atrás</button>
-          <button type="submit" class="btn btn-success">Siguiente</button>
+          <button type="submit" class="btn btn-success" >Siguiente</button>
+          <script>
+            
+          </script>
         </div>
       </form>
     </div>

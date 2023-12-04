@@ -5,122 +5,122 @@
 <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-  body {
-    font-family: Arial;
-    font-size: 17px;
-    padding: 8px;
-  }
+        body {
+          font-family: Arial;
+          font-size: 17px;
+          padding: 8px;
+        }
 
-  * {
-    box-sizing: border-box;
-  }
+        * {
+          box-sizing: border-box;
+        }
 
-  .row {
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
-    margin: 0 -16px;
-  }
+        .row {
+          display: -ms-flexbox; /* IE10 */
+          display: flex;
+          -ms-flex-wrap: wrap; /* IE10 */
+          flex-wrap: wrap;
+          margin: 0 -16px;
+        }
 
-  .col-25 {
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
-  }
+        .col-25 {
+          -ms-flex: 25%; /* IE10 */
+          flex: 25%;
+        }
 
-  .col-50 {
-    -ms-flex: 50%; /* IE10 */
-    flex: 50%;
-  }
+        .col-50 {
+          -ms-flex: 50%; /* IE10 */
+          flex: 50%;
+        }
 
-  .col-75 {
-    -ms-flex: 75%; /* IE10 */
-    flex: 75%;
-  }
+        .col-75 {
+          -ms-flex: 75%; /* IE10 */
+          flex: 75%;
+        }
 
-  .col-25,
-  .col-50,
-  .col-75 {
-    padding: 0 16px;
-  }
+        .col-25,
+        .col-50,
+        .col-75 {
+          padding: 0 16px;
+        }
 
-  .container {
-    background-color: #f2f2f2;
-    padding: 5px 20px 15px 20px;
-    border: 1px solid lightgrey;
-    border-radius: 3px;
-  }
+        .container {
+          background-color: #f2f2f2;
+          padding: 5px 20px 15px 20px;
+          border: 1px solid lightgrey;
+          border-radius: 3px;
+        }
 
-  input[type=text], select {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
+        input[type=text], select {
+          width: 100%;
+          margin-bottom: 20px;
+          padding: 12px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+        }
 
-  input[type=submit] {
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+        input[type=submit] {
+          background-color: #04AA6D;
+          color: white;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
 
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
 
-  label {
-    margin-bottom: 10px;
-    display: block;
-  }
+        label {
+          margin-bottom: 10px;
+          display: block;
+        }
 
-  .icon-container {
-    margin-bottom: 20px;
-    padding: 7px 0;
-    font-size: 24px;
-  }
+        .icon-container {
+          margin-bottom: 20px;
+          padding: 7px 0;
+          font-size: 24px;
+        }
 
-  .btn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    width: 20%;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 17px;
-  }
+        .btn {
+          background-color: #04AA6D;
+          color: white;
+          padding: 12px;
+          margin: 10px 0;
+          border: none;
+          width: 20%;
+          border-radius: 3px;
+          cursor: pointer;
+          font-size: 17px;
+        }
 
-  .btn:hover {
-    background-color: #45a049;
-  }
+        .btn:hover {
+          background-color: #45a049;
+        }
 
-  a {
-    color: #2196F3;
-  }
+        a {
+          color: #2196F3;
+        }
 
-  hr {
-    border: 1px solid lightgrey;
-  }
+        hr {
+          border: 1px solid lightgrey;
+        }
 
-  span.price {
-    float: right;
-    color: grey;
-  }
+        span.price {
+          float: right;
+          color: grey;
+        }
 
 
-  @media (max-width: 800px) {
-    .row {
-      flex-direction: column-reverse;
-    }
-    .col-25 {
-      margin-bottom: 20px;
-    }
-  }
+        @media (max-width: 800px) {
+          .row {
+            flex-direction: column-reverse;
+          }
+          .col-25 {
+            margin-bottom: 20px;
+          }
+        }
 
   </style>
   <style>
@@ -158,49 +158,46 @@
   }
 
 </style>
-<style>
-  #wait-message {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 10px;
-      font-size: 24px;
-      z-index: 1000;
-  }
-
-  #wait-spinner {
-      border: 8px solid #f3f3f3;
-      border-top: 8px solid #3498db;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      margin-bottom: 10px;
-      animation: spin 1s linear infinite;
-  }
-
-  @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-  }
-</style>
-
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
   function terminar(){
     $('#wait-message').hide();
   }
+  
+  function calculateCostoFlete() {
+      var peso = document.getElementById('peso').value;
+      var factor=600;
+      if (document.getElementById('ruta').value==='Ruta 1'){ 
+        factor = 600;
+        if (document.getElementById('tipo_carga').value==='Fria'){ 
+          factor = 2400;
+        }
+      }
+      if(document.getElementById('ruta').value==='Ruta 2'){ 
+        factor = 1200;
+        if (document.getElementById('tipo_carga').value==='Fria'){ 
+          factor = 4000;
+        }
+      }
+      var costoFlete = peso * factor;  
+      document.getElementById('id_costo_flete').value = costoFlete.toFixed(2); 
+  }
   function addRow() {
       $('#wait-message').show();      
+
       var formData = $("#carga-form").serialize();
       var csrf_token = $("[name=csrfmiddlewaretoken]").val();
-      // Enviar la solicitud AJAX al servidor
+      calculateCostoFlete(); 
+      formData = formData+"&costo_flete="+document.getElementById('id_costo_flete').value; 
+      //ID_Carga    
+      formData = formData+"&ID_Carga="+document.getElementById('idcarga').value; 
+      //nro_guia
+      formData = formData+"&nro_guia="+document.getElementById('nro_guia').value; 
       console.log(formData);
+                 
+      console.log($("#carga-form"));
+
       $.ajax({
           type: "POST",
           url: "/agregar_carga/",  // Ajusta la URL según tus necesidades          
@@ -222,13 +219,14 @@
                     }
                   });
               }
-              if(data.exito){
-                var producto = document.getElementById('tipocarga').value;
-                var cant = document.getElementById('cantidadcarga').value;
-                var fechasal = document.getElementById('fechasalida').value;
-                var valorca = document.getElementById('costoflete').value;
-                var valorse = document.getElementById('asegurarcarga').value;
-                var valorto = document.getElementById('costoflete').value;
+              if(data.exito&& !data.existente){
+                var producto = document.getElementById('tipo_carga').value;
+                var cant = document.getElementById('cantidad_carga').value;
+                var fechasal = document.getElementById('fecha_salida').value;
+                var valorca = document.getElementById('id_costo_flete').value;
+                var valorse = document.getElementById('id_asegurar_carga').value;
+                var valorto = data.carga.total
+                //document.getElementById('total').value;
                 var table = document.getElementById("myTable");
                 var rowCount = table.rows.length;
                 rowCount++;                
@@ -251,9 +249,14 @@
                 cell5.innerHTML = valorca;
                 cell6.innerHTML = valorse;
                 cell7.innerHTML = valorto;
-                cell8.innerHTML = "<button type='button' class='btn btn-warning' onclick='' style='width:35px;'> <i class='fa fa-pencil-square-o'></i></button>"
+                cell8.innerHTML = "<button type='button' class='btn btn-warning'  onclick='consulteRow_ID("+data.carga.ID_Carga+")' data-bs-toggle='modal' data-bs-target='#exampleModal' data-bs-backdrop='static' style='width:35px;'> <i class='fa fa-pencil-square-o'></i></button>"
                 cell8.innerHTML = cell8.innerHTML+" <button type='button' class='btn btn-danger' onclick='deleteRow_ID("+data.carga.ID_Carga+")' style='width:35px;'><i class='fa fa-trash'></i> </button>";
                 document.getElementById("dismissModal1").click();
+              }else{
+                /*row.id = "fila_" + data.carga.ID_Carga;
+                var valorto = document.getElementById('total').value;*/
+                document.getElementById("dismissModal1").click();
+                location.reload();
               }
           },
           error: function (error) {
@@ -265,6 +268,71 @@
             $('#wait-message').hide();
         },
       });
+  }
+  function consulteRow_ID(id) {
+      allEmpty()
+      $('#wait-message').show();
+      var csrf_token = $("[name=csrfmiddlewaretoken]").val();
+      $.ajax({
+          type: "GET",
+          url: "/obtener_info_carga/" + id + "/",  // Reemplaza con la URL de tu servicio
+          headers: { "X-CSRFToken": csrf_token },
+          dataType: 'json',
+          success: function (data) {
+              // Verificar que la respuesta contiene la información esperada
+              if (data && data.carga) {
+                  document.getElementById('nro_guia').value = data.carga.nro_guia;
+                  document.getElementById('idcarga').value = data.carga.ID_Carga;
+                  document.getElementById('ciudad_carga').value = data.carga.ciudad_carga;
+                  document.getElementById('departamento_carga').value = data.carga.departamento_carga;
+                  document.getElementById('embarcacion').value = data.carga.embarcacion;
+                  document.getElementById('capitan').value = data.carga.capitan;
+                  document.getElementById('tipo_carga').value = data.carga.tipo_carga;
+                  document.getElementById('cantidad_carga').value = data.carga.cantidad_carga;
+                  document.getElementById('unidad_medida').value = data.carga.unidad_medida;
+                  document.getElementById('volumen_carga').value = data.carga.volumen_carga;
+                  document.getElementById('peso').value = data.carga.peso;
+                  document.getElementById('fecha_recibo').value = data.carga.fecha_recibo;
+                  document.getElementById('fecha_cargue').value = data.carga.fecha_cargue;
+                  document.getElementById('fecha_salida').value = data.carga.fecha_salida;
+                  document.getElementById('categoria').value = data.carga.categoria;
+                  document.getElementById('ruta').value = data.carga.ruta;
+                  document.getElementById('id_costo_flete').value = data.carga.costo_flete;
+                  document.getElementById('descripcion').value = data.carga.descripcion;
+                  document.getElementById('id_asegurar_carga').value = data.carga.asegurar_carga; 
+              } else {
+                  console.error('No se recibió la información esperada del servidor.');
+              }
+          },
+          error: function (error) {
+              console.error('Error al realizar la consulta:', error);
+              $('#wait-message').hide();
+          },complete: function () {
+              // Oculta el mensaje de espera cuando la solicitud se completa
+              $('#wait-message').hide();
+          },
+      });
+  }
+
+  function allEmpty(){    
+    document.getElementById('idcarga').value = '';
+    document.getElementById('ciudad_carga').value = '';
+    document.getElementById('departamento_carga').value = '';
+    document.getElementById('embarcacion').value = '';
+    document.getElementById('capitan').value = '';
+    document.getElementById('tipo_carga').value = '';
+    document.getElementById('cantidad_carga').value = '';
+    document.getElementById('unidad_medida').value = '';
+    document.getElementById('volumen_carga').value = '';
+    document.getElementById('peso').value = '';
+    document.getElementById('fecha_recibo').value = '';
+    document.getElementById('fecha_cargue').value = '';
+    document.getElementById('fecha_salida').value = '';
+    document.getElementById('categoria').value = '';
+    document.getElementById('ruta').value = '';
+    document.getElementById('id_costo_flete').value = '';
+    document.getElementById('descripcion').value = '';
+    document.getElementById('id_asegurar_carga').value = false; 
   }
   function deleteRow_ID(id){  
     $('#wait-message').show();  
@@ -320,27 +388,36 @@ function obtenerIdDelObjeto(btn) {
 </script>
 <style>
   #wait-message {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 10px;
-      font-size: 24px;
-      z-index: 1000;
+        position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    text-align: center;
+    z-index: 1220; /* Valor mayor que el z-index del modal */
+  }
+
+  .modal {
+        z-index: 1050;  
+    }
+    #myModal {
+      z-index: 1050; /* Z-index del modal */
+      /* Otras propiedades del modal */
   }
 
   #wait-spinner {
-      border: 8px solid #f3f3f3;
-      border-top: 8px solid #3498db;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      margin-bottom: 10px;
-      animation: spin 1s linear infinite;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+    z-index: 1220; 
   }
 
   @keyframes spin {
@@ -367,7 +444,7 @@ function obtenerIdDelObjeto(btn) {
   <div class="col-25">
 
     <div class="container">
-      <h4>Menú <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
+      <h4>Menú </i> <b></b></span></h4>
       <p><a href="../../">Inicio</a> <span class="price"> </span></p>
       <p><a href="../../card/1/remitente">Remitente/Destinatario</a> <span class="price">  </span></p>
       <p><a href="../../card/1/carga">Carga</a> <span class="price"> </span></p>
@@ -404,10 +481,6 @@ function obtenerIdDelObjeto(btn) {
     <div class="text-center"> 
     <h2>Información de la carga</h2>
     </div>
-    
-   
-    
-
     <div class="container">
       
         <div class="row">          
@@ -429,7 +502,9 @@ function obtenerIdDelObjeto(btn) {
                         <div class="form-group col">
                             <label for="idcarga">Nro Guia:</label>
                             <input type="text" class="form-control" id="idcarga" disabled>
-                        </div>                        
+                            <input type="text" class="form-control" id="nro_guia" disabled style=" display:none">
+                        </div>  
+
                         <div class="form-group col">
                             <label for="departamento_carga">Departamento carga:</label>
                             <!--input type="text" class="form-control" id="departamentocarga"-->
@@ -474,14 +549,12 @@ function obtenerIdDelObjeto(btn) {
                         <div class="form-group col">
                             <label for="tipo_carga">Tipo carga:</label>
                             <!--input type="text" class="form-control" id="tipocarga"-->
-                            <select class="custom-select d-block w-100" id="tipo_carga" name="tipo_carga">
+                            <select class="custom-select d-block w-100" id="tipo_carga" name="tipo_carga"  onChange="calculateCostoFlete()">
                               <option value="">Seleccione...</option>
-                              <option>Solida</option>
-                              <option>Liquida</option>
-                              <option>Peligrosa</option>
-                              <option>Chatarra</option>
-                              <option>Perecedera</option>
-                              <option>Delicada</option>
+                              <option>Fria</option>
+                              <option>Seca</option>
+                              <option>Hidrocarburos</option>
+                              <option>Animales</option>
                             </select>
                         </div>
                         <div class="form-group col">
@@ -494,7 +567,6 @@ function obtenerIdDelObjeto(btn) {
                             <select class="custom-select d-block w-100" id="unidad_medida" name="unidad_medida">
                               <option value="">Seleccione...</option>
                               <option>metro cúbico</option>
-                              <option>yarda cúbica</option>
                               <option>Litros</option>
                             </select>
                         </div>
@@ -504,7 +576,7 @@ function obtenerIdDelObjeto(btn) {
                         </div>
                         <div class="form-group col">
                             <label for="peso">Peso (Kg):</label>
-                            <input type="number" step="0.01" class="form-control" id="peso" name="peso">
+                            <input type="number" step="0.01" class="form-control" id="peso" name="peso" onChange="calculateCostoFlete()">
                         </div>
                         
                         
@@ -538,10 +610,10 @@ function obtenerIdDelObjeto(btn) {
                         <div class="form-group col">
                             <label for="ruta">Ruta:</label>
                             <!--input type="text" class="form-control" id="ruta"-->
-                            <select class="custom-select d-block w-100" id="ruta" name="ruta">
+                            <select class="custom-select d-block w-100" id="ruta" name="ruta"  onChange="calculateCostoFlete()">
                               <option value="">Seleccione...</option>
-                              <option value="Ruta 1">Ruta 1</option>
-                              <option value="Ruta 2">Ruta 2</option>
+                              <option value="Ruta 1">Ruta 1-SanJose</option>
+                              <option value="Ruta 2">Ruta 2-Calamar</option>
                               <option value="Ruta 3">Ruta 3</option>
                             </select>
                         </div>
@@ -550,34 +622,32 @@ function obtenerIdDelObjeto(btn) {
                       <div class="row">
                         <div class="form-group col-4">
                             <label for="costo_flete">Costo Flete $:</label>
-                            <input type="text" class="form-control" id="costo_flete" name="costo_flete" disabled>
+                            <input type="text" class="form-control" id="id_costo_flete" name="costo_flete" disabled>
+                            <!--input type="text" name="costo_flete" maxlength="255" id="id_costo_flete"-->
+                            <input type="text" class="form-control" id="total" disabled style=" display:none">
                         </div>
                         <div class="form-group col-8">
                           <label for="descripcion">Descripcion:</label>
                           <textarea type="text" class="form-control" id="descripcion" name="descripcion" style="height: 100px" ></textarea>
                         </div>
-                        <div class="form-group col form-check form-switch">
+                        <div class="form-group  col-4 form-check form-switch">
                             <label for="asegurar_carga">Asegurar carga</label>
-                            <input type="checkbox" class="form-control form-check-input" id="asegurar_carga" name="asegurar_carga">
+                            <select name="asegurar_carga" id="id_asegurar_carga">
+                              <option value="true">Si</option>                            
+                              <option value="false" selected>No</option>
+                            </select>
+                           
                         </div>
                       </div>
-                      <script>
-                        function addRow_(){
-                          var a = document.getElementById('asegurar_carga').checked;
-                          var b = document.getElementById('asegurar_carga').value;
-                          console.log(a);
-                          console.log(b);
-
-                        }
-                      </script>
+                      
                     </div>
                     
-                    <div id="error-container" class="alert alert-danger"></div>
+                    <!--div id="error-container" class="alert alert-danger"></!--div-->
 
                   </form>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="dismissModal1" onclick="terminar()" >Cancelar</button>
-                    <button type="button" class="btn btn-primary" onclick="addRow_()" >Agregar</button>
+                    <button type="button" class="btn btn-primary" onclick="addRow()" >Agregar</button>
                   </div>
                 </div>
               </div>
@@ -614,9 +684,9 @@ function obtenerIdDelObjeto(btn) {
                         <td>{{ carga.fecha_salida }}</td>
                         <td>{{ carga.costo_flete }}</td>
                         <td>{{ carga.asegurar_carga }}</td>
-                        <td>{{ carga.costo_flete }}</td>
+                        <td>{{ carga.total }}</td>
                         <td>
-                          <button type='button' class='btn btn-warning' onclick='' style='width:35px;'> <i class='fa fa-pencil-square-o'></i></button>
+                          <button type='button' class='btn btn-warning' onclick='consulteRow_ID({{ carga.ID_Carga }})' data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-backdrop="static" style='width:35px;'> <i class='fa fa-pencil-square-o'></i></button>
                           <button type='button' class='btn btn-danger' onclick='deleteRow_ID({{ carga.ID_Carga }})' style='width:35px;'><i class='fa fa-trash'></i></button>
                         </td>
                     </tr>
@@ -625,7 +695,10 @@ function obtenerIdDelObjeto(btn) {
             </table>
 
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-backdrop="static">
+            <button type="button" class="btn btn-primary" 
+            data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-backdrop="static"
+            onclick="allEmpty()"
+            >
               Agregar(+)
             </button>
             <!--a type="button"  class="btn btn-success" onclick="addRow()">Agregar+</!--a-->            

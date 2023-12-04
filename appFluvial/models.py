@@ -50,7 +50,39 @@ class EmpresaTransporteFluvial(models.Model):
 
 class Parameter(models.Model):
     ID_Parameter = models.AutoField(primary_key=True)
-    Nombre = models.CharField(max_length=50)
+    key = models.CharField(max_length=200, blank=True, null=True)
+    value = models.CharField(max_length=200, blank=True, null=True)
+    max = models.CharField(max_length=200, blank=True, null=True)
+    min = models.CharField(max_length=200, blank=True, null=True)
+    def __str__(self):
+        return f"[{self.ID_Parameter}] - key: {self.key} --> value: {self.value}  max : {self.max}   min :{self.min} "
+    @classmethod
+    def prepopulate(cls):
+        print("Prepopulating parameters...")
+        parameter =cls(key='factorSeguro1', value='0.03', min='0', max='1000') 
+        parameter.save()  
+        parameter =cls(key='factorSeguro2', value='0.02', min='1000', max='10000') 
+        parameter.save()  
+        parameter =cls(key='factorSeguro3', value='0.017', min='10000', max='100000000') 
+        parameter.save()  
+    @classmethod
+    def find_parameter_for_subtotal(cls, subtotal):
+        parameters_with_range = cls.objects.exclude(min__isnull=True, max__isnull=True)
+
+        # Buscar el primer parámetro que incluya el subtotal dentro de su rango
+        for parameter in parameters_with_range:
+            try:
+                min_value = float(parameter.min)
+                max_value = float(parameter.max)
+                subtotal_float = float(subtotal)
+
+                if min_value <= subtotal_float < max_value:
+                    return parameter
+            except (ValueError, TypeError):
+                # Manejar casos en los que los valores no son números válidos
+                continue
+
+        return None
    
 class Persona(models.Model):
     ID_Persona = models.AutoField(primary_key=True)
@@ -129,8 +161,7 @@ class MotonaveAdmin(admin.ModelAdmin):
         # Verifica si el campo es 'Peso'
         if db_field.name == 'Capacidad_carga':
             # Agrega '(KG)' a la etiqueta del campo
-            field.label = f'{field.label} (KG)'
-        
+            field.label = f'{field.label} (KG)'        
         return field
 
 
@@ -154,6 +185,10 @@ class Carga(models.Model):
     costo_flete = models.CharField(max_length=255, blank=True, null=True)
     descripcion = models.TextField(blank=True, null=True)
     asegurar_carga = models.BooleanField(default=False, blank=True, null=True)
+    factorSeguro = models.CharField(max_length=255,default='0.15', blank=True, null=True)
+    total = models.CharField(max_length=255, blank=True, null=True)
+    
+   
 
     def __str__(self):
         #return self.nro_guia
@@ -172,6 +207,10 @@ class CargaAdmin(admin.ModelAdmin):
         if db_field.name == 'peso':
             # Agrega '(KG)' a la etiqueta del campo
             field.label += ' (KG)'
+            
+        if db_field.name == 'costo_flete':
+            # Agrega '(KG)' a la etiqueta del campo
+            field.label += ' Costo Flete($)'
 
         return field
 
@@ -223,9 +262,14 @@ class Negocio(models.Model):
 
     
 class Pago(models.Model):
-    pagoefectivo = models.BooleanField(default=False, blank=True, null=True)
-    pagotransferencia = models.BooleanField(default=False, blank=True, null=True)
-    valor_pagado = models.DecimalField(max_digits=50, decimal_places=2)
+    #pagoefectivo = models.BooleanField(default=False, blank=True, null=True)
+    #pagotransferencia = 
+    TIPO_PAGO_CHOICES = [
+        ('pago en efectivo', 'pago en efectivo'),
+        ('pago por transferencia', 'pago por transferencia'),
+    ]
+    tipo_pago = models.CharField(max_length=100, blank=True, null=True, choices=TIPO_PAGO_CHOICES)
+    valor_pagado = models.DecimalField(max_digits=50, decimal_places=2, blank=True, null=True)
     titular_cuenta = models.CharField(max_length=100, blank=True, null=True)
     numero_cuenta = models.CharField(max_length=20, blank=True, null=True)
     fecha_transaccion = models.DateField(blank=True, null=True)
@@ -246,9 +290,17 @@ class Viaje(models.Model):
     Fecha_inicio_viaje = models.DateField(default=timezone.now, blank=True, null=True)
     Fecha_fin_viaje = models.DateField(blank=True, null=True)
     Pagos = models.ForeignKey(Pago, on_delete=models.CASCADE, blank=True, null=True)
+    
     def __str__(self):
         return f"Viaje - ID: {self.ID_Viaje}"
     
+    def calcular_total_cargas(self):
+        total_cargas = 0
+
+        for carga in self.Cargas.all(): 
+            total_cargas += float(carga.total)
+
+        return total_cargas
     
 class ViajeAdmin(admin.ModelAdmin):
     list_display = ('ID_Viaje', 'Guía_zarpe', 'Motonave', 'Piloto', 'display_cargas', 'Fecha_inicio_viaje', 'Fecha_fin_viaje')
@@ -313,6 +365,7 @@ admin.site.register(Viaje, ViajeAdmin)
 admin.site.register(CardDescription, CardDescriptionAdmin)
 admin.site.register(Departamento,DepartamentoAdmin)
 admin.site.register(Municipio, MunicipioAdmin)
+admin.site.register(Parameter)
 
 def create_superuser(apps, schema_editor):
     User.objects.create_superuser(

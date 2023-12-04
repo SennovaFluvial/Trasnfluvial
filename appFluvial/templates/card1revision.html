@@ -187,6 +187,22 @@ span.price {
       100% { transform: rotate(360deg); }
   }
 </style>
+<style>
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+  }
+
+  th {
+      background-color: #f2f2f2;
+  }
+</style>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
@@ -206,7 +222,7 @@ span.price {
   <div class="col-25">
 
     <div class="container">
-      <h4>Menú <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
+      <h4>Menú </i> <b></b></span></h4>
       <p><a href="../../">Inicio</a> <span class="price"> </span></p>
       <p><a href="../../card/1/remitente">Remitente/Destinatario</a> <span class="price">  </span></p>
       <p><a href="../../card/1/carga">Carga</a> <span class="price"> </span></p>
@@ -244,40 +260,236 @@ span.price {
       <h2>Detalle de orden</h2>
     </div>
     <div class="container">
-      <form method="post">        
+      <form method="post" id="formulario">        
         {% csrf_token %}
         <div class="row">
-          <div class="col-50">
-            <h3>  </h3>
+          <h2>Viaje Information</h2>
 
-            
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pagoefectivo" value="option1">
-              <label class="form-check-label" for="pagoefectivo">Pago en efectivo</label>
-            </div>
-            <br>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pagotransferecia" value="option2">
-              <label class="form-check-label" for="pagotransferecia">Pago por trasnferencia</label>
-            </div>
-            <br>
-            <label for="titularcuenta"><i class="fa fa-envelope"></i> Nombre del titular de la cuenta</label>
-            <input type="text" id="titularcuenta" name="titularcuenta" placeholder="Robinson Diaz">
-
-            <label for="numerocuenta"><i class="fa fa-institution"></i> Número de la cuenta</label>
-            <input type="text" id="numerocuenta" name="numerocuenta" placeholder="032132000-5">
-
-            <label for="fechatransacion"><i class="fa fa-institution"></i> Fecha de transcion</label>
-            <input type="date" id="fechatransacion" name="fechatransacion">
-
-          </div>
-
-          
-          
+          <table>
+                <tr>
+                    <th>Numero Guia: </th>
+                    <td>{{viaje.ID_Viaje}}</td>
+                </tr>
+                <tr>
+                    <th>Guía Zarpe</th>
+                    <td>{{viaje.Guía_zarpe}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><hr></td>
+                </tr>
+                <tr>
+                    <th>Remitente</th>
+                    <td>
+                        <table>
+                            <tr>
+                                <th>Nombres</th>
+                                <td>{{viaje.Remitente.fname}}</td>
+                            </tr>
+                            
+                            <tr>
+                                <th>Apellidos</th>
+                                <td>{{viaje.Remitente.apellidos}}</td>
+                            </tr>
+                            <tr>
+                                <th>Tipo Documento</th>
+                                <td>{{viaje.Remitente.tipodocumento}}</td>
+                            </tr>
+                            <tr>
+                                <th>Document</th>
+                                <td>{{viaje.Remitente.documento}}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{viaje.Remitente.email}}</td>
+                            </tr>
+                            <tr>
+                                <th>Departamento</th>
+                                <td>{{viaje.Remitente.dep}}</td>
+                            </tr>
+                            <tr>
+                                <th>Ciudad</th>
+                                <td>{{viaje.Remitente.city}}</td>
+                            </tr>
+                            <tr>
+                                <th>Empresa</th>
+                                <td>{{viaje.Remitente.empresa}}</td>
+                            </tr>
+                            <tr>
+                                <th>Dirección</th>
+                                <td>{{viaje.Remitente.adr}}</td>
+                            </tr>
+                            <tr>
+                                <th>Celular/Telefono</th>
+                                <td>{{viaje.Remitente.telefono}}</td>
+                            </tr>
+                            
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"><hr></td>
+                </tr>
+                <tr>
+                    <th>Destinatario</th>
+                    <td>
+                      <table>
+                          <tr>
+                              <th>Nombres</th>
+                              <td>{{viaje.Destinatario.fname}}</td>
+                          </tr>
+                          
+                          <tr>
+                              <th>Apellidos</th>
+                              <td>{{viaje.Remitente.apellidos}}</td>
+                          </tr>
+                          <tr>
+                              <th>Tipo Documento</th>
+                              <td>{{viaje.Destinatario.tipodocumento}}</td>
+                          </tr>
+                          <tr>
+                              <th>Document</th>
+                              <td>{{viaje.Destinatario.documento}}</td>
+                          </tr>
+                          <tr>
+                              <th>Email</th>
+                              <td>{{viaje.Destinatario.email}}</td>
+                          </tr>
+                          <tr>
+                              <th>Departamento</th>
+                              <td>{{viaje.Destinatario.dep}}</td>
+                          </tr>
+                          <tr>
+                              <th>Ciudad</th>
+                              <td>{{viaje.Remitente.city}}</td>
+                          </tr>
+                          <tr>
+                              <th>Empresa</th>
+                              <td>{{viaje.Destinatario.empresa}}</td>
+                          </tr>
+                          <tr>
+                              <th>Dirección</th>
+                              <td>{{viaje.Destinatario.adr}}</td>
+                          </tr>
+                          <tr>
+                              <th>Celular/Telefono</th>
+                              <td>{{viaje.Destinatario.telefono}}</td>
+                          </tr>
+                          
+                      </table>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Fecha Inicio Viaje</th>
+                    <td>{{viaje.Fecha_inicio_viaje}}</td>
+                </tr>
+                <tr>
+                    <th>Fecha Fin Viaje</th>
+                    <td>{{viaje.Fecha_fin_viaje}}</td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div class="row">
+          <h4>REGISTROS DE CARGA: </h4>
+          <table>
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Departamento</th>
+                      <th>Ciduad</th>
+                      <th>Tipo</th>
+                      <th>Cantidad</th>
+                      <th>Unidad-medida</th>
+                      <th>Volumen</th>
+                      <th>Peso</th>
+                      <th>Fecha_salida</th>
+                      <th>Categoria</th>
+                      <th>Ruta</th>
+                      <th>Costo_flete</th>
+                      <th>Asegurado</th>
+                      <th>Subtotal</th>                      
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for carga in cargas %}
+                      <tr>
+                          <td>{{ carga.ID_Carga }}</td>
+                          <td>{{ carga.departamento_carga }}</td>
+                          <td>{{ carga.ciudad_carga }}</td>
+                          <td>{{ carga.tipo_carga }}</td>
+                          <td>{{ carga.cantidad_carga }}</td>
+                          <td>{{ carga.unidad_medida }}</td>
+                          <td>{{ carga.volumen_carga }}</td>
+                          <td>{{ carga.peso }}</td>
+                          <td>{{ carga.fecha_salida }}</td>
+                          <td>{{ carga.categoria }}</td>
+                          <td>{{ carga.ruta }}</td>
+                          <td>{{ carga.costo_flete }}</td>
+                          <td>{{ carga.asegurar_carga }}</td>
+                          <td>{{ carga.total }}</td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+        </div>
+        <hr>
+        <div class="row">
+          <h4>INFORMACION DE PAGO: </h4>
+          <table>
+              {% for pago_info in pago %}
+                  <tr>
+                      <td colspan="2">Pago #{{ pago_info.pk }}</td>
+                  </tr>
+                  <tr>
+                      <th>Tipo de pago:</th>
+                      <td>{{ pago_info.fields.tipo_pago }}</td>
+                  </tr>
+                  <tr>
+                      <th>Valor pagado:</th>
+                      <td>{{ pago_info.fields.valor_pagado }}</td>
+                  </tr>
+                  <tr>
+                      <th>Titular cuenta:</th>
+                      <td>{{ pago_info.fields.titular_cuenta }}</td>
+                  </tr>
+                  <tr>
+                      <th>Número de cuenta:</th>
+                      <td>{{ pago_info.fields.numero_cuenta }}</td>
+                  </tr>
+                  {% if pago_info.fields.fecha_transaccion != "0001-01-01" %}
+                      <tr>
+                          <th>Fecha de transacción:</th>
+                          <td>{{ pago_info.fields.fecha_transaccion }}</td>
+                      </tr>
+                  {% endif %}
+              {% endfor %}
+          </table>
         </div>
         <div class="text-center"> 
           <button href="javascript:history.back()" class="btn btn-secondary">Atrás</button>
-          <button type="submit" class="btn btn-success">Siguiente</button>
+          <button type="submit" class="btn btn-success">Terminar</button>
+          <button id="imprimirBtn" class="btn btn-primary">Imprimir</button>
+          <script>
+              document.getElementById('imprimirBtn').addEventListener('click', function() {
+                  imprimirFormulario();
+              });
+          
+              function imprimirFormulario() {
+                  // Clona el contenido del formulario
+                  var contenidoParaImprimir = document.getElementById('formulario').cloneNode(true);
+          
+                  // Crea una nueva ventana y agrega el contenido clonado
+                  var ventanaImpresion = window.open('', '_blank');
+                  ventanaImpresion.document.write('<html><head><title>Formulario Impreso</title></head><body>');
+                  ventanaImpresion.document.write('<h1>Información del Formulario</h1>');
+                  ventanaImpresion.document.write(contenidoParaImprimir.innerHTML);
+                  ventanaImpresion.document.write('</body></html>');
+                  ventanaImpresion.document.close();
+          
+                  // Imprime la nueva ventana
+                  ventanaImpresion.print();
+              }
+          </script>
         </div>
       </form>
     </div>

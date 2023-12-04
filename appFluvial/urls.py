@@ -21,6 +21,7 @@ urlpatterns = [
     path('obtener-municipios/', views.obtener_municipios, name='obtener_municipios'),
     path('obtener_destinatario_por_cedula/', views.obtener_destinatario_por_cedula, name='obtener_destinatario_por_cedula'),
     path('agregar_carga/', views.agregar_carga, name='agregar_carga'),
+    path('obtener_info_carga/<int:carga_id>/', views.obtener_info_carga, name='obtener_info_carga'),
     path('eliminar_carga/<int:carga_id>/', views.eliminar_carga, name='eliminar_carga'),
     path('card/1/remitente', views.logistica, name='LOGÍSTICA-REMITENTE'),
     path('card/1/destinatario', views.logistica_destinatario, name='LOGÍSTICA-DESTINATARIO'),

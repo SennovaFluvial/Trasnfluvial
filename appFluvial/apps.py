@@ -3,6 +3,8 @@ from django.core.management import call_command
 
 
 
+
+
 class AppfluvialConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'appFluvial'
@@ -11,8 +13,10 @@ class AppfluvialConfig(AppConfig):
         print("Prepopulating CardDescription...")
         call_command('loaddata', 'initial_data.json')
         
-        from .models import CardDescription
+        from .models import CardDescription,Parameter
         # Llama a la función de prellenado de datos
         #CardDescription.prepopulate()
+        
+        #Parameter.prepopulate()
         
         
