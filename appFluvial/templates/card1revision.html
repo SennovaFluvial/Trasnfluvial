@@ -465,8 +465,9 @@ span.price {
               {% endfor %}
           </table>
         </div>
+
         <div class="text-center"> 
-          <button href="javascript:history.back()" class="btn btn-secondary">Atrás</button>
+          <button href="{% url 'LOGÍSTICA-PAGO' %}" class="btn btn-secondary">Atrás</button>
           <button type="submit" class="btn btn-success">Terminar</button>
           <button id="imprimirBtn" class="btn btn-primary">Imprimir</button>
           <script>

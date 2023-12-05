@@ -488,7 +488,7 @@ def logistica_pago(request):
         return redirect('../card/1/remitente')
     
     viaje_id = viaje.get('ID_Viaje')
-    import pdb; pdb.set_trace()
+    #import pdb; pdb.set_trace()
     viaje_existente = Viaje.objects.get(pk=viaje_id)    
     
     if viaje_existente.Pagos is not None:

@@ -706,8 +706,8 @@ function obtenerIdDelObjeto(btn) {
         </div>
         <br>
         <div class="text-center"> 
-          <button href="javascript:history.back()" class="btn btn-secondary">Atrás</button>
-          <button type="button" class="btn btn-success" onclick="window.location.href='{% url 'LOGÍSTICA-PAGO' %}'">Siguiente</button>
+          <button href="{% url 'LOGÍSTICA-DESTINATARIO' %}" class="btn btn-secondary">Atrás</button>
+          <button type="button" class="btn btn-success" href="{% url 'LOGÍSTICA-PAGO' %}" >Siguiente</button>
         </div>
       
     </div>
