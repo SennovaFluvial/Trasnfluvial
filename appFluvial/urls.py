@@ -29,5 +29,9 @@ urlpatterns = [
     path('card/1/pago', views.logistica_pago, name='LOGÍSTICA-PAGO'),
     path('card/1/revision', views.logistica_revision, name='LOGÍSTICA-REVISIÓN'),
     path('card/2', views.informes, name='INFORMES'),
+    path('card/2/rep1', views.informe1, name='INFORME1'),
+    path('card/2/rep2', views.informe2, name='INFORME2'),
+    path('card/2/rep3', views.informe3, name='INFORME3'),
+    path('card/2/rep4', views.informe4, name='INFORME4'),
     path('card/3', views.notificaciones, name='NOTIFICACIONES'),
 ]

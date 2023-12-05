@@ -7,8 +7,9 @@ import json
 import uuid
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from appFluvial.filters import DestinatarioFilter, ViajeFilter
 
-from appFluvial.tables import TuModeloTable
+from appFluvial.tables import TuModeloTableDestinatario,TuModeloTablePago,TuModeloTableCarga,TuModeloTableViaje
 from .models import CardDescription, Carga, Destinatario, Pago, Parameter, Viaje
 
 from .forms import Card1DestinatarioForm, Card1RemitenteForm, CargaForm, MiAuthenticationForm
@@ -485,17 +486,19 @@ def logistica_pago(request):
         viaje = json.loads(viaje_)
     except json.JSONDecodeError as e:
         return redirect('../card/1/remitente')
+    
     viaje_id = viaje.get('ID_Viaje')
-    viaje_existente = Viaje.objects.get(pk=viaje_id) 
-    if viaje_existente.Pagos:
+    import pdb; pdb.set_trace()
+    viaje_existente = Viaje.objects.get(pk=viaje_id)    
+    
+    if viaje_existente.Pagos is not None:
         pago = get_object_or_404(Pago, pk=viaje_existente.Pagos.pk)
-        if pago: 
-            viaje_existente.Pagos.remove(pago)
-            viaje_existente.save()
+        print(pago)
+        if pago:         
             pago.delete()
         
     total_cargas_viaje = viaje_existente.calcular_total_cargas()
-    
+    #import pdb; pdb.set_trace()
     class TuFormularioDePago(forms.Form):
         tipo_pago = forms.ChoiceField(choices=[('pago en efectivo', 'pago en efectivo'),('pago por transferencia', 'pago por transferencia'),], label='Tipo Pago: ', required=True)
         valor_pagado = forms.CharField(label='Valor pagado', initial=total_cargas_viaje, max_length=20, required=True)
@@ -605,9 +608,30 @@ def logistica_revision(request):
 
 
 def informes(request):
+    return render(request, 'card2.html')
+
+def informe1(request):
     data = Viaje.objects.all()
-    table = TuModeloTable(data)
-    return render(request, 'card2.html',  {'table': table})
+    filter = ViajeFilter(request.GET, queryset=data)
+    table = TuModeloTableViaje(filter.qs)
+    return render(request, 'card2inf1.html', {'table': table, 'filter': filter})
+
+
+def informe2(request):
+    data = Destinatario.objects.all()
+    filter = DestinatarioFilter(request.GET, queryset=data)
+    table = TuModeloTableDestinatario(filter.qs)
+    return render(request, 'card2inf2.html',  {'table': table, 'filter': filter})
+
+def informe3(request):
+    data = Carga.objects.all()
+    table = TuModeloTableCarga(data)
+    return render(request, 'card2inf3.html',  {'table': table})
+
+def informe4(request):
+    data = Pago.objects.all()
+    table = TuModeloTablePago(data)
+    return render(request, 'card2inf4.html',  {'table': table})
 
 def notificaciones(request):
     return render(request, 'card3.html')

@@ -228,10 +228,20 @@ span.price {
     <br>
     <!-- -*****************************************END**********************************************-->
     <div class="text-center"> 
-      <h3>Informes de sistema..</h3>
+      <h3>Informes de viajes..</h3>
     </div>
     <div class="container">
       
+      <div class="row">
+        <h2>Reporte de Datos</h2>
+        {# card2inf1.html #}
+        <form method="get" action="{% url 'INFORME1' %}">
+          {{ filter.form.as_p }}
+          <button type="submit">Aplicar filtro</button>
+        </form>
+        {% load render_table from django_tables2 %}
+        {% render_table table %}
+      </div>
     </div>
   </div>
   

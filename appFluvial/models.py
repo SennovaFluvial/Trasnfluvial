@@ -202,14 +202,10 @@ class CargaAdmin(admin.ModelAdmin):
 
     def formfield_for_dbfield(self, db_field, request, **kwargs):
         field = super().formfield_for_dbfield(db_field, request, **kwargs)
-
-        # Verifica si el campo es 'peso'
         if db_field.name == 'peso':
-            # Agrega '(KG)' a la etiqueta del campo
             field.label += ' (KG)'
             
         if db_field.name == 'costo_flete':
-            # Agrega '(KG)' a la etiqueta del campo
             field.label += ' Costo Flete($)'
 
         return field
