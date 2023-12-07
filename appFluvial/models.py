@@ -322,21 +322,21 @@ class CardDescription(models.Model):
         print("Prepopulating CardDescription...")
         card = cls(
             name='Logística',
-            text='Esta es una tarjeta más amplia con texto de apoyo a continuación como introducción natural al contenido adicional. Este contenido es un poco más largo.',
+            text='Módulo para realizar el alistamiento y logística de cargas y mercancías.',
             image='images/logistica.png',
             time='9 min'
         )
         card.save()
         card = cls(
             name='Informes',
-            text='Esta es una tarjeta más amplia con texto de apoyo a continuación como introducción natural al contenido adicional. Este contenido es un poco más largo.',
+            text='Módulo para visualizar información relevante para análisis.',
             image='images/informes.png',
             time='119 min'
         )
         card.save()
         card = cls(
             name='Notificaciones',
-            text='Esta es una tarjeta más amplia con texto de apoyo a continuación como introducción natural al contenido adicional. Este contenido es un poco más largo.',
+            text='Módulo para verificar información de estado de motonaves y cargas.',
             image='images/notificaciones.png',
             time='20 min'
         )
