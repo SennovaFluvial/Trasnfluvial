@@ -208,10 +208,10 @@ span.price {
       <h4>Menú de informes:</i> <b></b></span></h4>
       <p><a href="../../">Inicio</a> <span class="price"> </span></p>
       
-      <p><a href="{% url 'INFORME1' %}">Informes de viajes</a> <span class="price"> </span></p>
-      <p><a href="{% url 'INFORME2' %}">Inf.clientes</a> <span class="price"> </span></p>
-      <p><a href="{% url 'INFORME3' %}">Inf. de Cargas</a> <span class="price"> </span></p>
-      <p><a href="{% url 'INFORME4' %}">Inf. de pagos</a> <span class="price"> </span></p>
+      <p><a href="{% url 'INFORME1' %}">Informe de viajes</a> <span class="price"> </span></p>
+      <p><a href="{% url 'INFORME2' %}">Informe de clientes</a> <span class="price"> </span></p>
+      <p><a href="{% url 'INFORME3' %}">Informe de Cargas</a> <span class="price"> </span></p>
+      <p><a href="{% url 'INFORME4' %}">Informe de pagos</a> <span class="price"> </span></p>
       <hr>
       {% if user.is_authenticated %}
           <p>Bienvenido, {{ user.username }}. <a href="{% url 'logout' %}">Cerrar sesión</a></p>
@@ -228,11 +228,11 @@ span.price {
     <br>
     <!-- -*****************************************END**********************************************-->
     <div class="text-center"> 
-      <h3>Informes 4..</h3>
+      <h2>Informe de pagos realizados</h2>
     </div>
     <div class="container">
       <div class="row">
-        <h2>Reporte de Datos</h2>
+        <h3>Reporte de Datos</h3>
         {% load render_table from django_tables2 %}
 
         {% render_table table %}
