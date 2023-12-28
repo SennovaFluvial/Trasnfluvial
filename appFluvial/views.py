@@ -1,11 +1,13 @@
 from decimal import Decimal
 import decimal
+from multiprocessing import AuthenticationError
 from django import forms
+from django.conf import settings
 from django.forms import model_to_dict
 from django.utils import timezone
 import json
 import uuid
-from django.http import JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
 from appFluvial.filters import DestinatarioFilter, ViajeFilter
 
@@ -20,13 +22,13 @@ from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.views import LoginView
-from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
+
 from django.core.serializers import serialize
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
-
+from django.contrib.auth import logout
 
 # def home(request):
 #    return render(request, 'home.html')
@@ -35,6 +37,10 @@ def index(request):
     cards = CardDescription.objects.all()
     return render(request, 'index.html', {'cards': cards})
 
+def logout_view(request):
+    logout(request)
+    # Redirect to a success page.
+    
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -47,12 +53,7 @@ def signup(request):
 
     return render(request, 'registration/signup.html', {'form': form})
 
-class MiLoginView(LoginView):
-    template_name = 'appFluvial/login.html'
-    form_class = MiAuthenticationForm
-    success_url = reverse_lazy('logistica')
-
-#@login_required
+@login_required
 def logistica(request):
     print("---remitente---")     
     if request.method == 'POST':

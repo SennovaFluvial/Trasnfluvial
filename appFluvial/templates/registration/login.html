@@ -22,24 +22,24 @@
             
             <div id="contenedorcentrado">
                 <div id="login">
-                    <form id="loginform">
+                    <form id="loginform" method="post" action="{% url 'login' %}?next={{ request.GET.next }}">
                         {% csrf_token %}
                         {{ form.username.label_tag }}
                         {{ form.username }}
                         {{ form.password.label_tag }}
                         {{ form.password }}
-                        <!--label for="usuario">Usuario</!--label>
-                        <input id="usuario" type="text" name="usuario" placeholder="Usuario" required>                        
-                        <label for="password">Contraseña</label>
-                        <input id="password" type="password" placeholder="Contraseña" name="password" required-->
                         
-                        <button type="submit" title="Ingresar" name="Ingresar">Login</button>
+                        <input type="submit" value="login">
+                        <input type="hidden" name="next" value="{{ next }}">
                     </form>
                     
                 </div>
                 <div id="derecho">
                     <div class="titulo">
                         Bienvenido!
+                        {% if user.is_authenticated %}
+                            <p> {{ user.username }}. <a href="{% url 'logout' %}">Cerrar sesión</a></p>                        
+                        {% endif %}      
                     </div>
                     <hr>
                     <div class="pie-form">
